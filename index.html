@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suriname Cruise Services — Provider Catalogue</title>
+<meta name="description" content="Official catalogue of verified service providers for cruise ships and passengers visiting Paramaribo, Suriname. Published by SITA.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1A3A5C;--ocean:#2E6DA4;--sky:#D6E8F5;--gold:#E8A020;--gold-lt:#FDF0D5;
+  --teal:#1D9E75;--teal-lt:#E1F5EE;--coral:#D85A30;--coral-lt:#FAECE7;
+  --plum:#534AB7;--plum-lt:#EEEDFE;--rose:#D4537E;--rose-lt:#FBEAF0;
+  --sage:#3B6D11;--sage-lt:#EAF3DE;--slate:#5F5E5A;--slate-lt:#F1EFE8;
+  --sand:#F7F4EE;--cream:#FDFCF9;--ink:#1A1A1A;--muted:#6B6860;--border:#E8E4DA;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:var(--sand);color:var(--ink);min-height:100vh}
+
+/* masthead */
+.masthead{background:var(--navy);position:relative;overflow:hidden}
+.masthead-pattern{position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent,transparent 24px,rgba(255,255,255,.025) 24px,rgba(255,255,255,.025) 25px)}
+.masthead-inner{position:relative;max-width:1100px;margin:0 auto;padding:48px 32px 40px;display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.masthead-eyebrow{font-size:11px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.masthead-title{font-family:'Playfair Display',serif;font-size:42px;font-weight:400;color:#fff;line-height:1.15;margin-bottom:10px}
+.masthead-title em{font-style:italic;color:#A8C8E8}
+.masthead-sub{font-size:14px;color:#8AACCA;font-weight:300;line-height:1.6;max-width:480px}
+.masthead-right{text-align:right;flex-shrink:0}
+.masthead-stat{color:rgba(255,255,255,.5);font-size:11px;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
+.masthead-count{font-family:'Playfair Display',serif;font-size:52px;color:var(--gold);line-height:1;margin-bottom:2px}
+.masthead-count-label{font-size:12px;color:#8AACCA}
+.gold-rule{height:3px;background:var(--gold)}
+
+.shell{max-width:1100px;margin:0 auto;padding:0 32px 60px}
+
+/* breadcrumb */
+.breadcrumb{display:flex;align-items:center;gap:8px;padding:16px 0;font-size:12px;color:var(--muted)}
+.breadcrumb span{cursor:pointer}.breadcrumb span:hover{color:var(--ocean)}
+.breadcrumb .sep{color:var(--border)}.breadcrumb .current{color:var(--ink);font-weight:500}
+
+/* home */
+#view-home{padding-top:36px}
+.home-intro{font-size:14px;color:var(--muted);margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border);line-height:1.7}
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:800px){.cat-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.cat-grid{grid-template-columns:1fr}}
+.cat-tile{background:var(--cream);border:1px solid var(--border);border-radius:12px;padding:28px 20px 24px;cursor:pointer;transition:border-color .15s,transform .15s;display:flex;flex-direction:column;gap:12px}
+.cat-tile:hover{border-color:var(--ocean);transform:translateY(-2px)}
+.cat-tile.cat-empty{opacity:.6}
+.cat-tile.cat-empty:hover{border-color:var(--border);transform:none;cursor:default}
+.cat-icon-wrap{width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center}
+.cat-icon-wrap svg{width:22px;height:22px}
+.cat-name{font-family:'Playfair Display',serif;font-size:16px;font-weight:400;color:var(--navy);line-height:1.3}
+.cat-meta{display:flex;align-items:center;justify-content:space-between}
+.cat-count{font-size:12px;color:var(--muted)}
+.cat-arrow{width:22px;height:22px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--muted);transition:background .12s,border-color .12s}
+.cat-tile:not(.cat-empty):hover .cat-arrow{background:var(--navy);border-color:var(--navy);color:#fff}
+
+/* notice bar */
+.notice-bar{background:var(--gold-lt);border:1px solid #f0c875;border-radius:8px;padding:12px 16px;font-size:13px;color:#5a3e05;margin-bottom:28px;display:flex;align-items:center;gap:10px}
+.notice-bar a{color:var(--ocean);text-decoration:underline}
+
+/* list */
+#view-list{padding-top:8px}
+.list-header{display:flex;align-items:center;gap:16px;padding-bottom:24px;border-bottom:1px solid var(--border);margin-bottom:24px}
+.list-icon{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.list-icon svg{width:24px;height:24px}
+.list-title{font-family:'Playfair Display',serif;font-size:26px;font-weight:400;color:var(--navy)}
+.list-sub{font-size:13px;color:var(--muted);margin-top:3px}
+.co-cards{display:flex;flex-direction:column;gap:12px}
+.co-card{background:var(--cream);border:1px solid var(--border);border-radius:12px;padding:20px 24px;cursor:pointer;display:flex;align-items:center;gap:20px;transition:border-color .12s,transform .12s}
+.co-card:hover{border-color:var(--ocean);transform:translateX(3px)}
+.co-av{width:48px;height:48px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;font-family:'Playfair Display',serif}
+.co-body{flex:1;min-width:0}
+.co-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:400;color:var(--navy);margin-bottom:4px}
+.co-tagline{font-size:13px;color:var(--muted)}
+.co-right{display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0}
+.tag-row{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.tag{font-size:10px;font-weight:500;padding:3px 8px;border-radius:4px;letter-spacing:.3px}
+.tag-g{background:var(--sage-lt);color:var(--sage)}
+.tag-b{background:var(--sky);color:var(--ocean)}
+.tag-v{background:var(--rose-lt);color:var(--rose)}
+.co-arr-r{font-size:18px;color:var(--border)}
+.co-card:hover .co-arr-r{color:var(--ocean)}
+
+/* empty state */
+.empty-state{text-align:center;padding:60px 32px;background:var(--cream);border:1px solid var(--border);border-radius:12px}
+.empty-state-title{font-family:'Playfair Display',serif;font-size:20px;color:var(--navy);margin-bottom:10px}
+.empty-state-sub{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:20px}
+.btn-register{display:inline-block;padding:10px 20px;background:var(--navy);color:#fff;border-radius:8px;font-size:13px;font-weight:500;text-decoration:none;transition:background .15s}
+.btn-register:hover{background:#2a5a8e}
+
+/* detail */
+#view-detail{padding-top:8px}
+.detail-card{background:var(--cream);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+.detail-head{background:var(--navy);padding:32px 32px 28px;display:flex;gap:20px;align-items:flex-start;position:relative;overflow:hidden}
+.detail-head::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent,transparent 24px,rgba(255,255,255,.02) 24px,rgba(255,255,255,.02) 25px)}
+.detail-logo{width:64px;height:64px;border-radius:12px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:18px;color:#fff;flex-shrink:0;position:relative}
+.detail-hed{flex:1;position:relative}
+.detail-name{font-family:'Playfair Display',serif;font-size:28px;font-weight:400;color:#fff;margin-bottom:6px;line-height:1.2}
+.detail-tagline{font-size:13px;color:#8AACCA;font-style:italic;margin-bottom:14px;font-family:'Playfair Display',serif}
+.detail-badges{display:flex;gap:6px;flex-wrap:wrap}
+.d-badge{background:rgba(232,160,32,.2);color:var(--gold);font-size:10px;font-weight:500;padding:3px 10px;border-radius:4px;letter-spacing:.3px}
+.gold-rule-thin{height:2px;background:var(--gold)}
+.detail-body{padding:28px 32px 0}
+.d-lbl{font-size:10px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--ocean);margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--sky)}
+.d-sec{margin-bottom:24px}
+.d-text{font-size:14px;line-height:1.7;color:var(--ink)}
+.p1-grid{display:grid;grid-template-columns:280px 1fr;gap:32px;margin-bottom:24px}
+@media(max-width:700px){.p1-grid{grid-template-columns:1fr}}
+.contact-list{display:flex;flex-direction:column;gap:8px}
+.c-row{display:flex;gap:10px;align-items:flex-start;font-size:12px}
+.c-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.c-label{font-weight:500;color:var(--muted);min-width:52px;flex-shrink:0}
+.c-val{color:var(--ink)}
+.c-val.link{color:var(--ocean)}
+.c-val.red{color:#c0392b;font-weight:500}
+.c-divider{height:1px;background:var(--border);margin:10px 0}
+.c-small{font-size:11px;color:var(--muted);line-height:1.6}
+.usp-list{display:flex;flex-direction:column;gap:7px}
+.usp-row{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.5}
+.usp-diamond{width:7px;height:7px;background:var(--gold);transform:rotate(45deg);flex-shrink:0;margin-top:5px}
+.photo-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.photo-box{border-radius:8px;padding:28px 12px;text-align:center;font-size:11px;font-weight:500;line-height:1.4}
+.p2-divider{margin:0 -32px 28px;padding:12px 32px;background:var(--navy);display:flex;align-items:center;justify-content:space-between}
+.p2-divider-title{font-family:'Playfair Display',serif;font-size:15px;color:#fff;font-weight:400}
+.p2-divider-sub{font-size:11px;color:#5A7A9A;font-style:italic}
+.p2-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:24px}
+@media(max-width:700px){.p2-grid{grid-template-columns:1fr}}
+.kv-list{display:flex;flex-direction:column}
+.kv-row{display:flex;padding:7px 0;border-bottom:1px solid var(--border);font-size:13px;gap:12px}
+.kv-row:last-child{border-bottom:none}
+.kv-k{color:var(--muted);flex:0 0 50%}
+.kv-v{font-weight:500;color:var(--navy)}
+.stat-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;border-radius:10px;overflow:hidden;border:1px solid var(--border);margin-bottom:24px}
+.stat-box{background:var(--sand);padding:18px 12px;text-align:center}
+.stat-num{font-family:'Playfair Display',serif;font-size:28px;color:var(--navy);line-height:1;margin-bottom:4px}
+.stat-lbl{font-size:11px;color:var(--muted)}
+.tag-cloud{display:flex;flex-wrap:wrap;gap:6px}
+.t-tag{padding:4px 10px;border-radius:5px;font-size:12px;font-weight:500}
+.comm-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.comm-item{background:var(--sand);border-radius:8px;padding:10px 12px}
+.comm-k{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px}
+.comm-v{font-size:13px;font-weight:500;color:var(--navy)}
+.access-box{background:var(--sky);border-radius:8px;padding:14px 16px;font-size:13px;line-height:1.6;color:var(--navy)}
+.detail-footer-bar{margin:0 -32px;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;background:var(--sand);border-top:1px solid var(--border);margin-top:28px}
+.footer-ref{font-size:11px;color:var(--muted);letter-spacing:.5px}
+.btn-back{font-size:12px;font-weight:500;color:var(--ocean);cursor:pointer;display:flex;align-items:center;gap:6px;padding:6px 14px;border:1px solid var(--sky);border-radius:6px;background:#fff;transition:background .1s}
+.btn-back:hover{background:var(--sky)}
+.page-footer{background:var(--navy);margin-top:60px;padding:28px 32px;text-align:center}
+.page-footer p{font-size:12px;color:#5A7A9A}
+.page-footer strong{color:#8AACCA}
+.hidden{display:none!important}
+@media(max-width:600px){
+  .masthead-title{font-size:28px}
+  .masthead-count{font-size:36px}
+  .shell{padding:0 16px 40px}
+  .photo-strip{grid-template-columns:repeat(2,1fr)}
+  .comm-grid{grid-template-columns:1fr}
+  .detail-body{padding:20px 16px 0}
+  .p2-divider{margin:0 -16px 28px;padding:12px 16px}
+  .detail-footer-bar{margin:0 -16px;padding:16px}
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-pattern"></div>
+  <div class="masthead-inner">
+    <div class="masthead-left">
+      <div class="masthead-eyebrow">SITA — Suriname Investment &amp; Trade Agency</div>
+      <div class="masthead-title">Cruise Services<br><em>Provider Catalogue</em></div>
+      <div class="masthead-sub">The official directory of service providers for cruise ships and passengers visiting Paramaribo, Suriname.</div>
+    </div>
+    <div class="masthead-right">
+      <div class="masthead-stat">Directory</div>
+      <div class="masthead-count" id="total-count">5</div>
+      <div class="masthead-count-label">registered providers</div>
+    </div>
+  </div>
+</div>
+<div class="gold-rule"></div>
+
+<div class="shell">
+  <div class="breadcrumb" id="breadcrumb">
+    <span id="bc-home" onclick="goHome()">All categories</span>
+    <span class="sep hidden" id="bc-sep1">›</span>
+    <span class="current hidden" id="bc-cat"></span>
+    <span class="sep hidden" id="bc-sep2">›</span>
+    <span class="current hidden" id="bc-co"></span>
+  </div>
+
+  <div id="view-home">
+    <p class="home-intro">Select a service category to browse registered providers. Each listing includes contact details, operational capacity, certifications, commercial terms, and accessibility information. To register your business, visit <a href="https://sapqs.share.hsforms.com/2935KRs5fT0u1zWDKSZX5dw" target="_blank" style="color:var(--ocean)">the SITA registration form</a>.</p>
+    <div class="notice-bar">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <span>This catalogue is in active development. Additional service providers are being onboarded. <a href="https://sapqs.share.hsforms.com/2935KRs5fT0u1zWDKSZX5dw" target="_blank">Register your business →</a></span>
+    </div>
+    <div class="cat-grid" id="cat-grid"></div>
+  </div>
+
+  <div id="view-list" class="hidden">
+    <div class="list-header">
+      <div class="list-icon" id="list-icon"></div>
+      <div>
+        <div class="list-title" id="list-title"></div>
+        <div class="list-sub" id="list-sub"></div>
+      </div>
+    </div>
+    <div class="co-cards" id="co-cards"></div>
+  </div>
+
+  <div id="view-detail" class="hidden">
+    <div id="detail-inner"></div>
+  </div>
+</div>
+
+<div class="page-footer">
+  <p><strong>Suriname Cruise Services Catalogue</strong> &nbsp;·&nbsp; Published by <strong>SITA — Suriname Investment &amp; Trade Agency</strong> &nbsp;·&nbsp; <a href="https://sita.sr" target="_blank" style="color:#8AACCA">sita.sr</a></p>
+  <p style="margin-top:6px">To register your business or update your listing contact <strong>peu-management@sita.sr</strong></p>
+</div>
+
+<script>
+const CATS=[
+  {id:'MAR',name:'Marine & Port Services',    sub:'Bunkering, chandlery, port agency, waste reception, ship repair',color:'#D6E8F5',fg:'#0C447C',icon:'anchor'},
+  {id:'EXC',name:'Shore Excursions & Tours',  sub:'City tours, rainforest, river safaris, cultural experiences',   color:'#E1F5EE',fg:'#085041',icon:'compass'},
+  {id:'TRN',name:'Ground Transport',          sub:'Coaches, minibuses, taxis, water taxis, accessible vehicles',   color:'#FAEEDA',fg:'#633806',icon:'bus'},
+  {id:'FNB',name:'Food & Beverage',           sub:'Restaurants, catering, bars, distillery tours, pier events',    color:'#FAECE7',fg:'#712B13',icon:'food'},
+  {id:'HTL',name:'Hotels & Accommodation',    sub:'Day use, overnight stays, spa & wellness, meeting facilities',  color:'#EEEDFE',fg:'#3C3489',icon:'hotel'},
+  {id:'RET',name:'Retail & Shopping',         sub:'Duty-free, craft markets, jewellery, souvenirs',               color:'#FBEAF0',fg:'#72243E',icon:'shop'},
+  {id:'HLT',name:'Health & Safety',           sub:'Medical clinics, pharmacy, first aid, security services',      color:'#EAF3DE',fg:'#27500A',icon:'health'},
+  {id:'LOG',name:'Logistics & Business',      sub:'Freight forwarding, event management, communications, customs', color:'#F1EFE8',fg:'#444441',icon:'box'},
+];
+
+const ICONS={
+  anchor:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="5" r="2"/><line x1="12" y1="7" x2="12" y2="19"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/><line x1="5" y1="8" x2="19" y2="8"/></svg>`,
+  compass:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>`,
+  bus:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="7" y1="19" x2="7" y2="21"/><line x1="17" y1="19" x2="17" y2="21"/><circle cx="7" cy="14" r="1"/><circle cx="17" cy="14" r="1"/></svg>`,
+  food:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>`,
+  hotel:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
+  shop:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>`,
+  health:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>`,
+  box:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg>`,
+};
+
+const DATA=[
+  {
+    id:1,
+    cats:['HTL','FNB'],
+    name:'Jacana Amazon Wellness Resort',
+    tagline:'Full-service resort, restaurant & spa — nature retreat near Paramaribo',
+    insured:true,accessible:true,verified:false,
+    maxPax:null,employees:'81 permanent + 60 seasonal',
+    langs:['English','Dutch','Sranan Tongo'],
+    desc:'Jacana Resort is a peaceful and comfortable resort in Suriname, created for both relaxing vacations and business stays. Surrounded by bamboo gardens and inspired by Suriname\'s natural interior, it offers an outdoor waterfall pool, restaurant, bar, spa services and versatile event spaces. Whether for a port day escape or overnight stay, the resort provides a calm setting with professional service and all-inclusive facilities.',
+    usps:[
+      'Outdoor waterfall pool inspired by Suriname\'s interior — unique natural setting',
+      'Bamboo gardens offering a calm, private nature escape close to the capital',
+      'Full wellness services: massages, sauna, nail care & gym on-site',
+      'Group & event catering available — cruise group discounts on request',
+    ],
+    contact:{mgr:'',title:'',phone:'',emergency:'',whatsapp:'',email:'',web:'www.jacanaresort.com',address:'Paramaribo, Suriname',social:'',kkf:'46715',est:''},
+    cap:[
+      ['Services','Restaurant, Hotel (Day Use & Overnight), Bar, Catering, Spa & Wellness'],
+      ['Operating hours','24 / 7 — always open'],
+      ['Advance booking','At least 3 days in advance'],
+      ['Multiple ships','Yes — can accommodate simultaneously'],
+      ['Weekend / holidays','Yes — fully operational'],
+      ['Group discounts','Yes — cruise line discounts available'],
+    ],
+    fleet:[
+      ['Permanent staff','81'],
+      ['Seasonal / on-call staff','60 (cruise season)'],
+      ['Accessibility','Wheelchair-accessible facilities'],
+      ['Languages','English, Dutch, Sranan Tongo'],
+      ['Payment methods','Bank transfer, credit card, cash'],
+      ['Currency','USD, SRD, EUR'],
+    ],
+    certs:[
+      {t:'Public Liability Insurance',bg:'#FAEEDA',fg:'#633806'},
+      {t:'Workers\' Compensation',bg:'#FAEEDA',fg:'#633806'},
+      {t:'Written Safety Policy',bg:'#EAF3DE',fg:'#27500A'},
+      {t:'First Aid / CPR Staff',bg:'#EAF3DE',fg:'#27500A'},
+      {t:'KKF: 46715',bg:'#E6F1FB',fg:'#0C447C'},
+    ],
+    accessibility:'Wheelchair-accessible facilities and accessible toilets available on-site. Can accommodate visually and hearing-impaired guests.',
+    commercial:{
+      currency:'USD, SRD, EUR',
+      payment:'Payment in advance or upon day of check-in',
+      commission:'On application',
+      cancellation:'Contact property directly',
+      priceRange:'On application',
+      discounts:'Yes — cruise line & group discounts available',
+    },
+    refs:[],
+    gallery:[
+      {l:'Waterfall Pool',bg:'#E1F5EE',fg:'#085041'},
+      {l:'Bamboo Gardens',bg:'#EAF3DE',fg:'#27500A'},
+      {l:'Restaurant & Bar',bg:'#FAEEDA',fg:'#633806'},
+      {l:'Spa & Wellness',bg:'#EEEDFE',fg:'#3C3489'},
+    ],
+  },
+  {
+    id:2,
+    cats:['HTL','EXC'],
+    name:'Amatopo',
+    tagline:'Luxury jungle eco-lodge — pristine Amazon rainforest, 400 km south of Paramaribo',
+    insured:true,accessible:false,verified:false,
+    maxPax:8,employees:'20',
+    langs:['English','French','Dutch','Sranan Tongo'],
+    desc:'Amatopo is an exclusive luxury jungle lodge located 400 km south of Paramaribo in the Surinamese Amazon. Accessible only by small aircraft, it offers pristine jungle immersion in comfort and safety: soft adventure, birdwatching, river excursions to rapids and waterfalls, and a signature culinary experience. For cruise guests seeking an unforgettable Suriname interior extension, Amatopo is without equal.',
+    usps:[
+      'Accessible only by aircraft — true Amazon wilderness experience',
+      'English-speaking multilingual guides and staff throughout',
+      'Culinary creative experience with Surinamese jungle ingredients',
+      'River cruises to rapids, waterfalls and pristine wildlife',
+    ],
+    contact:{mgr:'',title:'',phone:'',emergency:'',whatsapp:'',email:'',web:'www.amatopo.com',address:'Sipaliwini, Suriname (accessible by charter flight)',social:'',kkf:'78667',est:''},
+    cap:[
+      ['Location','400 km south of Paramaribo — Amazon interior'],
+      ['Access','Charter aircraft only'],
+      ['Max group size','8 guests per booking'],
+      ['Can serve multiple ships','No — small exclusive lodge'],
+      ['Advance booking required','Yes'],
+      ['Price range','USD 1,500–2,500 per person (complete package incl. domestic flights)'],
+    ],
+    fleet:[
+      ['River boats','3 (6–12 pax, outboard engines)'],
+      ['Staff','20 year-round'],
+      ['Languages','English, French, Dutch, Sranan Tongo'],
+      ['Weekends / holidays','Yes'],
+      ['Payment','Bank transfer, 50% deposit + 50% before arrival'],
+      ['Currency','USD, EUR'],
+    ],
+    certs:[
+      {t:'Public Liability Insurance',bg:'#FAEEDA',fg:'#633806'},
+      {t:'First Aid / CPR Staff',bg:'#EAF3DE',fg:'#27500A'},
+      {t:'KKF: 78667',bg:'#E6F1FB',fg:'#0C447C'},
+    ],
+    accessibility:'Remote jungle terrain. Not wheelchair accessible. Not suitable for passengers with serious mobility limitations. River boats require boarding steps.',
+    commercial:{
+      currency:'USD, EUR',
+      payment:'50% deposit; 50% balance before arrival',
+      commission:'On application',
+      cancellation:'Contact property directly',
+      priceRange:'USD 1,500–2,500 per person (complete package incl. domestic flights)',
+      discounts:'Yes — cruise line group discounts available',
+    },
+    refs:[],
+    gallery:[
+      {l:'Amazon Jungle',bg:'#E1F5EE',fg:'#085041'},
+      {l:'River Excursion',bg:'#9FE1CB',fg:'#085041'},
+      {l:'Jungle Lodge',bg:'#EAF3DE',fg:'#27500A'},
+      {l:'Birdwatching',bg:'#C0DD97',fg:'#27500A'},
+    ],
+  },
+  {
+    id:3,
+    cats:['HTL','FNB'],
+    name:'Torarica Group',
+    tagline:'Suriname\'s leading hotel — 5 minutes from the cruise port',
+    insured:false,accessible:true,verified:false,
+    maxPax:null,employees:'397',
+    langs:['English','Dutch','Sranan Tongo'],
+    desc:'Torarica Group is Suriname\'s premier hospitality destination, offering cruise visitors a seamless blend of comfort, culture, and experience — all within 5 minutes of the cruise pier. The complex includes multiple hotels, restaurants, a casino, pools, spa, meeting rooms, and event spaces. Trusted by Suriname\'s diplomatic, business, and tourism communities for decades, Torarica is the natural base for group shore activities.',
+    usps:[
+      'Prime location: 5 minutes from the cruise port, direct access to UNESCO city centre',
+      'All-in-one destination: hotel (day use & overnight), pool, restaurant, casino, spa',
+      'Group-ready: dedicated event spaces and capacity for large cruise groups',
+      'Green Key Certified 2026 — commitment to environmental sustainability',
+    ],
+    contact:{mgr:'',title:'',phone:'',emergency:'',whatsapp:'',email:'',web:'www.torarica.com',address:'Kleine Waterstraat 1, Paramaribo',social:'',kkf:'66260',est:''},
+    cap:[
+      ['Distance to port','~5 minutes by vehicle'],
+      ['Hotel services','Day use & overnight, multiple room categories'],
+      ['Restaurants','Multiple outlets, 07:00–23:00'],
+      ['Event spaces','Yes — suitable for cruise groups'],
+      ['Advance booking','Recommended but not required'],
+      ['Multiple ships','To be confirmed'],
+    ],
+    fleet:[
+      ['Total staff','397'],
+      ['Operating hours','24/7 hotel services; restaurants 07:00–23:00'],
+      ['Weekend / holidays','Yes — fully operational'],
+      ['Accessibility','Wheelchair-accessible facilities'],
+      ['Environmental','Green Key Certified 2026'],
+      ['ISO certification','To be confirmed'],
+    ],
+    certs:[
+      {t:'Green Key Certified 2026',bg:'#EAF3DE',fg:'#27500A'},
+      {t:'First Aid / CPR Staff',bg:'#EAF3DE',fg:'#27500A'},
+      {t:'KKF: 66260',bg:'#E6F1FB',fg:'#0C447C'},
+    ],
+    accessibility:'Wheelchair-accessible facilities available throughout the property. Suitable for passengers with mobility limitations.',
+    commercial:{
+      currency:'On application',
+      payment:'On application',
+      commission:'On application',
+      cancellation:'Contact property directly',
+      priceRange:'On application',
+      discounts:'On application — contact directly for group rates',
+    },
+    refs:[],
+    gallery:[
+      {l:'Hotel & Pool',bg:'#EEEDFE',fg:'#3C3489'},
+      {l:'Restaurant',bg:'#FAECE7',fg:'#712B13'},
+      {l:'Event Space',bg:'#D6E8F5',fg:'#0C447C'},
+      {l:'City Access',bg:'#FAEEDA',fg:'#633806'},
+    ],
+  },
+  {
+    id:4,
+    cats:['HTL','FNB'],
+    name:'Yasmin Luxury Resort',
+    tagline:'Upscale apartments & spa — relaxed luxury near Paramaribo',
+    insured:false,accessible:false,verified:false,
+    maxPax:44,employees:'14',
+    langs:['English','Dutch','Sranan Tongo','Spanish'],
+    desc:'Yasmin Luxury Resort offers cruise visitors a peaceful and upscale escape just 15 minutes from the city centre. The property features luxury apartments for short stays, pool, jacuzzi, gym, spa, bar and event catering. A standalone villa is available for private group bookings. Shuttle service to/from the city available on request.',
+    usps:[
+      'Peaceful location 15 minutes from the city centre — quiet luxury retreat',
+      'Luxury apartments for short stays — pool, jacuzzi & gym included',
+      'Shuttle service available to/from Paramaribo city centre',
+      'Standalone villa available for private group bookings up to 44 guests',
+    ],
+    contact:{mgr:'',title:'',phone:'',emergency:'',whatsapp:'',email:'',web:'yasminresort.net',address:'Paramaribo, Suriname',social:'',kkf:'93536',est:''},
+    cap:[
+      ['Max pax per booking','44'],
+      ['Services','Hotel (Day Use & Overnight), Bar, Catering, Spa & Wellness'],
+      ['Shuttle service','Available — contact for details'],
+      ['Advance booking','Yes — required'],
+      ['Weekends / holidays','Yes'],
+      ['Group discounts','Yes'],
+    ],
+    fleet:[
+      ['Total staff','14'],
+      ['Villa option','Yes — standalone villa for groups'],
+      ['Pool / Jacuzzi','Yes — included for all guests'],
+      ['Gym','Yes'],
+      ['Languages','English, Dutch, Sranan Tongo, Spanish'],
+      ['Currency','EUR (primary); other currencies on application'],
+    ],
+    certs:[
+      {t:'Written Safety Policy',bg:'#EAF3DE',fg:'#27500A'},
+      {t:'KKF: 93536',bg:'#E6F1FB',fg:'#0C447C'},
+    ],
+    accessibility:'Contact property for specific accessibility requirements.',
+    commercial:{
+      currency:'EUR (primary)',
+      payment:'50% deposit; balance on arrival',
+      commission:'On application',
+      cancellation:'Contact property directly',
+      priceRange:'On application',
+      discounts:'Yes — group discounts available',
+    },
+    refs:[],
+    gallery:[
+      {l:'Luxury Apartments',bg:'#EEEDFE',fg:'#3C3489'},
+      {l:'Pool & Jacuzzi',bg:'#D6E8F5',fg:'#0C447C'},
+      {l:'Spa & Wellness',bg:'#FBEAF0',fg:'#72243E'},
+      {l:'Private Villa',bg:'#FAEEDA',fg:'#633806'},
+    ],
+  },
+  {
+    id:5,
+    cats:['HTL','FNB'],
+    name:'Houttuyn Wellness River Resort',
+    tagline:'Riverside wellness resort — day excursion & overnight retreat',
+    insured:false,accessible:true,verified:false,
+    maxPax:20,employees:'30',
+    langs:['English','Dutch','Sranan Tongo'],
+    desc:'Houttuyn is a riverside wellness resort offering cruise visitors a relaxing escape from the city. Located along the river with tropical gardens and a pool, it provides restaurant dining, bar, spa treatments, and hotel accommodation for day visits or overnight stays. An ideal combination with a Paramaribo city tour — a short journey from port for authentic Surinamese hospitality.',
+    usps:[
+      'Riverside tropical setting — natural pool and garden escape close to Paramaribo',
+      'Authentic Surinamese hospitality with personalized group service',
+      'Day use and overnight options — flexible for port day itineraries',
+      'Cruise group discounts available; price range USD 30–75 per person',
+    ],
+    contact:{mgr:'',title:'',phone:'',emergency:'',whatsapp:'',email:'',web:'www.houttuyn.com',address:'Paramaribo, Suriname',social:'',kkf:'52973',est:''},
+    cap:[
+      ['Max pax per call','20'],
+      ['Max group size','8 per booking'],
+      ['Services','Restaurant, Hotel (Day Use & Overnight), Bar, Spa & Wellness'],
+      ['Operating hours','08:00–21:00'],
+      ['Weekends / holidays','Yes'],
+      ['Advance booking','Yes — required'],
+    ],
+    fleet:[
+      ['Permanent staff','30'],
+      ['Seasonal / on-call staff','40 (cruise season)'],
+      ['Multiple ships','No — limited capacity'],
+      ['Accessibility','Partial — contact for details'],
+      ['Payment methods','Bank transfer'],
+      ['Currency','USD, SRD'],
+    ],
+    certs:[
+      {t:'Written Safety Policy',bg:'#EAF3DE',fg:'#27500A'},
+      {t:'First Aid / CPR Staff',bg:'#EAF3DE',fg:'#27500A'},
+      {t:'KKF: 52973',bg:'#E6F1FB',fg:'#0C447C'},
+    ],
+    accessibility:'Partial accessibility — contact property in advance to discuss requirements. Riverside natural paths; some areas may not be suitable for wheelchair users.',
+    commercial:{
+      currency:'USD, SRD',
+      payment:'100% deposit required',
+      commission:'On application',
+      cancellation:'Contact property directly',
+      priceRange:'USD 30–75 per person',
+      discounts:'Yes — cruise line group discounts available',
+    },
+    refs:[],
+    gallery:[
+      {l:'Riverside Setting',bg:'#E1F5EE',fg:'#085041'},
+      {l:'Tropical Pool',bg:'#9FE1CB',fg:'#085041'},
+      {l:'Restaurant',bg:'#FAECE7',fg:'#712B13'},
+      {l:'Spa & Wellness',bg:'#FBEAF0',fg:'#72243E'},
+    ],
+  },
+];
+
+// ── helpers ──────────────────────────────────────────────────────────
+function inits(name){return name.split(' ').slice(0,2).map(w=>w[0]).join('')}
+let currentCat=null;
+
+function show(id){
+  ['view-home','view-list','view-detail'].forEach(v=>{
+    document.getElementById(v).classList.toggle('hidden',v!==id);
+  });
+  window.scrollTo(0,0);
+}
+
+function updateBC(catName,coName){
+  document.getElementById('bc-sep1').classList.toggle('hidden',!catName);
+  document.getElementById('bc-cat').classList.toggle('hidden',!catName);
+  document.getElementById('bc-sep2').classList.toggle('hidden',!coName);
+  document.getElementById('bc-co').classList.toggle('hidden',!coName);
+  if(catName){
+    document.getElementById('bc-cat').textContent=catName;
+    document.getElementById('bc-cat').style.cursor=coName?'pointer':'default';
+    document.getElementById('bc-cat').onclick=coName?()=>goList(currentCat.id):null;
+  }
+  if(coName) document.getElementById('bc-co').textContent=coName;
+}
+
+function goHome(){currentCat=null;updateBC(null,null);show('view-home')}
+
+function goList(catId){
+  currentCat=CATS.find(c=>c.id===catId);
+  const cos=DATA.filter(c=>c.cats.includes(catId));
+  updateBC(currentCat.name,null);
+  document.getElementById('list-icon').style.background=currentCat.color;
+  document.getElementById('list-icon').style.color=currentCat.fg;
+  document.getElementById('list-icon').innerHTML=ICONS[currentCat.icon];
+  document.getElementById('list-title').textContent=currentCat.name;
+  document.getElementById('list-sub').textContent=cos.length+' provider'+(cos.length!==1?'s':'')+' · '+currentCat.sub;
+
+  if(cos.length===0){
+    document.getElementById('co-cards').innerHTML=`
+      <div class="empty-state">
+        <div class="empty-state-title">No providers registered yet</div>
+        <div class="empty-state-sub">This service category is open for registrations.<br>If your business operates in Suriname's cruise industry, join the catalogue.</div>
+        <a class="btn-register" href="https://sapqs.share.hsforms.com/2935KRs5fT0u1zWDKSZX5dw" target="_blank">Register your business →</a>
+      </div>`;
+  } else {
+    document.getElementById('co-cards').innerHTML=cos.map(co=>{
+      const tags=[
+        co.insured?'<span class="tag tag-g">Insured</span>':'',
+        co.accessible?'<span class="tag tag-b">Accessible</span>':'',
+        co.verified?'<span class="tag tag-v">Cruise-verified</span>':'',
+      ].filter(Boolean).join('');
+      return`<div class="co-card" onclick="goDetail(${co.id})">
+        <div class="co-av" style="background:${currentCat.color};color:${currentCat.fg}">${inits(co.name)}</div>
+        <div class="co-body"><div class="co-name">${co.name}</div><div class="co-tagline">${co.tagline}</div></div>
+        <div class="co-right"><div class="tag-row">${tags}</div></div>
+        <div class="co-arr-r">›</div>
+      </div>`;
+    }).join('');
+  }
+  show('view-list');
+}
+
+function goDetail(coId){
+  const co=DATA.find(c=>c.id===coId);
+  const cat=CATS.find(c=>c.id===co.cats[0]);
+  updateBC(cat.name,co.name);
+
+  const badges=co.cats.map(cid=>{const c=CATS.find(x=>x.id===cid);return`<span class="d-badge">${c.name}</span>`;}).join('');
+  const certs=co.certs.map(c=>`<span class="t-tag" style="background:${c.bg};color:${c.fg}">${c.t}</span>`).join('');
+  const langs=co.langs.map(l=>`<span class="t-tag" style="background:var(--sky);color:var(--ocean)">${l}</span>`).join('');
+  const usps=co.usps.map(u=>`<div class="usp-row"><div class="usp-diamond"></div><span>${u}</span></div>`).join('');
+  const capRows=co.cap.map(([k,v])=>`<div class="kv-row"><div class="kv-k">${k}</div><div class="kv-v">${v}</div></div>`).join('');
+  const fleetRows=co.fleet.map(([k,v])=>`<div class="kv-row"><div class="kv-k">${k}</div><div class="kv-v">${v}</div></div>`).join('');
+
+  const stats=co.maxPax>0
+    ?`<div class="stat-strip"><div class="stat-box"><div class="stat-num">${co.maxPax}</div><div class="stat-lbl">max pax per booking</div></div><div class="stat-box"><div class="stat-num">${co.employees}</div><div class="stat-lbl">staff</div></div><div class="stat-box"><div class="stat-num">${co.langs.length}</div><div class="stat-lbl">service languages</div></div></div>`
+    :`<div class="stat-strip"><div class="stat-box"><div class="stat-num">${co.employees}</div><div class="stat-lbl">staff</div></div><div class="stat-box"><div class="stat-num">${co.langs.length}</div><div class="stat-lbl">service languages</div></div><div class="stat-box"><div class="stat-num">${co.accessible?'Yes':'No'}</div><div class="stat-lbl">accessible</div></div></div>`;
+
+  const gallery=co.gallery?`<div class="d-sec"><div class="d-lbl">Gallery</div><div class="photo-strip">${co.gallery.map(g=>`<div class="photo-box" style="background:${g.bg};color:${g.fg}">${g.l}</div>`).join('')}</div></div>`:'';
+
+  const webLine=co.contact.web?`<div class="c-row"><div class="c-dot" style="background:var(--ocean)"></div><span class="c-label">Web</span><span class="c-val"><a href="https://${co.contact.web}" target="_blank" class="link">${co.contact.web}</a></span></div>`:'';
+  const emLine=co.contact.emergency?`<div class="c-row"><div class="c-dot" style="background:#c0392b"></div><span class="c-label">24hr</span><span class="c-val red">${co.contact.emergency}</span></div>`:'';
+  const waLine=co.contact.whatsapp?`<div class="c-row"><div class="c-dot" style="background:#25D366"></div><span class="c-label">WhatsApp</span><span class="c-val">${co.contact.whatsapp}</span></div>`:'';
+  const phoneLine=co.contact.phone?`<div class="c-row"><div class="c-dot" style="background:var(--ocean)"></div><span class="c-label">Phone</span><span class="c-val">${co.contact.phone}</span></div>`:'';
+  const emailLine=co.contact.email?`<div class="c-row"><div class="c-dot" style="background:var(--ocean)"></div><span class="c-label">Email</span><span class="c-val link">${co.contact.email}</span></div>`:'';
+
+  const kkfLine=co.contact.kkf?`KKF / KvK: ${co.contact.kkf}`:'';
+  const estLine=co.contact.est?` &nbsp;·&nbsp; Est. ${co.contact.est}`:'';
+
+  document.getElementById('detail-inner').innerHTML=`
+    <div class="detail-card">
+      <div class="detail-head">
+        <div class="detail-logo">${inits(co.name)}</div>
+        <div class="detail-hed">
+          <div class="detail-name">${co.name}</div>
+          <div class="detail-tagline">"${co.tagline}"</div>
+          <div class="detail-badges">${badges}</div>
+        </div>
+      </div>
+      <div class="gold-rule-thin"></div>
+
+      <div class="detail-body">
+        <div class="p1-grid">
+          <div>
+            <div class="d-sec">
+              <div class="d-lbl">Contact</div>
+              <div class="contact-list">
+                ${co.contact.mgr?`<div class="c-row"><div class="c-dot" style="background:var(--navy)"></div><span class="c-label">Contact</span><span class="c-val"><strong>${co.contact.mgr}</strong>${co.contact.title?' — '+co.contact.title:''}</span></div>`:''}
+                ${phoneLine}${emLine}${waLine}${emailLine}${webLine}
+                ${co.contact.social?`<div class="c-row"><div class="c-dot" style="background:#E4417A"></div><span class="c-label">Social</span><span class="c-val">${co.contact.social}</span></div>`:''}
+              </div>
+              ${co.contact.address||kkfLine?`<div class="c-divider"></div><div class="c-small">${co.contact.address}${kkfLine?'<br>'+kkfLine:''}${estLine}</div>`:''}
+            </div>
+            <div class="d-sec">
+              <div class="d-lbl">Languages of service</div>
+              <div class="tag-cloud">${langs}</div>
+            </div>
+          </div>
+          <div>
+            <div class="d-sec">
+              <div class="d-lbl">About</div>
+              <div class="d-text">${co.desc}</div>
+            </div>
+            <div class="d-sec">
+              <div class="d-lbl">Key selling points</div>
+              <div class="usp-list">${usps}</div>
+            </div>
+          </div>
+        </div>
+
+        ${stats}
+        ${gallery}
+
+        <div class="p2-divider">
+          <div class="p2-divider-title">${co.name} — operational detail</div>
+          <div class="p2-divider-sub">Capacity · Operations · Certifications · Commercial terms</div>
+        </div>
+
+        <div class="p2-grid">
+          <div class="d-sec">
+            <div class="d-lbl">Capacity & operations</div>
+            <div class="kv-list">${capRows}</div>
+          </div>
+          <div class="d-sec">
+            <div class="d-lbl">Fleet & staffing</div>
+            <div class="kv-list">${fleetRows}</div>
+          </div>
+        </div>
+
+        <div class="p2-grid">
+          <div>
+            <div class="d-sec">
+              <div class="d-lbl">Certifications & insurance</div>
+              <div class="tag-cloud">${certs}</div>
+            </div>
+            <div class="d-sec" style="margin-top:20px">
+              <div class="d-lbl">Accessibility</div>
+              <div class="access-box">${co.accessibility}</div>
+            </div>
+          </div>
+          <div class="d-sec">
+            <div class="d-lbl">Commercial terms</div>
+            <div class="comm-grid">
+              <div class="comm-item"><div class="comm-k">Currency</div><div class="comm-v">${co.commercial.currency}</div></div>
+              <div class="comm-item"><div class="comm-k">Payment terms</div><div class="comm-v">${co.commercial.payment}</div></div>
+              <div class="comm-item"><div class="comm-k">Commission</div><div class="comm-v">${co.commercial.commission}</div></div>
+              <div class="comm-item"><div class="comm-k">Cancellation</div><div class="comm-v">${co.commercial.cancellation}</div></div>
+              <div class="comm-item"><div class="comm-k">Price range</div><div class="comm-v">${co.commercial.priceRange}</div></div>
+              <div class="comm-item"><div class="comm-k">Group discounts</div><div class="comm-v">${co.commercial.discounts}</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="detail-footer-bar">
+          <div class="btn-back" onclick="goList('${co.cats[0]}')">← Back to ${cat.name}</div>
+          <div class="footer-ref">SITA Cruise Services Catalogue · sita.sr</div>
+        </div>
+
+      </div>
+    </div>`;
+  show('view-detail');
+}
+
+function buildHome(){
+  const grid=document.getElementById('cat-grid');
+  CATS.forEach(cat=>{
+    const count=DATA.filter(c=>c.cats.includes(cat.id)).length;
+    const tile=document.createElement('div');
+    tile.className='cat-tile'+(count===0?' cat-empty':'');
+    if(count>0) tile.onclick=()=>goList(cat.id);
+    tile.innerHTML=`<div class="cat-icon-wrap" style="background:${cat.color};color:${cat.fg}">${ICONS[cat.icon]}</div><div class="cat-name">${cat.name}</div><div class="cat-meta"><span class="cat-count">${count>0?count+' provider'+(count!==1?'s':''):'Accepting registrations'}</span>${count>0?'<div class="cat-arrow">›</div>':''}</div>`;
+    grid.appendChild(tile);
+  });
+  // update header count
+  document.getElementById('total-count').textContent=DATA.length;
+}
+buildHome();
+</script>
+</body>
+</html>
