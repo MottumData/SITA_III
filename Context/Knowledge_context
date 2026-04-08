@@ -1,0 +1,273 @@
+# SITA III Project Management Knowledge Base
+## For PM Assistant Claude — Reference & Context
+
+**Last Updated:** April 6, 2026  
+**Project Status:** 🟢 Just kicked off (Apr 8)
+
+---
+## WEBSITE SITA
+SITA WEBPAGE: https://sita.sr/
+FORM URL SURINAME CRUISE SERVICES CATALOGUE: https://sapqs.share.hsforms.com/2935KRs5fT0u1zWDKSZX5dw
+
+
+## 📋 PROJECT FUNDAMENTALS
+
+### Contract & Financials
+- **Contract ID:** SU-L1056-P00110-2.5.3.2
+- **Client:** Suriname Ministry of Foreign Affairs (MOFA) / SITA
+- **Duration:** 5 months (March 31 - September 30, 2026)
+- **Contract Value:** $50,352.61 USD (lump-sum)
+- **Payment Schedule:** 30% on D-1 ($15,105.79), 35% on D-2 ($17,623.41), 35% on D-3 ($17,623.41)
+- **Financed By:** IDB Loan No. 4801/OC-SU
+
+### Key Contacts
+- **Executive Sponsor:** Ambassador Luziano Truideman (luziano.truideman@mofa.gov.sr)
+- **Project Manager (SITA):** Melissa Chin (peu-management@sita.sr)
+- **Consultant Lead:** José Luis Delgado Davara (jl@mottum.io, +34-679239723)
+- **Payment Account:** C&G Canarias SL, Banco Sabadell (ES05 0081 0369 0500 0105 3011)
+
+---
+
+## 🎯 THE 4 DELIVERABLES (This Is the Scope)
+
+| Deliverable | Owner | Due | Value | Description |
+|---|---|---|---|---|
+| **D-1** | Nico | Jun 30 | $15.1k (30%) | Central Repository Tool Report + Service Portal technical definition, architecture & design mockups |
+| **D-2** | José Luis | Jul 31 | $17.6k (35%) | CRM Adoption Advisory Report + Training manual of new tools purchased |
+| **D-3a** | Hylenne | Aug 30 | $17.6k (35%) | Portal live and adopted + Training manual on maintenance & administration |
+| **D-3b** | José Luis | Aug 30 | *Included in 35%* | Evaluation-ready dataset with CRM indicators, extracts, variable dictionary, data provenance notes |
+
+**Key Dependencies:**
+- D-2 can't truly start until D-1 design is clear (mid-June earliest)
+- D-3a scope depends on Apr 22 discovery meeting outcomes
+- D-3b might start early if SITA has initial indicators (check Apr 15)
+
+---
+
+## 👥 TEAM COMPOSITION & AVAILABILITY
+
+| Person | Role | SITA % | Notes | Status |
+|---|---|---|---|---|
+| **Nico** | PM/Lead, Portal Design | 40-70% | Leads kickoff, manages dependencies, multi-project | Active |
+| **José Luis** | Strategy, CRM Advisory, Data Prep | 25-50% | Busy on licensing + data prep across projects | Supporting |
+| **Hylenne** | Communications, Portal Training Manual | TBD | Apr priority unclear (ask her business lead) | Pending clarity |
+| **César** | Backend Dev, Portal Build | 0% until Apr 22 | **OFF Apr 6-21** (vacation) | Unavailable 2 weeks |
+| **Miguel** | Cloud Architect, Infrastructure | 10-20% | Standby for architecture decisions | Standby |
+
+**Capacity Reality:**
+- No one is 100% SITA
+- Most weeks: multi-project allocation
+- Higher effort peaks: Around D-1 (Apr-Jun), D-2 (Jul), D-3a/b (Aug)
+- Commercial selling is main Mottum priority (right now)
+- Other projects may emerge (plan for flexibility)
+
+---
+
+## 📅 KEY DATES & RHYTHM
+
+### Critical Meetings & Milestones
+- **Apr 8 (Wed):** KICKOFF MEETING
+  - Nico leads
+  - Agenda: Infrastructure choice (Cloud/Local), Data flow alignment, AI tooling roadmap
+  - Decisions needed: Cloud/Local, tools budget, integration points
+  - Blockers/dependencies to surface
+
+- **Apr 9 (Thu) onwards:** CRM Bi-weekly Check-ins (every other Thursday, 1h)
+  - Your reminder to sync with SITA on CRM adoption progress
+  - Attend or delegate to José Luis
+  - Continues through Aug 30
+
+- **Apr 15 (Tue):** REMIND José Luis — Early Dataset Check
+  - Proactive: Ask if SITA has initial evaluation indicators
+  - Might allow D-3b to start earlier than Aug
+  - Shows project management maturity
+
+- **Apr 22 (Tue):** DISCOVERY MEETING — Portal Training & Processes
+  - Hylenne + SITA
+  - Goal: Understand depth of current processes → comprehensive training manual
+  - Output: Detailed scope for D-3a (Portal Training Manual)
+
+- **Jun 1-15:** Field Trip Window (Suriname)
+  - Team: José Luis + Nico
+  - Budget: $8,000 (flights $4,600 + hotel $3,000 + transport $400)
+  - Purpose: Mid-project alignment with SITA, on-ground relationship building
+  - Avoids public holidays (May 1 Worker's Day)
+
+### Public Holiday Blockers (Both Countries)
+- **Apr 2-6:** Spain Easter (gov offices closed)
+- **May 1:** Workers' Day (Spain + Suriname both closed)
+- **May 28:** Idul Adha (Suriname)
+- **Jul 1:** Emancipation Day (Suriname)
+- **Aug 15:** Assumption Day (Spain, vacation season)
+
+---
+
+## 🎯 SCOPE CLARITY & DECISIONS
+
+### What's IN Scope (These 4 D's Only)
+1. Central Repository Tool design + Portal design (D-1)
+2. CRM adoption advisory + training (D-2)
+3. Portal live + training manual (D-3a)
+4. Evaluation-ready dataset (D-3b)
+
+### What's OUT (Phase 2 or Separate Quote)
+- **Suriname Cruise Services Form** (separate request)
+  - Status: Decision pending at kickoff
+  - Recommendation: Quote separately as "CRM Advisory Enhancement"
+  - Reason: Logical coherence (same business logic as portal), but not core Phase 1 scope
+  - Keeps focus on central portal design + CRM adoption
+
+### SITA Engagement Style
+- Not hand-holding (they have internal capacity)
+- Concrete moments of controlled support (scheduled check-ins)
+- Consulting advisory model, not full-time embedded
+
+### Pacing Philosophy
+- Keep them satisfied but not over-demanding
+- Multi-week cycles (not daily touchpoints)
+- Speed deliverables when needed for cashflow (invoice on D completion)
+
+---
+
+## 🚨 WHAT'S UNKNOWN (ASK NICO TO CLARIFY)
+
+- [ ] **Hylenne's April priority** — needed for D-3a planning
+- [ ] **SITA decision velocity** — how fast can they make decisions?
+- [ ] **Data governance review** — when does SITA's internal review happen?
+- [ ] **Infrastructure choice** — Cloud (AWS/GCP) or Local?
+- [ ] **Cruise form decision** — separate quote or part of D scope?
+
+---
+
+## 📊 NOTION PAGES YOU MAINTAIN
+
+When Nico sends updates, maintain these 6 pages:
+
+### 1. **Weekly Snapshot**
+- What's critical this week?
+- Team allocation this week
+- Blockers that need removal
+- Next critical date
+
+### 2. **Deliverable Tracker**
+| D | Owner | Due | % Complete | Status | Next Milestone |
+|---|---|---|---|---|---|
+| D-1 | Nico | Jun 30 | — | 🔵 | Apr 8 kickoff → Apr 30 first draft |
+| D-2 | JL | Jul 31 | — | ⚪ | Depends on D-1 start |
+| D-3a | Hylenne | Aug 30 | — | ⚪ | Apr 22 discovery → May 15 scope |
+| D-3b | JL | Aug 30 | — | ⚪ | Apr 15 check early data |
+
+### 3. **Decision Queue**
+- 🔴 URGENT (this week): What needs deciding NOW?
+- 🟡 IMPORTANT (this month): What needs deciding soon?
+- Include rationale + owner + due date
+
+### 4. **Change Log**
+Format: **Date | What Changed | Why | Impact | Approved**
+Examples:
+- Apr 8 | Infrastructure → CLOUD | SITA choice | ✅ Positive | Yes
+- Apr 22 | Discovery → Apr 25 | Hylenne conflict | Minor slip | Noted
+
+### 5. **Team Capacity Snapshot** (Update every 2 weeks)
+List team + realistic % allocation for each week ahead
+
+### 6. **Meeting Notes Archive**
+Searchable by date. Capture decisions, blockers, next actions.
+
+---
+
+## 📝 HOW TO UPDATE THESE PAGES
+
+When Nico shares meeting notes, transcript, email, or file:
+
+1. **Parse for signals:**
+   - What changed?
+   - What was decided?
+   - What's a new blocker?
+   - What's at risk?
+   - What needs Nico's action?
+
+2. **Update pages:**
+   - Decision Queue: New decisions needed?
+   - Change Log: Any scope/timeline shifts?
+   - Deliverable Tracker: Progress updates?
+   - Team Capacity: Availability changes?
+   - Weekly Snapshot: New blockers/priorities?
+
+3. **Flag for Nico's attention:**
+   - 🚨 What needs immediate action?
+   - ⚠️ What's at risk?
+   - 💡 What's the next move?
+
+4. **Format for Notion:**
+   - Provide exact text to copy/paste
+   - Keep it concise (Nico is busy)
+   - Link to supporting files/meeting notes
+
+---
+
+## 🎯 SUCCESS CRITERIA (As Understood Now)
+
+Each deliverable is **"accepted by SITA"** when:
+- D-1: Design report signed off, architecture approved, mockups accepted
+- D-2: Advisory report delivered, training manual reviewed, tools adopted ≥70%
+- D-3a: Portal live, admin trained, maintenance manual usable
+- D-3b: Dataset complete with metadata, quality checks passed, ready for evaluation
+
+No major unknowns here. Trust Nico's judgment on "good enough."
+
+---
+
+## 💰 BUDGET & CASHFLOW LOGIC
+
+- Contract: $50.3k lump-sum
+- Invoice on D completion: D-1 (Jun 30) → $15.1k, D-2 (Jul 31) → $17.6k, D-3 (Aug 30) → $17.6k
+- Team costs: TBD by Nico (manage for margin)
+- If speed helps cashflow → suggest accelerating D when possible
+- Field trip: $8k approved (may come from D-3 or separate approval)
+
+---
+
+## 🔄 YOUR JOB AS PM ASSISTANT
+
+Each time Nico shares updates:
+
+```
+INPUT: [Meeting transcript / email / file / decision]
+
+YOU DO:
+1. Parse for project signals
+2. Update Notion pages
+3. Flag what needs Nico's attention
+4. Suggest next actions
+
+OUTPUT:
+📊 UPDATES MADE: [What changed where]
+🚨 ATTENTION NEEDED: [Flags + context]
+🎯 NEXT STEPS: [Who does what by when]
+📝 NOTION TEXT: [Copy/paste ready]
+```
+
+---
+
+## ✅ STATUS AS OF APR 6, 2026
+
+- ✅ Contract signed (Mar 2026)
+- ✅ Calendar created with key dates
+- ✅ Team briefed on scope
+- ✅ Kickoff scheduled (Apr 8)
+- ⏳ Waiting: Kickoff outcomes (infrastructure choice, data governance timeline, SITA expectations)
+- ⏳ Waiting: Hylenne availability clarification
+- ⏳ Waiting: Cruise form scope decision
+
+**Next 72 hours:** Kickoff (Apr 8) → Record decisions in Notion
+
+---
+
+## 📎 SUPPORTING DOCUMENTS
+
+Link to in your Notion workspace:
+- Contract: SU-L1056-P00110-2.5.3.2 (legal folder)
+- Original SOW (Deliverables definition)
+- Google Calendar (SITA III events)
+- Google Drive folder (all project files)

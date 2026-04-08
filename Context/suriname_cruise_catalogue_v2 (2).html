@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suriname Cruise Services — Provider Catalogue</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1A3A5C;--ocean:#2E6DA4;--sky:#D6E8F5;--gold:#E8A020;--gold-lt:#FDF0D5;
+  --teal:#1D9E75;--teal-lt:#E1F5EE;--coral:#D85A30;--coral-lt:#FAECE7;
+  --plum:#534AB7;--plum-lt:#EEEDFE;--rose:#D4537E;--rose-lt:#FBEAF0;
+  --sage:#3B6D11;--sage-lt:#EAF3DE;--slate:#5F5E5A;--slate-lt:#F1EFE8;
+  --sand:#F7F4EE;--cream:#FDFCF9;--ink:#1A1A1A;--muted:#6B6860;--border:#E8E4DA;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:var(--sand);color:var(--ink);min-height:100vh}
+
+/* masthead */
+.masthead{background:var(--navy);position:relative;overflow:hidden}
+.masthead-pattern{position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent,transparent 24px,rgba(255,255,255,.025) 24px,rgba(255,255,255,.025) 25px)}
+.masthead-inner{position:relative;max-width:1100px;margin:0 auto;padding:48px 32px 40px;display:flex;align-items:flex-end;justify-content:space-between;gap:32px}
+.masthead-eyebrow{font-size:11px;font-weight:500;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.masthead-title{font-family:'Playfair Display',serif;font-size:42px;font-weight:400;color:#fff;line-height:1.15;margin-bottom:10px}
+.masthead-title em{font-style:italic;color:#A8C8E8}
+.masthead-sub{font-size:14px;color:#8AACCA;font-weight:300;line-height:1.6;max-width:480px}
+.masthead-right{text-align:right;flex-shrink:0}
+.masthead-stat{color:rgba(255,255,255,.5);font-size:11px;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px}
+.masthead-count{font-family:'Playfair Display',serif;font-size:52px;color:var(--gold);line-height:1;margin-bottom:2px}
+.masthead-count-label{font-size:12px;color:#8AACCA}
+.gold-rule{height:3px;background:var(--gold)}
+
+.shell{max-width:1100px;margin:0 auto;padding:0 32px 60px}
+
+/* breadcrumb */
+.breadcrumb{display:flex;align-items:center;gap:8px;padding:16px 0;font-size:12px;color:var(--muted)}
+.breadcrumb span{cursor:pointer}.breadcrumb span:hover{color:var(--ocean)}
+.breadcrumb .sep{color:var(--border)}.breadcrumb .current{color:var(--ink);font-weight:500}
+
+/* home */
+#view-home{padding-top:36px}
+.home-intro{font-size:14px;color:var(--muted);margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--border);line-height:1.7}
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:800px){.cat-grid{grid-template-columns:repeat(2,1fr)}}
+.cat-tile{background:var(--cream);border:1px solid var(--border);border-radius:12px;padding:28px 20px 24px;cursor:pointer;transition:border-color .15s,transform .15s;display:flex;flex-direction:column;gap:12px}
+.cat-tile:hover{border-color:var(--ocean);transform:translateY(-2px)}
+.cat-icon-wrap{width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center}
+.cat-icon-wrap svg{width:22px;height:22px}
+.cat-name{font-family:'Playfair Display',serif;font-size:16px;font-weight:400;color:var(--navy);line-height:1.3}
+.cat-meta{display:flex;align-items:center;justify-content:space-between}
+.cat-count{font-size:12px;color:var(--muted)}
+.cat-arrow{width:22px;height:22px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--muted);transition:background .12s,border-color .12s}
+.cat-tile:hover .cat-arrow{background:var(--navy);border-color:var(--navy);color:#fff}
+
+/* list */
+#view-list{padding-top:8px}
+.list-header{display:flex;align-items:center;gap:16px;padding-bottom:24px;border-bottom:1px solid var(--border);margin-bottom:24px}
+.list-icon{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.list-icon svg{width:24px;height:24px}
+.list-title{font-family:'Playfair Display',serif;font-size:26px;font-weight:400;color:var(--navy)}
+.list-sub{font-size:13px;color:var(--muted);margin-top:3px}
+.co-cards{display:flex;flex-direction:column;gap:12px}
+.co-card{background:var(--cream);border:1px solid var(--border);border-radius:12px;padding:20px 24px;cursor:pointer;display:flex;align-items:center;gap:20px;transition:border-color .12s,transform .12s}
+.co-card:hover{border-color:var(--ocean);transform:translateX(3px)}
+.co-av{width:48px;height:48px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;font-family:'Playfair Display',serif}
+.co-body{flex:1;min-width:0}
+.co-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:400;color:var(--navy);margin-bottom:4px}
+.co-tagline{font-size:13px;color:var(--muted)}
+.co-right{display:flex;flex-direction:column;align-items:flex-end;gap:8px;flex-shrink:0}
+.tag-row{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.tag{font-size:10px;font-weight:500;padding:3px 8px;border-radius:4px;letter-spacing:.3px}
+.tag-g{background:var(--sage-lt);color:var(--sage)}
+.tag-b{background:var(--sky);color:var(--ocean)}
+.tag-v{background:var(--rose-lt);color:var(--rose)}
+.co-arr-r{font-size:18px;color:var(--border)}
+.co-card:hover .co-arr-r{color:var(--ocean)}
+
+/* ── DETAIL ── */
+#view-detail{padding-top:8px}
+.detail-card{background:var(--cream);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+
+.detail-head{background:var(--navy);padding:32px 32px 28px;display:flex;gap:20px;align-items:flex-start;position:relative;overflow:hidden}
+.detail-head::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent,transparent 24px,rgba(255,255,255,.02) 24px,rgba(255,255,255,.02) 25px)}
+.detail-logo{width:64px;height:64px;border-radius:12px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:18px;color:#fff;flex-shrink:0;position:relative}
+.detail-hed{flex:1;position:relative}
+.detail-name{font-family:'Playfair Display',serif;font-size:28px;font-weight:400;color:#fff;margin-bottom:6px;line-height:1.2}
+.detail-tagline{font-size:13px;color:#8AACCA;font-style:italic;margin-bottom:14px;font-family:'Playfair Display',serif}
+.detail-badges{display:flex;gap:6px;flex-wrap:wrap}
+.d-badge{background:rgba(232,160,32,.2);color:var(--gold);font-size:10px;font-weight:500;padding:3px 10px;border-radius:4px;letter-spacing:.3px}
+.gold-rule-thin{height:2px;background:var(--gold)}
+
+.detail-body{padding:28px 32px 0}
+
+/* section label */
+.d-lbl{font-size:10px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--ocean);margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--sky)}
+.d-sec{margin-bottom:24px}
+
+/* page-1 layout: two columns */
+.p1-grid{display:grid;grid-template-columns:280px 1fr;gap:32px;margin-bottom:24px}
+@media(max-width:700px){.p1-grid{grid-template-columns:1fr}}
+
+/* contact sidebar */
+.contact-list{display:flex;flex-direction:column;gap:8px}
+.c-row{display:flex;gap:10px;align-items:flex-start;font-size:12px}
+.c-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.c-label{font-weight:500;color:var(--muted);min-width:52px;flex-shrink:0}
+.c-val{color:var(--ink)}
+.c-val.link{color:var(--ocean)}
+.c-val.red{color:#c0392b;font-weight:500}
+.c-divider{height:1px;background:var(--border);margin:10px 0}
+.c-small{font-size:11px;color:var(--muted);line-height:1.6}
+
+/* USPs */
+.usp-list{display:flex;flex-direction:column;gap:7px}
+.usp-row{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.5}
+.usp-diamond{width:7px;height:7px;background:var(--gold);transform:rotate(45deg);flex-shrink:0;margin-top:5px}
+
+/* tour cards */
+.tour-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.tour-box{border-radius:8px;padding:14px}
+.tour-title{font-family:'Playfair Display',serif;font-size:14px;margin-bottom:5px}
+.tour-detail{font-size:12px;opacity:.85;margin-bottom:6px;line-height:1.5}
+.tour-price{font-size:12px;font-weight:500}
+
+/* photo strip */
+.photo-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.photo-box{border-radius:8px;padding:28px 12px;text-align:center;font-size:11px;font-weight:500;line-height:1.4}
+
+/* ── page 2 divider ── */
+.p2-divider{margin:0 -32px 28px;padding:12px 32px;background:var(--navy);display:flex;align-items:center;justify-content:space-between}
+.p2-divider-title{font-family:'Playfair Display',serif;font-size:15px;color:#fff;font-weight:400}
+.p2-divider-sub{font-size:11px;color:#5A7A9A;font-style:italic}
+
+/* p2 two-col */
+.p2-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:24px}
+@media(max-width:700px){.p2-grid{grid-template-columns:1fr}}
+
+/* kv table */
+.kv-list{display:flex;flex-direction:column}
+.kv-row{display:flex;padding:7px 0;border-bottom:1px solid var(--border);font-size:13px;gap:12px}
+.kv-row:last-child{border-bottom:none}
+.kv-k{color:var(--muted);flex:0 0 50%}
+.kv-v{font-weight:500;color:var(--navy)}
+
+/* stat strip */
+.stat-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;border-radius:10px;overflow:hidden;border:1px solid var(--border);margin-bottom:24px}
+.stat-box{background:var(--sand);padding:18px 12px;text-align:center}
+.stat-num{font-family:'Playfair Display',serif;font-size:28px;color:var(--navy);line-height:1;margin-bottom:4px}
+.stat-lbl{font-size:11px;color:var(--muted)}
+
+/* cert / lang tags */
+.tag-cloud{display:flex;flex-wrap:wrap;gap:6px}
+.t-tag{padding:4px 10px;border-radius:5px;font-size:12px;font-weight:500}
+
+/* commercial terms grid */
+.comm-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.comm-item{background:var(--sand);border-radius:8px;padding:10px 12px}
+.comm-k{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px}
+.comm-v{font-size:13px;font-weight:500;color:var(--navy)}
+
+/* references table */
+.ref-table{width:100%;border-collapse:collapse;font-size:13px}
+.ref-table th{text-align:left;padding:8px 12px;background:var(--navy);color:#fff;font-size:11px;font-weight:500;letter-spacing:.5px;text-transform:uppercase}
+.ref-table td{padding:10px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+.ref-table tr:last-child td{border-bottom:none}
+.ref-table tr:nth-child(even) td{background:var(--sand)}
+.ref-name{font-weight:500;color:var(--navy);margin-bottom:2px}
+.ref-co{font-size:11px;color:var(--muted)}
+.ref-contact{color:var(--ocean)}
+
+/* accessibility box */
+.access-box{background:var(--sky);border-radius:8px;padding:14px 16px;font-size:13px;line-height:1.6;color:var(--navy)}
+
+/* footer bar */
+.detail-footer-bar{margin:0 -32px;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;background:var(--sand);border-top:1px solid var(--border);margin-top:28px}
+.footer-ref{font-size:11px;color:var(--muted);letter-spacing:.5px}
+.btn-back{font-size:12px;font-weight:500;color:var(--ocean);cursor:pointer;display:flex;align-items:center;gap:6px;padding:6px 14px;border:1px solid var(--sky);border-radius:6px;background:#fff;transition:background .1s}
+.btn-back:hover{background:var(--sky)}
+
+/* page footer */
+.page-footer{background:var(--navy);margin-top:60px;padding:28px 32px;text-align:center}
+.page-footer p{font-size:12px;color:#5A7A9A}
+.page-footer strong{color:#8AACCA}
+
+.hidden{display:none!important}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-pattern"></div>
+  <div class="masthead-inner">
+    <div class="masthead-left">
+      <div class="masthead-eyebrow">Suriname Tourism Foundation</div>
+      <div class="masthead-title">Cruise Services<br><em>Provider Catalogue</em></div>
+      <div class="masthead-sub">The definitive directory of service providers for cruise ships and passengers visiting Paramaribo, Suriname.</div>
+    </div>
+    <div class="masthead-right">
+      <div class="masthead-stat">Directory</div>
+      <div class="masthead-count">50</div>
+      <div class="masthead-count-label">verified providers</div>
+    </div>
+  </div>
+</div>
+<div class="gold-rule"></div>
+
+<div class="shell">
+  <div class="breadcrumb" id="breadcrumb">
+    <span id="bc-home" onclick="goHome()">All categories</span>
+    <span class="sep hidden" id="bc-sep1">›</span>
+    <span class="current hidden" id="bc-cat"></span>
+    <span class="sep hidden" id="bc-sep2">›</span>
+    <span class="current hidden" id="bc-co"></span>
+  </div>
+
+  <div id="view-home">
+    <p class="home-intro">Select a service category below to browse providers. Each listing includes full contact details, operational capacity, fleet information, certifications, commercial terms and client references.</p>
+    <div class="cat-grid" id="cat-grid"></div>
+  </div>
+
+  <div id="view-list" class="hidden">
+    <div class="list-header">
+      <div class="list-icon" id="list-icon"></div>
+      <div>
+        <div class="list-title" id="list-title"></div>
+        <div class="list-sub" id="list-sub"></div>
+      </div>
+    </div>
+    <div class="co-cards" id="co-cards"></div>
+  </div>
+
+  <div id="view-detail" class="hidden">
+    <div id="detail-inner"></div>
+  </div>
+</div>
+
+<div class="page-footer">
+  <p><strong>Suriname Cruise Services Catalogue</strong> · Published by the Suriname Tourism Foundation · surinamecruiseservices.sr</p>
+  <p style="margin-top:6px">For catalogue updates or to register your business contact <strong>catalogue@surinametourism.sr</strong></p>
+</div>
+
+<script>
+const CATS=[
+  {id:'MAR',name:'Marine & Port services',    sub:'Bunkering, chandlery, port agency, waste reception, ship repair',color:'#D6E8F5',fg:'#0C447C',icon:'anchor'},
+  {id:'EXC',name:'Shore excursions & tours',  sub:'City tours, rainforest, river safaris, cultural experiences',   color:'#E1F5EE',fg:'#085041',icon:'compass'},
+  {id:'TRN',name:'Ground transport',          sub:'Coaches, minibuses, taxis, water taxis, accessible vehicles',   color:'#FAEEDA',fg:'#633806',icon:'bus'},
+  {id:'FNB',name:'Food & beverage',           sub:'Restaurants, catering, bars, distillery tours, pier events',    color:'#FAECE7',fg:'#712B13',icon:'food'},
+  {id:'HTL',name:'Hotels & accommodation',    sub:'Day use, overnight stays, spa & wellness, meeting facilities',  color:'#EEEDFE',fg:'#3C3489',icon:'hotel'},
+  {id:'RET',name:'Retail & shopping',         sub:'Duty-free, craft markets, jewellery, souvenirs',               color:'#FBEAF0',fg:'#72243E',icon:'shop'},
+  {id:'HLT',name:'Health, safety & medical',  sub:'Medical clinics, pharmacy, first aid, security services',      color:'#EAF3DE',fg:'#27500A',icon:'health'},
+  {id:'LOG',name:'Logistics & business',      sub:'Freight forwarding, event management, communications, customs', color:'#F1EFE8',fg:'#444441',icon:'box'},
+];
+
+const ICONS={
+  anchor:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="5" r="2"/><line x1="12" y1="7" x2="12" y2="19"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/><line x1="5" y1="8" x2="19" y2="8"/></svg>`,
+  compass:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>`,
+  bus:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="7" y1="19" x2="7" y2="21"/><line x1="17" y1="19" x2="17" y2="21"/><circle cx="7" cy="14" r="1"/><circle cx="17" cy="14" r="1"/></svg>`,
+  food:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>`,
+  hotel:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
+  shop:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>`,
+  health:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>`,
+  box:`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg>`,
+};
+
+const DATA=[
+  {
+    id:1,cats:['MAR'],name:'Para Bunkering NV',tagline:'Marine fuel supply — VLSFO, MGO, HFO, MDO',
+    insured:true,accessible:false,verified:true,years:22,calls:'200+',maxPax:0,
+    langs:['English','Dutch'],
+    desc:'Suriname\'s largest independent marine fuel supplier. Barge delivery up to 800 MT per call. 24-hour operations, 365 days. All major fuel grades carried in stock. ISO 9001 certified. Emergency supply capability within 6 hours of request.',
+    usps:['24-hour barge delivery — up to 800 MT per call','All grades: VLSFO (0.5%), MGO, HFO, MDO in stock','ISO 9001 quality management certified','Emergency fuel supply within 6 hours of request'],
+    contact:{mgr:'Dirk van Dijk',title:'General Manager',phone:'+597 421 0055',emergency:'+597 881 2200',whatsapp:'+597 881 2200',email:'ops@parabunkering.sr',web:'www.parabunkering.sr',address:'Saramaccastraat 44, Paramaribo',social:'@parabunkering',kkf:'44201-B',est:'2003'},
+    cap:[['Fuel capacity','800 MT per call'],['Fuel grades','VLSFO, MGO, HFO, MDO'],['Delivery method','Barge / truck to berth'],['Lead time','6 hours standard'],['Emergency supply','Yes — within 6 hrs'],['Weekend ops','Yes — 365 days']],
+    fleet:[['Bunkering barges','2 (400 MT each)'],['Road tankers','3'],['Metering','Calibrated flow meters'],['Sampling','Retained per MARPOL'],['BDN','Issued per delivery'],['24-hr duty','Operations manager']],
+    certs:[{t:'ISO 9001',bg:'#EAF3DE',fg:'#27500A'},{t:'MARPOL certified',bg:'#EAF3DE',fg:'#27500A'},{t:'Liability: USD 5M',bg:'#FAEEDA',fg:'#633806'}],
+    accessibility:'Delivery operations are vessel-side. No passenger-facing services.',
+    commercial:{currency:'USD',payment:'Invoice within 7 days of delivery',commission:'N/A',cancellation:'4-hr notice required',priceRange:'MOPS-linked — on application',discounts:'Volume discounts for 3+ calls/month'},
+    refs:[
+      {name:'Capt. Erik Johansson',company:'MSC Cruises — Fleet Fuel Manager',contact:'e.johansson@msccruises.com',rel:'10+ seasons. Sole fuel supplier for MSC Paramaribo calls since 2015.'},
+      {name:'Dirk Schuurman',company:'Port Authority Suriname',contact:'+597 420 1000',rel:'Preferred bunker contractor for all commercial vessels in Paramaribo port.'},
+    ],
+    gallery:[{l:'Bunkering barge',bg:'#D6E8F5',fg:'#0C447C'},{l:'Road tanker fleet',bg:'#B5D4F4',fg:'#0C447C'},{l:'Port operations',bg:'#E6F1FB',fg:'#185FA5'},{l:'Control room',bg:'#D6E8F5',fg:'#0C447C'}],
+  },
+  {
+    id:2,cats:['MAR'],name:'Tropical Chandlers Ltd',tagline:'Full ship chandlery — provisions & stores',
+    insured:true,accessible:false,verified:true,years:18,calls:'300+',maxPax:0,
+    langs:['English','Dutch'],
+    desc:'Complete ship chandlery service covering fresh and bonded provisions, deck and engine stores, bonded goods and bonded beverages. 24-hour order processing. All orders guaranteed delivered pier-side within agreed lead time. Cold chain maintained throughout.',
+    usps:['Full provision and stores catalogue — 5,000+ items','Bonded goods handling with customs clearance','Same-day delivery for orders placed before 14:00','Cold chain logistics maintained end-to-end'],
+    contact:{mgr:'Anita Jagesar',title:'Operations Director',phone:'+597 422 1199',emergency:'+597 880 7700',whatsapp:'+597 880 7700',email:'orders@tropicalchandlers.sr',web:'www.tropicalchandlers.sr',address:'Waterkant 12, Paramaribo',social:'@tropicalchandlers',kkf:'38876-A',est:'2006'},
+    cap:[['Order lead time','24 hours standard'],['Same-day','Orders before 14:00'],['Delivery','Pier-side guaranteed'],['Cold chain','Maintained throughout'],['Bonded goods','Yes — full service'],['Min. order','No minimum']],
+    fleet:[['Cold storage','120 m³ refrigerated'],['Dry warehouse','800 m³'],['Delivery vehicles','4 refrigerated vans'],['Bonded store','Government licensed'],['Catalogue items','5,000+'],['24-hr line','Yes']],
+    certs:[{t:'HACCP certified',bg:'#EAF3DE',fg:'#27500A'},{t:'Bonded store licence',bg:'#E6F1FB',fg:'#0C447C'},{t:'Liability: USD 2M',bg:'#FAEEDA',fg:'#633806'}],
+    accessibility:'Warehouse collection available. Delivery direct to vessel gangway.',
+    commercial:{currency:'USD / EUR / SRD',payment:'Proforma invoice — payment on delivery',commission:'N/A',cancellation:'12-hr notice for cancellation',priceRange:'Market rate + 15% handling',discounts:'Negotiated rates for preferred cruise lines'},
+    refs:[
+      {name:'Sandra Osei-Bonsu',company:'Costa Cruises — Port Agent Suriname',contact:'sosei@costaagent.com',rel:'Primary chandler for all Costa Paramaribo calls for 6 seasons.'},
+      {name:'Purchasing Dept.',company:'Viking Cruises — Expedition Operations',contact:'procurement@vikingcruises.com',rel:'Preferred chandler for expedition calls 2021–present.'},
+    ],
+    gallery:[{l:'Provisions store',bg:'#D6E8F5',fg:'#0C447C'},{l:'Cold storage',bg:'#E1F5EE',fg:'#085041'},{l:'Pier delivery',bg:'#FAEEDA',fg:'#633806'},{l:'Bonded goods',bg:'#EEEDFE',fg:'#3C3489'}],
+  },
+  {
+    id:3,cats:['MAR'],name:'Port Agency Suriname',tagline:'Full port agency & husbandry services',
+    insured:true,accessible:false,verified:true,years:30,calls:'500+',maxPax:0,
+    langs:['English','Dutch','Spanish'],
+    desc:'Suriname\'s most experienced cruise port agent. Full husbandry, customs clearance, berth coordination, crew logistics and local liaison. 30 years handling international cruise ships at Paramaribo. Preferred agent for MSC, Costa and Viking.',
+    usps:['30 years cruise ship handling in Paramaribo','24-hour duty officer always available','Customs and immigration pre-clearance service','Preferred agent for MSC, Costa and Viking Cruises'],
+    contact:{mgr:'Stanley Mijnals',title:'Managing Director',phone:'+597 420 3300',emergency:'+597 880 0011',whatsapp:'+597 880 0011',email:'cruise@portagysuriname.sr',web:'www.portagysuriname.sr',address:'Dr. Sophie Redmondstraat 3, Paramaribo',social:'@portagysuriname',kkf:'21044-C',est:'1994'},
+    cap:[['Experience','30 years cruise handling'],['Annual cruise calls','50+'],['Berth coordination','Full service'],['Customs clearance','Pre-clearance available'],['Crew change','Full service'],['Immigration','Advance manifests handled']],
+    fleet:[['Office','Pier-adjacent, Paramaribo'],['Duty vehicle','24-hr standby'],['Port passes','Pre-arranged for crew'],['Launch','Available for ship-to-shore'],['Languages','EN / NL / ES'],['FONASBA','Full member']],
+    certs:[{t:'FONASBA member',bg:'#E6F1FB',fg:'#0C447C'},{t:'30 years licensed',bg:'#E6F1FB',fg:'#0C447C'},{t:'Liability: USD 5M',bg:'#FAEEDA',fg:'#633806'},{t:'Cruise-verified',bg:'#FBEAF0',fg:'#72243E'}],
+    accessibility:'Pier-side office. Full accessibility coordination for mobility-limited passengers on request.',
+    commercial:{currency:'USD',payment:'Per-call agency fee — invoiced post-departure',commission:'N/A',cancellation:'48-hr notice required',priceRange:'Agency fee on application',discounts:'Annual agreements for regular callers'},
+    refs:[
+      {name:'Capt. André Villeneuve',company:'MSC Cruises — Shore Operations Manager',contact:'a.villeneuve@msccruises.com',rel:'Preferred agent for all MSC Paramaribo calls since 2010. 80+ calls coordinated.'},
+      {name:'Liesl van der Merwe',company:'Viking Cruises — Expedition Operations',contact:'lvandermerwe@vikingcruises.com',rel:'Primary agent for Viking expedition itineraries 2019–present.'},
+    ],
+    gallery:[{l:'Pier operations',bg:'#D6E8F5',fg:'#0C447C'},{l:'Customs clearance',bg:'#B5D4F4',fg:'#0C447C'},{l:'Crew logistics',bg:'#E6F1FB',fg:'#185FA5'},{l:'Port office',bg:'#D6E8F5',fg:'#0C447C'}],
+  },
+  {
+    id:4,cats:['MAR'],name:'Aqua Marine Services',tagline:'Freshwater, waste & MARPOL reception',
+    insured:true,accessible:false,verified:true,years:16,calls:'180+',maxPax:0,
+    langs:['English','Dutch'],
+    desc:'MARPOL-certified waste reception: oily water (Annex I), sewage (Annex IV), garbage (Annex V). Freshwater bunkering up to 500 MT/day. Pump-out barge available 24 hours. ISO 14001 environmental management certified.',
+    usps:['MARPOL Annex I, IV & V fully compliant','500 MT/day freshwater bunkering capacity','ISO 14001 environmental management certified','Pump-out barge on 24-hour standby'],
+    contact:{mgr:'Rudi Pinas',title:'Operations Manager',phone:'+597 431 7788',emergency:'+597 882 4400',whatsapp:'+597 882 4400',email:'ops@aquamarinesr.com',web:'www.aquamarinesr.com',address:'Havenlaan 7, Paramaribo',social:'@aquamarinesr',kkf:'52109-A',est:'2008'},
+    cap:[['Freshwater capacity','500 MT/day'],['Waste reception','Annex I / IV / V'],['Barge standby','24-hour'],['Lead time','4 hours standard'],['ISO 14001','Certified'],['Weekend ops','Yes — all year']],
+    fleet:[['Pump-out barge','1 (250 m³)'],['Freshwater barge','1 (500 MT)'],['Waste tanker','2 (oily water)'],['Garbage collection','Yes — Annex V certified'],['Manifests','Full MARPOL documentation'],['Sampling','Retained per delivery']],
+    certs:[{t:'ISO 14001',bg:'#EAF3DE',fg:'#27500A'},{t:'MARPOL Annex I/IV/V',bg:'#EAF3DE',fg:'#27500A'},{t:'Liability: USD 3M',bg:'#FAEEDA',fg:'#633806'}],
+    accessibility:'Marine services only — not passenger-facing.',
+    commercial:{currency:'USD',payment:'Invoice within 14 days',commission:'N/A',cancellation:'4-hr notice required',priceRange:'Freshwater: USD 8/MT. Waste: on application',discounts:'Volume agreements available'},
+    refs:[
+      {name:'Eng. Marco Ferretti',company:'Costa Cruises — Technical Fleet Manager',contact:'m.ferretti@costacruises.com',rel:'Sole waste reception contractor for Costa Paramaribo calls for 5 seasons.'},
+    ],
+    gallery:[{l:'Pump-out barge',bg:'#E1F5EE',fg:'#085041'},{l:'Waste reception',bg:'#9FE1CB',fg:'#085041'},{l:'Freshwater delivery',bg:'#E1F5EE',fg:'#085041'},{l:'MARPOL docs',bg:'#EAF3DE',fg:'#27500A'}],
+  },
+  {
+    id:5,cats:['MAR','LOG'],name:'Trans-Atlantic Ship Agents',tagline:'Senior port agency — 35 years cruise handling',
+    insured:true,accessible:false,verified:true,years:35,calls:'600+',maxPax:0,
+    langs:['English','Dutch','Spanish','Portuguese'],
+    desc:'The longest-established ship agency in Suriname, founded 1990. Full husbandry, crew change, spares logistics, customs and immigration. Preferred agent for four major cruise lines. In-house multilingual team with customs and immigration specialists.',
+    usps:['35 years — longest established ship agent in Suriname','Multilingual: EN/NL/ES/PT in-house staff','Preferred agent for 4 major cruise lines','In-house customs & immigration specialists — no subcontracting'],
+    contact:{mgr:'Guno Telgt',title:'Chief Executive',phone:'+597 420 0900',emergency:'+597 880 9900',whatsapp:'+597 880 9900',email:'cruise@transatlantic-sr.com',web:'www.transatlantic-sr.com',address:'Waterkant 88, Paramaribo',social:'@transatlanticsra',kkf:'11203-A',est:'1990'},
+    cap:[['Founded','1990 — 35 years'],['Annual cruise calls','60+'],['Crew change','Full service'],['Spares logistics','Express delivery coordinated'],['24-hr duty','Yes — named duty officer'],['Languages','EN / NL / ES / PT']],
+    fleet:[['Office locations','2 (Paramaribo + Nieuw Nickerie)'],['Customs specialists','3 in-house'],['Immigration','Direct authority liaison'],['Spares courier','24-hr DHL account'],['Port passes','Pre-arranged'],['FONASBA','Full member + BIMCO partner']],
+    certs:[{t:'FONASBA member',bg:'#E6F1FB',fg:'#0C447C'},{t:'BIMCO partner',bg:'#E6F1FB',fg:'#0C447C'},{t:'Liability: USD 10M',bg:'#FAEEDA',fg:'#633806'},{t:'Cruise-verified',bg:'#FBEAF0',fg:'#72243E'}],
+    accessibility:'Full coordination for mobility-limited crew and passengers. Medical evacuation liaison available.',
+    commercial:{currency:'USD',payment:'Per-call fee — post-departure invoice',commission:'N/A',cancellation:'72-hr notice for planned calls',priceRange:'Agency fee on application — annual rates available',discounts:'Multi-call annual agreements for regular operators'},
+    refs:[
+      {name:'Capt. André Villeneuve',company:'MSC Cruises — Shore Operations Manager',contact:'a.villeneuve@msccruises.com',rel:'Preferred agency since 2008. 100+ calls coordinated across MSC fleet.'},
+      {name:'Sandra Osei-Bonsu',company:'Costa Cruises — Port Agent',contact:'sosei@costaagent.com',rel:'Sub-agent relationship for Costa calls 2018–present.'},
+      {name:'Liesl van der Merwe',company:'Viking Cruises — Expedition Operations',contact:'lvandermerwe@vikingcruises.com',rel:'Primary agent for all Viking Suriname calls since 2020.'},
+    ],
+    gallery:[{l:'Waterkant office',bg:'#D6E8F5',fg:'#0C447C'},{l:'Pier operations',bg:'#B5D4F4',fg:'#0C447C'},{l:'Customs clearance',bg:'#E6F1FB',fg:'#185FA5'},{l:'Crew logistics',bg:'#D6E8F5',fg:'#0C447C'}],
+  },
+  {
+    id:6,cats:['EXC'],name:'Amazonia Expeditions NV',tagline:'Full-portfolio shore excursions & river tours',
+    insured:true,accessible:true,verified:true,years:15,calls:'320+',maxPax:350,
+    langs:['English','Spanish','Dutch','Sranan Tongo'],
+    desc:'Suriname\'s premier cruise shore excursion operator. Our portfolio spans Suriname\'s UNESCO colonial city centre, deep rainforest day-trips, Suriname River safaris and authentic Maroon cultural village experiences. Fifteen years serving international cruise lines with zero late gangway departures on record. Travelife Gold certified since 2018.',
+    usps:['15 years — zero late gangway departures on record','Max 350 pax served per ship call simultaneously','Travelife Gold certified since 2018','Exclusive access to 3 Maroon communities — unique in Suriname'],
+    contact:{mgr:'Rajesh Sital',title:'Operations Manager',phone:'+597 472 8810',emergency:'+597 880 3344',whatsapp:'+597 880 3344',email:'operations@amazonia-sr.com',web:'www.amazonia-sr.com',address:'Cornelis Jongbawstraat 22, Paramaribo',social:'@amazonia_sr · TripAdvisor: #5 Suriname Tours',kkf:'52341-A',est:'2009'},
+    cap:[['Max pax per call','350 pax simultaneous'],['Group size','Up to 50 pax per group'],['Min. notice','48 hours preferred'],['Multi-ship ops','Yes — up to 2 ships'],['Weekend / holidays','Yes — no surcharge'],['Price range','USD 38–95 per person']],
+    fleet:[['Coaches (45-seat A/C)','6'],['Minibuses 12-pax (accessible)','3'],['River vessels (20-pax)','2'],['Private cars','4'],['Wheelchair-accessible vehicles','3 minibuses'],['Newest addition','2023']],
+    certs:[{t:'Travelife Gold',bg:'#EAF3DE',fg:'#27500A'},{t:'First Aid — all guides',bg:'#EAF3DE',fg:'#27500A'},{t:'Tour Op. Lic. #TO-0188',bg:'#E6F1FB',fg:'#0C447C'},{t:'Transport Lic. #TR-2241',bg:'#E6F1FB',fg:'#0C447C'},{t:'Liability: USD 2M',bg:'#FAEEDA',fg:'#633806'},{t:'Vehicle insurance: full fleet',bg:'#FAEEDA',fg:'#633806'},{t:'Cruise-verified',bg:'#FBEAF0',fg:'#72243E'}],
+    accessibility:'3 wheelchair-accessible minibuses in fleet. Accessible WC at main office and Fort Zeelandia stop. Heritage Walk has some uneven cobblestone — advisable to note for passengers. River tours require 3 steps onto vessel. Hearing-impaired guests accommodated with 24-hr advance notice.',
+    commercial:{currency:'USD / EUR',payment:'30% deposit; balance 14 days before call',commission:'Negotiable — standard 15–20%',cancellation:'72-hr notice — no charge',priceRange:'USD 38–95 per person depending on tour',discounts:'Group discounts for 200+ pax'},
+    tours:[{t:'Paramaribo Heritage Walk',d:'3 hrs · Max 50 pax · Walking tour',p:'From USD 38/pax',bg:'#D6E8F5',fg:'#0C447C'},{t:'Suriname River Safari',d:'6 hrs · Max 40 pax · River vessel',p:'From USD 75/pax',bg:'#E1F5EE',fg:'#085041'},{t:'Brownsberg Rainforest',d:'Full day · Max 30 pax · Coach + hike',p:'From USD 95/pax',bg:'#FAEEDA',fg:'#633806'}],
+    refs:[
+      {name:'Capt. André Villeneuve',company:'MSC Cruises — Shore Excursion Manager',contact:'a.villeneuve@msccruises.com · +33 6 XX XX XX XX',rel:'10+ seasons, 80+ Paramaribo calls. Preferred shore excursion supplier since 2014.'},
+      {name:'Sandra Osei-Bonsu',company:'Costa Cruises — Port Agent, Paramaribo',contact:'sosei@costaagentp.com · +597 420 1177',rel:'4 seasons — coordinates all Amazonia bookings for the Costa fleet in Suriname.'},
+      {name:'Liesl van der Merwe',company:'Viking Cruises — Expedition Operations',contact:'lvandermerwe@vikingcruises.com',rel:'Expedition itineraries 2022–2024. High-end small ship calls. Consistently rated 5-star by passengers.'},
+    ],
+    gallery:[{l:'City Heritage Tour',bg:'#D6E8F5',fg:'#0C447C'},{l:'Rainforest Safari',bg:'#9FE1CB',fg:'#085041'},{l:'River Cruise',bg:'#FAC775',fg:'#633806'},{l:'Maroon Village',bg:'#AFA9EC',fg:'#26215C'}],
+  },
+  {
+    id:7,cats:['EXC'],name:'Paramaribo City Tours',tagline:'UNESCO city heritage tours — up to 200 pax',
+    insured:true,accessible:true,verified:true,years:8,calls:'120+',maxPax:200,
+    langs:['English','Dutch','Spanish','French'],
+    desc:'Specialist walking and coach tours of Paramaribo\'s UNESCO World Heritage colonial city centre. Fort Zeelandia, Waterkant, historic synagogue and mosque, Central Market. Multilingual certified guides. Flexible formats from 90 minutes to half day.',
+    usps:['Deep UNESCO World Heritage city expertise','Multilingual guides: EN/NL/ES/FR on all tours','Fully accessible tour options with coach alternative','Flexible formats 90 min to half day'],
+    contact:{mgr:'Kamla Jadnanansing',title:'Tour Director',phone:'+597 474 2211',emergency:'+597 881 5500',whatsapp:'+597 881 5500',email:'tours@paramacitytours.sr',web:'www.paramacitytours.sr',address:'Gravenstraat 45, Paramaribo',social:'@paramacitytours',kkf:'61023-B',est:'2016'},
+    cap:[['Max pax per call','200'],['Group size','Up to 40 pax'],['Tour durations','90 min / half day'],['Accessible option','Yes — coach available'],['Price range','USD 35–55/pax'],['Languages','EN/NL/ES/FR']],
+    fleet:[['Coaches','4 (45-seat A/C)'],['Accessible minibus','1 (12-seat)'],['Guides','8 certified'],['Languages','EN/NL/ES/FR'],['Audio guides','Available on request'],['Group radio','Yes for large calls']],
+    certs:[{t:'Tour Op. Lic. #TO-0211',bg:'#E6F1FB',fg:'#0C447C'},{t:'UNESCO partner',bg:'#E6F1FB',fg:'#0C447C'},{t:'First Aid — guides',bg:'#EAF3DE',fg:'#27500A'},{t:'Liability: USD 1M',bg:'#FAEEDA',fg:'#633806'},{t:'Cruise-verified',bg:'#FBEAF0',fg:'#72243E'}],
+    accessibility:'Coach option available for all walking tours. Accessible WC at Fort Zeelandia and Waterkant. Uneven heritage paving in some areas — noted in pre-tour briefing. Wheelchair users accommodated with 24-hr notice.',
+    commercial:{currency:'USD',payment:'Full payment 7 days before call',commission:'Standard 15%',cancellation:'48-hr notice — no charge',priceRange:'USD 35–55 per person',discounts:'For groups over 100 pax'},
+    refs:[
+      {name:'Capt. André Villeneuve',company:'MSC Cruises — Shore Operations',contact:'a.villeneuve@msccruises.com',rel:'City tour specialist for MSC Paramaribo calls. 5 seasons of consistent delivery.'},
+    ],
+    gallery:[{l:'Waterkant promenade',bg:'#D6E8F5',fg:'#0C447C'},{l:'Fort Zeelandia',bg:'#B5D4F4',fg:'#0C447C'},{l:'Central Market',bg:'#FAEEDA',fg:'#633806'},{l:'Colonial street',bg:'#E1F5EE',fg:'#085041'}],
+  },
+  {
+    id:8,cats:['EXC'],name:'Commewijne Plantation Tours',tagline:'Bicycle & river boat plantation tours',
+    insured:true,accessible:true,verified:true,years:11,calls:'90+',maxPax:100,
+    langs:['English','Dutch','French'],
+    desc:'Scenic bicycle and river boat tours of the historic Commewijne River plantation district. Colonial history, birdwatching, chocolate tasting at a working plantation. A uniquely Surinamese experience that cannot be replicated elsewhere in the Caribbean.',
+    usps:['Unique bicycle + river boat combination unavailable elsewhere','Birdwatching: 200+ species regularly recorded','Working plantation chocolate tasting always included','Accessible bus option for non-cyclists — same itinerary'],
+    contact:{mgr:'Marlène Dorine',title:'Owner & Lead Guide',phone:'+597 475 3344',emergency:'+597 882 1100',whatsapp:'+597 882 1100',email:'info@commewijnetours.sr',web:'www.commewijnetours.sr',address:'Commewijnestraat 18, Paramaribo',social:'@commewijnetours',kkf:'57834-A',est:'2013'},
+    cap:[['Max pax per call','100'],['Group size','Up to 25 pax'],['Tour duration','Half to full day'],['Accessible option','Coach — same route'],['Price range','USD 55–80/pax'],['Min. notice','48 hours']],
+    fleet:[['Bicycles','30 (sizes S–XL, helmets incl.)'],['River vessel','1 (25-pax)'],['Accessible bus','1 (20-seat)'],['Guides','4 certified naturalists'],['Languages','EN / NL / FR'],['Bird guide','Specialist available']],
+    certs:[{t:'Tour Op. Lic. #TO-0099',bg:'#E6F1FB',fg:'#0C447C'},{t:'First Aid — all guides',bg:'#EAF3DE',fg:'#27500A'},{t:'Travelife Silver',bg:'#EAF3DE',fg:'#27500A'},{t:'Liability: USD 1.5M',bg:'#FAEEDA',fg:'#633806'},{t:'Cruise-verified',bg:'#FBEAF0',fg:'#72243E'}],
+    accessibility:'Accessible bus runs same route as bicycle group — passengers rejoin for river crossing and plantation visit. River vessel has low boarding step. Plantation paths are flat and gravel.',
+    commercial:{currency:'USD',payment:'50% deposit; balance on day of tour',commission:'15% to cruise line',cancellation:'48-hr notice — full refund',priceRange:'USD 55–80 per person',discounts:'10% for groups over 60 pax'},
+    refs:[
+      {name:'Capt. André Villeneuve',company:'MSC Cruises — Shore Operations',contact:'a.villeneuve@msccruises.com',rel:'Most-booked alternative tour for MSC Paramaribo passengers. Exceptional reviews.'},
+      {name:'Liesl van der Merwe',company:'Viking Cruises — Expedition Ops',contact:'lvandermerwe@vikingcruises.com',rel:'Flagship excursion for Viking Suriname expedition calls. Perfect fit for expedition guests.'},
+    ],
+    gallery:[{l:'Bicycle departure',bg:'#E1F5EE',fg:'#085041'},{l:'River crossing',bg:'#9FE1CB',fg:'#085041'},{l:'Plantation house',bg:'#FAC775',fg:'#633806'},{l:'Birdwatching',bg:'#C0DD97',fg:'#27500A'}],
+  },
+  {
+    id:9,cats:['EXC'],name:'GreenPath Eco Tours',tagline:'Rainforest & wildlife — certified naturalist guides',
+    insured:true,accessible:false,verified:false,years:6,calls:'40+',maxPax:60,
+    langs:['English','Dutch'],
+    desc:'Small-group eco-tours to Brownsberg Nature Park and the Amazon interior. Certified naturalist guides. Maximum 15 per group to protect habitat and ensure quality. Wildlife, waterfalls and bird photography focus. Night safari option available.',
+    usps:['Certified naturalist guides throughout','Max 15 pax per group — low ecological impact','700+ bird species in accessible territory','Night safari option on request'],
+    contact:{mgr:'Winston Boldewijn',title:'Owner & Head Naturalist',phone:'+597 476 9900',emergency:'',whatsapp:'+597 476 9900',email:'info@greenpathsr.com',web:'www.greenpathsr.com',address:'Uitvlugtweg 33, Paramaribo',social:'@greenpathsr',kkf:'68841-A',est:'2018'},
+    cap:[['Max pax per call','60 (4 groups of 15)'],['Group size','Max 15 pax'],['Tour duration','Full day'],['Min. notice','72 hours'],['Price range','USD 85–110/pax'],['Night safari','+USD 30/pax — advance booking']],
+    fleet:[['Guides','4 certified naturalists'],['Vehicles','2 (4WD, 15-seat)'],['Binoculars','Provided'],['Bird guides','Illustrated field guides'],['Photography','Tripods available'],['Night safari','Torches and lamps provided']],
+    certs:[{t:'Tour Op. Licence',bg:'#E6F1FB',fg:'#0C447C'},{t:'Naturalist certification',bg:'#EAF3DE',fg:'#27500A'},{t:'First Aid',bg:'#EAF3DE',fg:'#27500A'},{t:'Liability: USD 1M',bg:'#FAEEDA',fg:'#633806'}],
+    accessibility:'Brownsberg terrain is not wheelchair accessible. Some jungle paths uneven. Not suitable for passengers with serious mobility limitations.',
+    commercial:{currency:'USD',payment:'Full payment 5 days before tour',commission:'10% to referrer',cancellation:'72-hr notice — full refund',priceRange:'USD 85–110 per person',discounts:'No — small group model only'},
+    refs:[
+      {name:'James Whitfield',company:'Expedition Cruise Consulting',contact:'jwhitfield@expcruise.com',rel:'Recommended naturalist tour operator for Suriname expedition market.'},
+    ],
+    gallery:[{l:'Rainforest canopy',bg:'#E1F5EE',fg:'#085041'},{l:'Wildlife spotting',bg:'#9FE1CB',fg:'#085041'},{l:'Brownsberg falls',bg:'#C0DD97',fg:'#27500A'},{l:'Night safari',bg:'#085041',fg:'#9FE1CB'}],
+  },
+  {
+    id:10,cats:['EXC'],name:'Maroon Heritage Experiences',tagline:'Authentic community-owned Maroon village tours',
+    insured:true,accessible:false,verified:false,years:5,calls:'35+',maxPax:80,
+    langs:['English','Dutch','Sranan Tongo'],
+    desc:'Community-owned and operated Maroon village tours in the Suriname interior. Cultural storytelling, traditional woodcarving and textile craft demonstrations, authentic food tasting. All income remains within the communities. A genuinely rare and moving experience.',
+    usps:['Community-owned — 100% of income stays local','Authentic ceremonial and cultural experiences','Woodcarving and textile workshops with masters','Traditional Maroon cuisine tasting included'],
+    contact:{mgr:'Clifford Aboikoni',title:'Community Liaison & Tour Coordinator',phone:'+597 477 4400',emergency:'',whatsapp:'+597 477 4400',email:'info@maroonexperiences.sr',web:'www.maroonexperiences.sr',address:'Tourtonnelaan 9, Paramaribo',social:'@maroonxsr',kkf:'72104-B',est:'2019'},
+    cap:[['Max pax per call','80'],['Group size','Up to 20 pax'],['Tour duration','Half to full day'],['Min. notice','72 hours'],['Price range','USD 60–90/pax'],['River transfer','Included in price']],
+    fleet:[['River boats','2 (20-pax each)'],['Guides','3 (community members)'],['Languages','EN / NL / Sranan Tongo'],['Crafts','Available for purchase'],['Cooking demonstration','Included'],['Cultural dress','Provided for photos']],
+    certs:[{t:'Tour Op. Licence',bg:'#E6F1FB',fg:'#0C447C'},{t:'Community enterprise registered',bg:'#EAF3DE',fg:'#27500A'},{t:'Liability: USD 1M',bg:'#FAEEDA',fg:'#633806'}],
+    accessibility:'River travel required. Village paths are uneven. Not suitable for passengers with serious mobility limitations. Advance notification needed for any special requirements.',
+    commercial:{currency:'USD',payment:'50% deposit; balance on day',commission:'10% to introducing agent',cancellation:'72-hr notice — full refund',priceRange:'USD 60–90 per person',discounts:'For groups over 40 pax'},
+    refs:[
+      {name:'Dr. Sarah Pringle',company:'National Geographic Expeditions',contact:'springle@natgeo.com',rel:'Featured operator in NGS Suriname travel guide. Recommended for high-end expedition ships.'},
+    ],
+    gallery:[{l:'Village welcome',bg:'#FAC775',fg:'#633806'},{l:'Woodcarving workshop',bg:'#F0997B',fg:'#712B13'},{l:'Traditional cooking',bg:'#FAEEDA',fg:'#633806'},{l:'Cultural ceremony',bg:'#AFA9EC',fg:'#26215C'}],
+  },
+  {
+    id:11,cats:['TRN'],name:'SuriCoach Charters',tagline:'Largest cruise-ready coach fleet in Suriname',
+    insured:true,accessible:true,verified:true,years:12,calls:'280+',maxPax:450,
+    langs:['English','Dutch','Spanish'],
+    desc:'Largest coach fleet in Suriname available for cruise operations. 10 air-conditioned 45-seat coaches and 5 accessible 12-seat minibuses. GPS tracked, multilingual drivers, 24-hour dispatch centre. Named preferred transport partner by two cruise lines.',
+    usps:['Largest cruise-ready transport fleet in Suriname','5 fully wheelchair-accessible vehicles in fleet','GPS tracking — real-time location shared with port agent','24-hour dispatch and driver availability'],
+    contact:{mgr:'Humphrey Doerga',title:'Fleet Operations Manager',phone:'+597 425 5500',emergency:'+597 885 5500',whatsapp:'+597 885 5500',email:'cruise@suricoach.sr',web:'www.suricoach.sr',address:'Indira Gandhiweg 120, Paramaribo',social:'@suricoach',kkf:'43221-A',est:'2012'},
+    cap:[['Coaches (45-seat A/C)','10'],['Accessible minibuses','5 (12-seat)'],['Max pax per call','450'],['GPS tracking','Yes — all fleet, real-time'],['24-hr dispatch','Yes'],['Multilingual drivers','EN/NL/ES available']],
+    fleet:[['Total vehicles','15'],['Coaches','10 × 45-seat A/C'],['Minibuses','5 × 12-seat accessible'],['Fleet age','Average 4 years'],['GPS','All vehicles tracked'],['AED','On all coaches']],
+    certs:[{t:'Transport Licence',bg:'#E6F1FB',fg:'#0C447C'},{t:'Drivers DWI tested',bg:'#EAF3DE',fg:'#27500A'},{t:'First Aid — all drivers',bg:'#EAF3DE',fg:'#27500A'},{t:'Liability: USD 3M',bg:'#FAEEDA',fg:'#633806'},{t:'Cruise-verified',bg:'#FBEAF0',fg:'#72243E'}],
+    accessibility:'5 minibuses with full wheelchair lift and tie-down. Accessible WC information provided to drivers. AED on all coaches. Drivers first aid trained.',
+    commercial:{currency:'USD / SRD',payment:'Invoice within 7 days',commission:'15% to tour operators',cancellation:'24-hr notice required',priceRange:'On application — per vehicle per day',discounts:'Seasonal rates for regular callers'},
+    refs:[
+      {name:'Rajesh Sital',company:'Amazonia Expeditions NV',contact:'operations@amazonia-sr.com',rel:'Primary transport subcontractor for Amazonia. 12 seasons of collaboration without incident.'},
+      {name:'Kamla Jadnanansing',company:'Paramaribo City Tours',contact:'tours@paramacitytours.sr',rel:'Preferred coach provider for all Paramaribo City Tours groups since 2015.'},
+    ],
+    gallery:[{l:'Coach fleet',bg:'#FAEEDA',fg:'#633806'},{l:'Accessible minibus',bg:'#FAC775',fg:'#633806'},{l:'Interior A/C',bg:'#FDF0D5',fg:'#633806'},{l:'GPS dispatch',bg:'#FAEEDA',fg:'#633806'}],
+  },
+  {
+    id:12,cats:['TRN'],name:'Luxury Coach Suriname',tagline:'Premium coaches — multilingual uniformed drivers',
+    insured:true,accessible:true,verified:true,years:11,calls:'200+',maxPax:360,
+    langs:['English','Dutch','Spanish','German'],
+    desc:'Premium coach hire with uniformed multilingual drivers. Eight 45-seat coaches, three accessible vehicles, all under 5 years old. Free Wi-Fi on all coaches. Named preferred transport partner for Viking Cruises Suriname calls.',
+    usps:['Complete fleet under 5 years old — newest in Suriname','EN/NL/ES/DE speaking uniformed drivers','Viking Cruises named preferred transport partner','Free Wi-Fi on all coaches — full route coverage'],
+    contact:{mgr:'Sonja Berenstein',title:'Managing Director',phone:'+597 426 7700',emergency:'+597 886 7700',whatsapp:'+597 886 7700',email:'bookings@luxurycoachsr.com',web:'www.luxurycoachsr.com',address:'Kwattaweg 55, Paramaribo',social:'@luxurycoachsr',kkf:'59012-B',est:'2013'},
+    cap:[['Coaches (45-seat)','8'],['Accessible vehicles','3'],['Max pax per call','360'],['Languages','EN/NL/ES/DE'],['Fleet age','All under 5 years'],['Wi-Fi','All coaches — complimentary']],
+    fleet:[['Total vehicles','11'],['Coaches','8 × 45-seat A/C premium'],['Accessible vehicles','3 × 16-seat lift-equipped'],['Fleet age','Max 5 years old'],['Wi-Fi','Onboard all coaches'],['AED','Yes — all coaches']],
+    certs:[{t:'Transport Licence',bg:'#E6F1FB',fg:'#0C447C'},{t:'Viking preferred partner',bg:'#EEEDFE',fg:'#3C3489'},{t:'First Aid — all drivers',bg:'#EAF3DE',fg:'#27500A'},{t:'Liability: USD 2M',bg:'#FAEEDA',fg:'#633806'},{t:'Cruise-verified',bg:'#FBEAF0',fg:'#72243E'}],
+    accessibility:'3 vehicles with full wheelchair lift and tie-down system. Drivers trained in passenger assistance. Same-level boarding where possible.',
+    commercial:{currency:'USD',payment:'30% deposit; balance before departure',commission:'15% to tour operators',cancellation:'24-hr notice — no charge',priceRange:'Premium rate — on application',discounts:'Annual rate for Viking and repeat callers'},
+    refs:[
+      {name:'Liesl van der Merwe',company:'Viking Cruises — Expedition Operations',contact:'lvandermerwe@vikingcruises.com',rel:'Sole transport provider for all Viking Suriname expedition calls since 2021.'},
+    ],
+    gallery:[{l:'Premium coach',bg:'#FAEEDA',fg:'#633806'},{l:'Interior comfort',bg:'#FAC775',fg:'#633806'},{l:'Accessible lift',bg:'#FAEEDA',fg:'#633806'},{l:'Uniformed drivers',bg:'#FDF0D5',fg:'#633806'}],
+  },
+  {
+    id:13,cats:['TRN'],name:'Suriname Taxi Alliance',tagline:'20 licensed taxis — fixed fares, pier pickup',
+    insured:true,accessible:false,verified:false,years:8,calls:'60+',maxPax:80,
+    langs:['English','Dutch','Sranan Tongo'],
+    desc:'Networked fleet of 20 licensed taxis coordinated for cruise operations. English-speaking drivers on request. Fixed-fare pier-to-city pricing — no surge pricing applied to cruise groups. WhatsApp coordination for group bookings.',
+    usps:['Fixed fares — no surge pricing policy for cruise passengers','English-speaking drivers on request — free of charge','All 20 vehicles can be dispatched simultaneously','WhatsApp group coordination for large calls'],
+    contact:{mgr:'Jerome Nerkust',title:'Alliance Coordinator',phone:'+597 427 2200',emergency:'+597 887 2200',whatsapp:'+597 887 2200',email:'cruise@suritaxi.sr',web:'www.suritaxi.sr',address:'Waterkant 3, Paramaribo',social:'@suritaxisr',kkf:'60341-A',est:'2016'},
+    cap:[['Fleet size','20 licensed taxis'],['Max simultaneous','20 vehicles'],['Pier to city centre','SRD 35 fixed fare'],['Airport transfers','Yes'],['English drivers','On request — no surcharge'],['Booking','WhatsApp +597 887 2200']],
+    fleet:[['Vehicles','20 licensed taxis'],['Types','Sedans and minivans'],['English drivers','8 available'],['Airport runs','All drivers cleared'],['Booking','WhatsApp coordination'],['Max group','4–7 per vehicle']],
+    certs:[{t:'Licensed operators',bg:'#E6F1FB',fg:'#0C447C'},{t:'MVS inspected',bg:'#EAF3DE',fg:'#27500A'},{t:'Insurance: all fleet',bg:'#FAEEDA',fg:'#633806'}],
+    accessibility:'No dedicated wheelchair-accessible vehicles. Can arrange accessible hire car with 48-hr notice.',
+    commercial:{currency:'SRD / USD accepted',payment:'Cash or card per journey',commission:'N/A — direct hire',cancellation:'No cancellation fee',priceRange:'SRD 35 pier–centre; airport on application',discounts:'Volume arrangements for frequent callers'},
+    refs:[
+      {name:'Rajesh Sital',company:'Amazonia Expeditions NV',contact:'operations@amazonia-sr.com',rel:'Overflow taxi coordination for Amazonia shore excursion operations since 2018.'},
+    ],
+    gallery:[{l:'Taxi fleet',bg:'#FAEEDA',fg:'#633806'},{l:'Pier pickup',bg:'#FAC775',fg:'#633806'},{l:'City transfer',bg:'#FAEEDA',fg:'#633806'},{l:'WhatsApp dispatch',bg:'#FDF0D5',fg:'#633806'}],
+  },
+  {
+    id:14,cats:['TRN'],name:'Para Water Taxi Co.',tagline:'River water taxis — Suriname & Commewijne rivers',
+    insured:true,accessible:false,verified:false,years:6,calls:'30+',maxPax:60,
+    langs:['English','Dutch','Sranan Tongo'],
+    desc:'Fast river water taxi services along the Suriname and Commewijne rivers. Pier-to-pier transfers and custom scenic routes. Can operate as a standalone scenic experience or as a transfer element within a wider excursion programme.',
+    usps:['Unique river transfer experience for cruise passengers','Connects pier directly to Commewijne plantations','Scenic Waterkant landing option available','Custom charter routes on request'],
+    contact:{mgr:'Dennis Asoemoredjo',title:'Owner & Skipper',phone:'+597 428 4400',emergency:'+597 888 4400',whatsapp:'+597 888 4400',email:'bookings@parawatertaxi.sr',web:'www.parawatertaxi.sr',address:'Waterkant Pier 2, Paramaribo',social:'@parawatertaxi',kkf:'71203-A',est:'2018'},
+    cap:[['Vessels','4 (15-pax each)'],['Max pax simultaneously','60'],['Speed','25 knots'],['Routes','Custom available'],['Min. notice','24 hours'],['Weekend ops','Yes']],
+    fleet:[['Vessels','4 × 15-pax river launches'],['Skippers','Licensed maritime'],['Life jackets','Provided per passenger'],['Route options','Suriname River / Commewijne'],['Charter','Available — full vessel'],['Night ops','By arrangement']],
+    certs:[{t:'Maritime licence',bg:'#E6F1FB',fg:'#0C447C'},{t:'Coast Guard compliant',bg:'#EAF3DE',fg:'#27500A'},{t:'Liability: USD 1M',bg:'#FAEEDA',fg:'#633806'}],
+    accessibility:'Boarding requires stepping onto vessel — 3 steps. Not suitable for passengers with serious mobility impairment. Life jackets provided and mandatory.',
+    commercial:{currency:'USD / SRD',payment:'Full payment on booking confirmation',commission:'10% to tour operators',cancellation:'24-hr notice — full refund',priceRange:'From USD 15/pax per crossing; charter from USD 200',discounts:'For bookings over 40 pax'},
+    refs:[
+      {name:'Marlène Dorine',company:'Commewijne Plantation Tours',contact:'info@commewijnetours.sr',rel:'River transfer partner for all Commewijne tour crossings. 5 seasons of reliable service.'},
+    ],
+    gallery:[{l:'River launch',bg:'#E1F5EE',fg:'#085041'},{l:'Suriname River',bg:'#9FE1CB',fg:'#085041'},{l:'Waterkant landing',bg:'#FAEEDA',fg:'#633806'},{l:'Commewijne crossing',bg:'#E1F5EE',fg:'#085041'}],
+  },
+  {
+    id:15,cats:['FNB'],name:'Spice & Flavour Restaurant',tagline:'Authentic Surinamese cuisine — 120 covers',
+    insured:true,accessible:true,verified:false,years:7,calls:'25+',maxPax:120,
+    langs:['English','Dutch','Sranan Tongo'],
+    desc:'Award-winning restaurant serving authentic Surinamese cuisine across four culinary traditions: Javanese, Creole, Hindustani and Amerindian. Private dining room for 40. Set menus for cruise groups from USD 22 per person including non-alcoholic drinks.',
+    usps:['4 Surinamese culinary traditions under one roof','Set menus from USD 22/pax including drinks','Private dining room available (40 covers)','HACCP food safety certified — Grade A hygiene'],
+    contact:{mgr:'Sunita Ramdjielal',title:'Owner & Head Chef',phone:'+597 473 8811',emergency:'',whatsapp:'+597 473 8811',email:'groups@spiceflavour.sr',web:'www.spiceflavour.sr',address:'Domineestraat 60, Paramaribo',social:'@spiceflavoursr',kkf:'64501-B',est:'2017'},
+    cap:[['Total covers','120 (+ 40 private room)'],['Group menu','From USD 22/pax'],['Private room','40 pax'],['Min. notice','48 hours'],['Accessible','Yes — step-free entrance'],['Halal option','Yes']],
+    fleet:[['Main dining','80 covers'],['Private room','40 covers'],['Terrace','20 covers'],['Kitchen','HACCP Grade A'],['Parking','Coach drop-off possible'],['Accessibility','Fully step-free']],
+    certs:[{t:'HACCP certified',bg:'#EAF3DE',fg:'#27500A'},{t:'Food hygiene: Grade A',bg:'#EAF3DE',fg:'#27500A'},{t:'TripAdvisor Certificate',bg:'#E6F1FB',fg:'#0C447C'},{t:'Liability: USD 1M',bg:'#FAEEDA',fg:'#633806'}],
+    accessibility:'Fully step-free entrance and dining room. Accessible WC. High chairs available. All dietary requirements catered for with 24-hr notice.',
+    commercial:{currency:'USD / SRD',payment:'50% deposit; balance on the day',commission:'10% to tour operators',cancellation:'48-hr notice — full refund',priceRange:'Set menu from USD 22/pax; à la carte also available',discounts:'For groups over 80 pax'},
+    refs:[
+      {name:'Rajesh Sital',company:'Amazonia Expeditions NV',contact:'operations@amazonia-sr.com',rel:'Recommended dining stop on Amazonia heritage tour for 4 seasons. Consistently positive passenger feedback.'},
+    ],
+    gallery:[{l:'Main dining room',bg:'#FAECE7',fg:'#712B13'},{l:'Javanese dishes',bg:'#F0997B',fg:'#712B13'},{l:'Private room',bg:'#FAEEDA',fg:'#633806'},{l:'Traditional spices',bg:'#FAC775',fg:'#633806'}],
+  },
+  {
+    id:16,cats:['FNB'],name:'Indo-Surifoods Catering',tagline:'Large-scale catering — pier-side buffets to 500 pax',
+    insured:true,accessible:true,verified:false,years:13,calls:'15+',maxPax:500,
+    langs:['English','Dutch'],
+    desc:'Large-scale event catering for cruise groups. Surinamese, Javanese and Indian menus. Pier-side welcome buffets, beach barbecues and formal dinners. Full equipment supply and trained service staff included. Halal, vegetarian and vegan options available.',
+    usps:['Largest catering capacity in Suriname — 500 pax','Pier-side buffet setup and full service included','Full equipment and uniformed staff — turnkey','Halal, vegetarian and vegan options as standard'],
+    contact:{mgr:'Roshani Sewdien',title:'Catering Director',phone:'+597 474 6622',emergency:'',whatsapp:'+597 474 6622',email:'events@indosurifoods.sr',web:'www.indosurifoods.sr',address:'Magnesiumstraat 34, Paramaribo',social:'@indosurifoods',kkf:'39087-A',est:'2011'},
+    cap:[['Max capacity','500 pax'],['Pier-side service','Yes — full setup'],['Lead time','72 hours minimum'],['Dietary options','Halal / veg / vegan'],['Equipment','Fully included'],['Price','From USD 18/pax']],
+    fleet:[['Production kitchen','Commercial 500-cover'],['Cold transport','3 refrigerated vans'],['Service staff','20 trained servers'],['Equipment','Tables, linens, crockery owned'],['Tents','Available for pier-side'],['Generator','Available for remote events']],
+    certs:[{t:'HACCP certified',bg:'#EAF3DE',fg:'#27500A'},{t:'Food hygiene: Grade A',bg:'#EAF3DE',fg:'#27500A'},{t:'Halal certified kitchen',bg:'#EAF3DE',fg:'#27500A'},{t:'Liability: USD 2M',bg:'#FAEEDA',fg:'#633806'}],
+    accessibility:'Pier-side service is flat and accessible. All buffet stations at standard height. Seated meal format also available.',
+    commercial:{currency:'USD / SRD',payment:'50% deposit; balance 48 hrs before event',commission:'10% to event coordinators',cancellation:'72-hr notice — 50% refund',priceRange:'Buffet from USD 18/pax; set dinner from USD 28/pax',discounts:'For groups over 300 pax'},
+    refs:[
+      {name:'Yvonne Karam',company:'Stichting Waterkant Events',contact:'events@waterkantevents.sr',rel:'Primary catering partner for all Waterkant pier-side welcome events. 5 seasons.'},
+    ],
+    gallery:[{l:'Pier-side buffet',bg:'#FAECE7',fg:'#712B13'},{l:'Javanese cuisine',bg:'#F0997B',fg:'#712B13'},{l:'Service team',bg:'#FAEEDA',fg:'#633806'},{l:'Equipment setup',bg:'#FAC775',fg:'#633806'}],
+  },
+  {
+    id:17,cats:['FNB'],name:'Tropic Breeze Bar & Grill',tagline:'Waterfront Waterkant bar — live music at weekends',
+    insured:true,accessible:true,verified:false,years:6,calls:'20+',maxPax:90,
+    langs:['English','Dutch','Spanish','Sranan Tongo'],
+    desc:'Waterfront bar and restaurant on the Waterkant. Live local Kaseko and jazz music on Friday through Sunday. Welcome drinks packages for cruise groups. Rum tastings with a local spirits guide. Prime location for a drinks stop within a city tour.',
+    usps:['Prime waterfront Waterkant location — 10 min from pier','Live local Kaseko and jazz music Fri–Sun','Rum tasting packages with specialist guide from USD 12','Welcome cocktail packages available for cruise groups'],
+    contact:{mgr:'Ivan de Freitas',title:'Owner',phone:'+597 475 1133',emergency:'',whatsapp:'+597 475 1133',email:'groups@tropicbreeze.sr',web:'www.tropicbreeze.sr',address:'Waterkant 55, Paramaribo',social:'@tropicbreezesr',kkf:'66234-B',est:'2018'},
+    cap:[['Indoor covers','90'],['Terrace','40 pax'],['Welcome package','From USD 12/pax'],['Music nights','Fri–Sun live'],['Accessible','Yes — step-free terrace'],['Min. notice','24 hours for groups']],
+    fleet:[['Bar team','4 staff'],['Capacity','90 indoor + 40 terrace'],['Sound system','Professional PA'],['Music','Live Fri–Sun'],['Rum selection','30+ Surinamese and Caribbean'],['Group packages','Pre-arranged available']],
+    certs:[{t:'Food hygiene: Grade B',bg:'#EAF3DE',fg:'#27500A'},{t:'Liquor licence',bg:'#E6F1FB',fg:'#0C447C'},{t:'Live music permit',bg:'#E6F1FB',fg:'#0C447C'},{t:'Liability: USD 0.5M',bg:'#FAEEDA',fg:'#633806'}],
+    accessibility:'Step-free terrace access. Indoor has 2 steps — accessible route via terrace. Accessible WC available.',
+    commercial:{currency:'USD / SRD',payment:'Pre-payment for group packages',commission:'10% to tour operators',cancellation:'24-hr notice — full refund',priceRange:'Welcome drink from USD 12/pax; rum tasting from USD 20/pax',discounts:'For groups over 60 pax'},
+    refs:[
+      {name:'Kamla Jadnanansing',company:'Paramaribo City Tours',contact:'tours@paramacitytours.sr',rel:'Regular drinks stop on city tour programme. Excellent passenger feedback.'},
+    ],
+    gallery:[{l:'Waterkant terrace',bg:'#FAECE7',fg:'#712B13'},{l:'Live music',bg:'#F0997B',fg:'#712B13'},{l:'Rum selection',bg:'#FAC775',fg:'#633806'},{l:'Group welcome',bg:'#FAEEDA',fg:'#633806'}],
+  },
+  {
+    id:18,cats:['FNB','RET'],name:'Suriname Rum & Spirits',tagline:'Distillery tours & guided tastings',
+    insured:true,accessible:true,verified:false,years:8,calls:'30+',maxPax:80,
+    langs:['English','Dutch','Sranan Tongo'],
+    desc:'Distillery tours and guided tasting experiences at Suriname\'s only operational rum distillery. Borgoe rum, Parbo beer and local spirits. Retail sales on site. Group packages from USD 20/pax. Custom-label bottles available for cruise groups.',
+    usps:['Only operational rum distillery in Suriname','Guided tasting with the master distiller','Retail take-home bottles on site','Custom-label bottles for cruise groups (min 50 bottles)'],
+    contact:{mgr:'Roland Elmont',title:'Distillery Manager',phone:'+597 476 2244',emergency:'',whatsapp:'+597 476 2244',email:'tours@surirum.sr',web:'www.surirum.sr',address:'Industrieweg 8, Paramaribo',social:'@surirum',kkf:'40122-A',est:'2016'},
+    cap:[['Max group','80 pax'],['Tour duration','90 minutes'],['Price','From USD 20/pax'],['Retail sales','Yes — on site'],['Custom labels','Yes — min 50 bottles, 2 weeks notice'],['Accessible','Yes']],
+    fleet:[['Tasting room','80-person capacity'],['Retail store','On site'],['Distillery tour','Guided by master distiller'],['Products','Borgoe rum, Parbo beer, local spirits'],['Custom labels','Available'],['Coach parking','Yes']],
+    certs:[{t:'Distillery licence',bg:'#E6F1FB',fg:'#0C447C'},{t:'Liquor licence',bg:'#E6F1FB',fg:'#0C447C'},{t:'Food hygiene: Grade A',bg:'#EAF3DE',fg:'#27500A'},{t:'Liability: USD 1M',bg:'#FAEEDA',fg:'#633806'}],
+    accessibility:'Fully accessible distillery tour route. Accessible WC. Retail store step-free.',
+    commercial:{currency:'USD / SRD',payment:'Pre-payment for group packages',commission:'10% to tour operators',cancellation:'48-hr notice — full refund',priceRange:'Tour + tasting from USD 20/pax; custom bottles on application',discounts:'For groups over 50 pax'},
+    refs:[
+      {name:'Rajesh Sital',company:'Amazonia Expeditions NV',contact:'operations@amazonia-sr.com',rel:'Optional add-on for full-day excursion guests. Consistently popular with cruise passengers.'},
+    ],
+    gallery:[{l:'Distillery floor',bg:'#FAECE7',fg:'#712B13'},{l:'Tasting room',bg:'#F0997B',fg:'#712B13'},{l:'Borgoe barrels',bg:'#FAC775',fg:'#633806'},{l:'Retail store',bg:'#FAEEDA',fg:'#633806'}],
+  },
+  {
+    id:19,cats:['HTL'],name:'Waterfront Hotel & Spa',tagline:'Boutique 4-star riverfront — day use packages',
+    insured:true,accessible:true,verified:false,years:9,calls:'20+',maxPax:80,
+    langs:['English','Dutch','French','Spanish'],
+    desc:'Boutique 4-star riverfront hotel in central Paramaribo. Day-use packages for cruise passengers include pool and spa access, complimentary luggage storage and welcome refreshments. Meeting rooms for ship\'s officers. 10-minute walk from pier.',
+    usps:['10-minute walk from the cruise pier','Day-use packages from USD 35/pax — pool & spa included','3 meeting rooms for ship\'s officers (up to 40 pax each)','Complimentary luggage storage for all day-use guests'],
+    contact:{mgr:'Patricia Wijngaarde',title:'General Manager',phone:'+597 423 0044',emergency:'',whatsapp:'+597 423 0044',email:'reservations@waterfronthotelsr.com',web:'www.waterfronthotelsr.com',address:'Rivierweg 1, Paramaribo',social:'@waterfronthotelsr',kkf:'53901-B',est:'2015'},
+    cap:[['Rooms','48'],['Day-use capacity','80 pax'],['Day-use price','From USD 35/pax'],['Overnight stays','Yes'],['Meeting rooms','3 rooms (up to 40 pax each)'],['Accessible rooms','6 adapted rooms']],
+    fleet:[['Rooms','48 (incl. 6 accessible)'],['Pool','Outdoor 25m'],['Spa','5 treatment rooms'],['Restaurants','1 (90 covers)'],['Meeting rooms','3 (max 40 pax)'],['Luggage storage','Complimentary']],
+    certs:[{t:'4-star rated',bg:'#EAF3DE',fg:'#27500A'},{t:'Green Hotel certified',bg:'#EAF3DE',fg:'#27500A'},{t:'Liability: USD 2M',bg:'#FAEEDA',fg:'#633806'}],
+    accessibility:'6 fully accessible rooms. Lift access to all floors. Pool has hoist. Spa has accessible treatment room. Step-free entrance from street.',
+    commercial:{currency:'USD',payment:'Credit card at check-in',commission:'15% to cruise line for day packages',cancellation:'48-hr notice — no charge',priceRange:'Day use from USD 35/pax; overnight from USD 110/room',discounts:'Group rates for 20+ pax day use'},
+    refs:[
+      {name:'Capt. André Villeneuve',company:'MSC Cruises — Shore Operations',contact:'a.villeneuve@msccruises.com',rel:'Officers\' hotel for MSC Paramaribo calls. Used for captain\'s meetings and crew rest.'},
+    ],
+    gallery:[{l:'Riverfront pool',bg:'#EEEDFE',fg:'#3C3489'},{l:'Superior room',bg:'#AFA9EC',fg:'#26215C'},{l:'Spa treatment',bg:'#CECBF6',fg:'#26215C'},{l:'Meeting room',bg:'#EEEDFE',fg:'#3C3489'}],
+  },
+  {
+    id:20,cats:['HTL'],name:'Hotel Krasnapolsky',tagline:'Historic landmark — 200-pax day use & fine dining',
+    insured:true,accessible:true,verified:true,years:50,calls:'80+',maxPax:200,
+    langs:['English','Dutch','Spanish','German','French'],
+    desc:'Paramaribo\'s most historic hotel, operating since 1974. Grand colonial building on the main square. Day-use, fine dining and conference facilities for cruise groups up to 200 pax. Suriname\'s only 5-star rated property.',
+    usps:['Suriname\'s only 5-star hotel — open since 1974','Day use up to 200 pax — largest capacity in Paramaribo','5 languages spoken by front desk staff at all times','Colonial terrace fine dining — rated #1 in Suriname'],
+    contact:{mgr:'Robert Muskiet',title:'General Manager',phone:'+597 424 9900',emergency:'+597 889 9900',whatsapp:'+597 889 9900',email:'groups@krasnapolsky.sr',web:'www.krasnapolsky.sr',address:'Domineestraat 39, Paramaribo',social:'@krasnapolskysr',kkf:'10033-A',est:'1974'},
+    cap:[['Rooms','120'],['Day-use capacity','200 pax'],['Day-use price','From USD 45/pax'],['Restaurants','3 dining outlets'],['Conference','Yes — up to 200 pax'],['Languages','EN/NL/ES/DE/FR']],
+    fleet:[['Rooms','120 (incl. 12 accessible)'],['Restaurants','3 (fine dining / bistro / pool)'],['Pool','Outdoor heated'],['Conference hall','200 pax'],['Meeting rooms','4 (up to 50 pax)'],['Spa','6 treatment rooms']],
+    certs:[{t:'5-star rated',bg:'#EAF3DE',fg:'#27500A'},{t:'TripAdvisor Hall of Fame',bg:'#E6F1FB',fg:'#0C447C'},{t:'ISO 9001',bg:'#EAF3DE',fg:'#27500A'},{t:'Liability: USD 5M',bg:'#FAEEDA',fg:'#633806'},{t:'Cruise-verified',bg:'#FBEAF0',fg:'#72243E'}],
+    accessibility:'12 fully accessible rooms. Lifts to all floors. Pool has hoist. All restaurants step-free. Full accessible route from street to all facilities.',
+    commercial:{currency:'USD / EUR',payment:'Credit card on arrival; group invoicing available',commission:'20% to cruise line for group packages',cancellation:'72-hr notice — no charge',priceRange:'Day use from USD 45/pax; overnight from USD 180/room',discounts:'Annual rates for repeat cruise line partners'},
+    refs:[
+      {name:'Capt. André Villeneuve',company:'MSC Cruises — Shore Operations Manager',contact:'a.villeneuve@msccruises.com',rel:'Preferred day-use hotel for MSC Paramaribo. Captain and officers hosted every call.'},
+      {name:'Liesl van der Merwe',company:'Viking Cruises — Expedition Ops',contact:'lvandermerwe@vikingcruises.com',rel:'Flagship hotel for Viking expedition guest programme. Welcome reception venue.'},
+    ],
+    gallery:[{l:'Colonial façade',bg:'#EEEDFE',fg:'#3C3489'},{l:'Grand dining room',bg:'#AFA9EC',fg:'#26215C'},{l:'Garden pool',bg:'#CECBF6',fg:'#26215C'},{l:'Conference hall',bg:'#EEEDFE',fg:'#3C3489'}],
+  },
+  {
+    id:21,cats:['HTL'],name:'Orchid Spa & Wellness',tagline:'Traditional Javanese spa — cruise guest packages',
+    insured:true,accessible:true,verified:false,years:6,calls:'15+',maxPax:40,
+    langs:['English','Dutch','Spanish'],
+    desc:'Day spa offering traditional Javanese massage, body scrubs and wellness packages. Five treatment rooms with dedicated cruise group booking service. Located in central Paramaribo, 15 minutes from the pier. Group welcome coordination provided.',
+    usps:['Traditional Javanese treatment expertise unique to Suriname','5 treatment rooms — full group coordination','Cruise packages from USD 45/pax (60 or 90 min)','15-minute walk or short taxi from cruise pier'],
+    contact:{mgr:'Priya Sukul',title:'Spa Director',phone:'+597 473 5566',emergency:'',whatsapp:'+597 473 5566',email:'bookings@orchidspasr.com',web:'www.orchidspasr.com',address:'Henck Arronstraat 22, Paramaribo',social:'@orchidspasr',kkf:'67503-B',est:'2018'},
+    cap:[['Treatment rooms','5'],['Max simultaneous','40 pax (staggered)'],['Session duration','60 or 90 minutes'],['Price','From USD 45/pax'],['Accessible room','1 fully adapted'],['Min. notice','48 hours for groups']],
+    fleet:[['Treatment rooms','5'],['Therapists','6 certified'],['Accessible room','1 adapted treatment room'],['Products','Natural Surinamese botanicals'],['Changing rooms','Separate male/female'],['Relaxation lounge','Shared 20-pax']],
+    certs:[{t:'Cosmetology licensed',bg:'#EAF3DE',fg:'#27500A'},{t:'Therapists CIBTAC certified',bg:'#EAF3DE',fg:'#27500A'},{t:'Liability: USD 0.5M',bg:'#FAEEDA',fg:'#633806'}],
+    accessibility:'1 fully adapted treatment room with hoist and wide access. Accessible changing facilities. Step-free entrance.',
+    commercial:{currency:'USD / SRD',payment:'Pre-payment for group bookings',commission:'15% to tour operators',cancellation:'48-hr notice — full refund',priceRange:'60 min from USD 45/pax; 90 min from USD 65/pax',discounts:'For groups of 10+'},
+    refs:[
+      {name:'Patricia Wijngaarde',company:'Waterfront Hotel & Spa',contact:'reservations@waterfronthotelsr.com',rel:'Overflow spa referral partner for hotel guests and cruise day-use packages.'},
+    ],
+    gallery:[{l:'Treatment room',bg:'#EEEDFE',fg:'#3C3489'},{l:'Javanese massage',bg:'#AFA9EC',fg:'#26215C'},{l:'Relaxation lounge',bg:'#CECBF6',fg:'#26215C'},{l:'Reception',bg:'#EEEDFE',fg:'#3C3489'}],
+  },
+  {
+    id:22,cats:['RET'],name:'Golden Craft Market',tagline:'40+ artisans — woodcarving, batik & jewellery',
+    insured:false,accessible:true,verified:false,years:3,calls:'25+',maxPax:300,
+    langs:['English','Dutch','Sranan Tongo'],
+    desc:'Collective outdoor market featuring 40+ local artisans. Woodcarving, batik fabric, Amerindian basketry, gold jewellery and handmade souvenirs. Coach drop-off and waiting area. Free entry. Direct purchase from makers — no middleman pricing.',
+    usps:['40+ artisans — widest craft range in Suriname','Dedicated coach drop-off and driver waiting area','Direct purchase from makers — no middleman pricing','Custom bulk orders available with 2 weeks notice'],
+    contact:{mgr:'Mariam Adjako',title:'Market Coordinator',phone:'+597 478 3311',emergency:'',whatsapp:'+597 478 3311',email:'info@goldencraftsr.com',web:'www.goldencraftsr.com',address:'Wilhelminastraat 100, Paramaribo',social:'@goldencraftsr',kkf:'73401-B',est:'2021'},
+    cap:[['Vendors','40+'],['Capacity','300+ pax comfortably'],['Entry fee','Free'],['Coach drop-off','Yes — dedicated area'],['Custom orders','Yes — 2 weeks notice'],['Hours','08:00–18:00 daily']],
+    fleet:[['Outdoor stalls','40+'],['Covered areas','Yes — rain shelter'],['Coach parking','Dedicated'],['WC facilities','On site'],['Card payments','Most vendors accept'],['Guides','Market guide available']],
+    certs:[{t:'Market authority registered',bg:'#E6F1FB',fg:'#0C447C'},{t:'Municipality approved',bg:'#E6F1FB',fg:'#0C447C'}],
+    accessibility:'Outdoor market — flat ground throughout. Accessible WC on site. Vendor stalls at accessible height.',
+    commercial:{currency:'SRD / USD / EUR accepted by vendors',payment:'Direct to vendors',commission:'N/A — direct retail',cancellation:'N/A',priceRange:'Crafts from USD 5; gold jewellery from USD 50',discounts:'Negotiate directly with vendors'},
+    refs:[
+      {name:'Rajesh Sital',company:'Amazonia Expeditions NV',contact:'operations@amazonia-sr.com',rel:'Final stop on Amazonia heritage tour — consistently the highest-rated activity by cruise passengers.'},
+    ],
+    gallery:[{l:'Craft stalls',bg:'#FBEAF0',fg:'#72243E'},{l:'Woodcarving',bg:'#F4C0D1',fg:'#72243E'},{l:'Batik fabrics',bg:'#FBEAF0',fg:'#993556'},{l:'Gold jewellery',bg:'#FAEEDA',fg:'#633806'}],
+  },
+  {
+    id:23,cats:['RET'],name:'Tropics Duty Free',tagline:'Duty-free retail — perfumes, spirits & electronics',
+    insured:true,accessible:true,verified:false,years:8,calls:'40+',maxPax:250,
+    langs:['English','Dutch','Spanish','Mandarin'],
+    desc:'Duty-free retail store near the pier. Perfumes, cosmetics, spirits, electronics and Surinamese specialty products. Mandarin-speaking staff available for Chinese-market cruise ships. Group welcome service with dedicated shopping assistant.',
+    usps:['Mandarin-speaking staff on request — no surcharge','Guided group shopping service included','Delivery to pier arranged for large purchases','Special cruise group pricing — confirmed in advance'],
+    contact:{mgr:'Leon Lie A Fat',title:'Store Manager',phone:'+597 421 7744',emergency:'',whatsapp:'+597 421 7744',email:'groups@tropicsdf.sr',web:'www.tropicsdf.sr',address:'Waterkantpassage 4, Paramaribo',social:'@tropicsdutyfree',kkf:'55671-A',est:'2016'},
+    cap:[['Floor space','800 sqm'],['Capacity','250 pax comfortably'],['Languages','EN/NL/ES/Mandarin'],['Pier delivery','Yes — for purchases over USD 100'],['Group pricing','Yes — pre-arranged'],['Hours','07:00–20:00 daily']],
+    fleet:[['Sales staff','8'],['Mandarin speakers','2'],['Shopping guides','Available for groups'],['Gift wrapping','Complimentary'],['Delivery van','1 — pier runs available'],['Tax refund','Available']],
+    certs:[{t:'Duty-free licence',bg:'#E6F1FB',fg:'#0C447C'},{t:'Customs bonded',bg:'#E6F1FB',fg:'#0C447C'},{t:'Liability: USD 1M',bg:'#FAEEDA',fg:'#633806'}],
+    accessibility:'Fully step-free entrance and store floor. Wide aisles. Accessible WC.',
+    commercial:{currency:'USD / EUR / CNY accepted',payment:'Card and cash',commission:'N/A — direct retail',cancellation:'N/A',priceRange:'Full duty-free pricing — typically 15–30% below RRP',discounts:'Cruise group pricing negotiated in advance'},
+    refs:[
+      {name:'Stanley Mijnals',company:'Port Agency Suriname',contact:'cruise@portagysuriname.sr',rel:'Recommended duty-free partner for all cruise calls coordinated. Passengers consistently satisfied.'},
+    ],
+    gallery:[{l:'Store entrance',bg:'#FBEAF0',fg:'#72243E'},{l:'Perfume hall',bg:'#F4C0D1',fg:'#72243E'},{l:'Spirits section',bg:'#FAC775',fg:'#633806'},{l:'Electronics',bg:'#EEEDFE',fg:'#3C3489'}],
+  },
+  {
+    id:24,cats:['RET'],name:'Noto\'s Gem Gallery',tagline:'Fine Surinamese gold & certified diamonds',
+    insured:true,accessible:true,verified:false,years:19,calls:'30+',maxPax:50,
+    langs:['English','Dutch'],
+    desc:'Certified jewellers specialising in Surinamese gold and diamonds. Private viewing room for cruise groups up to 50. All pieces certified with full documentation. Buy-back policy for visiting crew. Custom commission pieces completed in 24 hours.',
+    usps:['All pieces certified with full GIA documentation','Private group viewing room — exclusive appointment','Buy-back policy for visiting crew members','Custom commission in 24 hours — unique in Suriname'],
+    contact:{mgr:'Noel Noto',title:'Master Jeweller & Owner',phone:'+597 422 5533',emergency:'',whatsapp:'+597 422 5533',email:'sales@notosgems.sr',web:'www.notosgems.sr',address:'Maagdenstraat 18, Paramaribo',social:'@notosgems',kkf:'28834-A',est:'2005'},
+    cap:[['Private viewing','Up to 50 pax — exclusive'],['Certification','All pieces with GIA documentation'],['Custom orders','24-hour turnaround'],['Buy-back','Yes for crew — by arrangement'],['Price range','USD 150 – 15,000'],['Hours','09:00–17:00 Mon–Sat']],
+    fleet:[['Private viewing room','50-pax capacity'],['Certified stock','200+ pieces'],['Safe storage','Full overnight security'],['Jewellers','3 GIA trained'],['Cleaning','Complimentary while you wait'],['Insurance val.','Documentation provided']],
+    certs:[{t:'GIA certified staff',bg:'#EAF3DE',fg:'#27500A'},{t:'Chamber of Commerce registered',bg:'#E6F1FB',fg:'#0C447C'},{t:'Liability: USD 1M',bg:'#FAEEDA',fg:'#633806'}],
+    accessibility:'Step-free entrance via side access. Private viewing room accessible. Please advise on booking.',
+    commercial:{currency:'USD / EUR / SRD',payment:'Card and cash; bank transfer for large purchases',commission:'N/A — direct retail',cancellation:'N/A',priceRange:'USD 150 – 15,000; custom on application',discounts:'Negotiated for groups and repeat customers'},
+    refs:[
+      {name:'Guno Telgt',company:'Trans-Atlantic Ship Agents',contact:'cruise@transatlantic-sr.com',rel:'Recommended jeweller for visiting officers and passengers for 10+ years. Fully trusted.'},
+    ],
+    gallery:[{l:'Gallery entrance',bg:'#FBEAF0',fg:'#72243E'},{l:'Gold collection',bg:'#FAEEDA',fg:'#633806'},{l:'Diamond selection',bg:'#F4C0D1',fg:'#72243E'},{l:'Private viewing',bg:'#FBEAF0',fg:'#993556'}],
+  },
+  {
+    id:25,cats:['HLT'],name:'Para Medical Centre',tagline:'General & emergency medical — physician on duty',
+    insured:true,accessible:true,verified:false,years:11,calls:'30+',maxPax:0,
+    langs:['English','Dutch','Spanish'],
+    desc:'General and emergency medical services for cruise passengers and crew. Physician on duty 08:00–20:00. After-hours referral to Academic Hospital. Nurse available for pier-side visits for mobility-limited passengers on advance request.',
+    usps:['Physician on duty 08:00–20:00 every day','Pier-side nurse visit available by arrangement','Direct referral pathway to Academic Hospital (AZP)','Full laboratory and X-ray on site'],
+    contact:{mgr:'Dr Ashwin Kisoensingh',title:'Medical Director',phone:'+597 432 0011',emergency:'+597 432 0012',whatsapp:'+597 432 0012',email:'reception@paramedicsr.com',web:'www.paramedicsr.com',address:'Burenstraat 28, Paramaribo',social:'@paramedicsr',kkf:'47203-A',est:'2013'},
+    cap:[['Physicians on duty','3'],['Nurses','6'],['Operating hours','08:00–20:00 daily'],['After hours','Referral to AZP'],['Pier-side visit','By arrangement'],['Lab / X-ray','On site']],
+    fleet:[['Consulting rooms','4'],['Lab','Full in-house'],['X-ray','Digital on site'],['Pharmacy','On site dispensing'],['Ambulance','Contracted with AZP'],['Pier vehicle','Available for pier visits']],
+    certs:[{t:'Ministry of Health registered',bg:'#EAF3DE',fg:'#27500A'},{t:'Licensed physicians',bg:'#EAF3DE',fg:'#27500A'},{t:'In-house pharmacy',bg:'#E6F1FB',fg:'#0C447C'},{t:'Liability: USD 2M',bg:'#FAEEDA',fg:'#633806'}],
+    accessibility:'Fully accessible entrance and consulting rooms. Accessible WC. Wheelchair available at reception.',
+    commercial:{currency:'USD / SRD / EUR',payment:'Cash, card or insurance',commission:'N/A',cancellation:'N/A',priceRange:'Consultation from USD 40; emergency treatment on application',discounts:'Cruise line accounts available — pre-arranged'},
+    refs:[
+      {name:'Stanley Mijnals',company:'Port Agency Suriname',contact:'cruise@portagysuriname.sr',rel:'Recommended medical centre for all medical referrals from cruise ships for 8+ years.'},
+    ],
+    gallery:[{l:'Reception',bg:'#EAF3DE',fg:'#27500A'},{l:'Consulting room',bg:'#C0DD97',fg:'#27500A'},{l:'Laboratory',bg:'#EAF3DE',fg:'#3B6D11'},{l:'Pharmacy',bg:'#C0DD97',fg:'#3B6D11'}],
+  },
+  {
+    id:26,cats:['HLT'],name:'Pier Health Clinic',tagline:'Pier-area first aid & pharmacy — 5 min from berth',
+    insured:true,accessible:true,verified:false,years:4,calls:'40+',maxPax:0,
+    langs:['English','Dutch','Spanish'],
+    desc:'Dedicated health post within 5 minutes\' walk of the cruise berth. First aid, basic pharmacy dispensing, emergency stabilisation and hospital referral. Ideal first contact point for any passenger medical issue arising on the pier or in the city.',
+    usps:['5-minute walk from the cruise berth — fastest response','First aid and emergency stabilisation on site','Pharmacy dispensing — no prescription needed for OTC','Full referral network to all major Paramaribo hospitals'],
+    contact:{mgr:'Sandra Lie',title:'Nurse Coordinator',phone:'+597 433 4455',emergency:'+597 433 4456',whatsapp:'+597 433 4456',email:'clinic@pierhealthsr.com',web:'www.pierhealthsr.com',address:'Havenkade 2, Paramaribo',social:'@pierhealthsr',kkf:'74012-B',est:'2020'},
+    cap:[['Distance to pier','5-minute walk'],['Operating hours','07:00–19:00'],['Pharmacy','On site — OTC and Rx'],['Referral hospitals','4 in network'],['Languages','EN / NL / ES'],['Insurance','Most cruise insurers accepted']],
+    fleet:[['Nurses','3'],['First aid bays','2'],['Pharmacy','Full OTC stock'],['Defibrillator','Yes — AED on site'],['Oxygen','On site'],['Ambulance link','Direct contact AZP']],
+    certs:[{t:'Ministry of Health registered',bg:'#EAF3DE',fg:'#27500A'},{t:'Pharmacy licence',bg:'#E6F1FB',fg:'#0C447C'},{t:'First Aid certified staff',bg:'#EAF3DE',fg:'#27500A'},{t:'Liability: USD 1M',bg:'#FAEEDA',fg:'#633806'}],
+    accessibility:'Step-free access. Wide doorways. Accessible WC. Clinic designed for pier-adjacent use.',
+    commercial:{currency:'USD / SRD',payment:'Cash, card or insurance',commission:'N/A',cancellation:'N/A',priceRange:'From USD 15 consultation; OTC medication at cost',discounts:'Cruise line accounts pre-arranged'},
+    refs:[
+      {name:'Stanley Mijnals',company:'Port Agency Suriname',contact:'cruise@portagysuriname.sr',rel:'Primary first-responder medical facility for all Port Agency Suriname cruise calls.'},
+    ],
+    gallery:[{l:'Clinic entrance',bg:'#EAF3DE',fg:'#27500A'},{l:'First aid bay',bg:'#C0DD97',fg:'#27500A'},{l:'Pharmacy',bg:'#EAF3DE',fg:'#3B6D11'},{l:'Pier walkway',bg:'#C0DD97',fg:'#3B6D11'}],
+  },
+  {
+    id:27,cats:['HLT'],name:'SuriSecurity Solutions',tagline:'Licensed pier & excursion route security',
+    insured:true,accessible:false,verified:false,years:9,calls:'50+',maxPax:0,
+    langs:['English','Dutch'],
+    desc:'Licensed security services for pier areas, excursion routes and retail zones during ship calls. Uniformed officers with radio communications and vehicle support. Crowd management and emergency response trained. Ministry of Justice licensed.',
+    usps:['Ministry of Justice licensed — full compliance','Uniformed officers with radio communications','Crowd management certified for large passenger volumes','50+ cruise calls of pier security experience'],
+    contact:{mgr:'Clifton Pengel',title:'Operations Director',phone:'+597 434 7788',emergency:'+597 890 7788',whatsapp:'+597 890 7788',email:'ops@surisecurity.sr',web:'www.surisecurity.sr',address:'Gravenstraat 100, Paramaribo',social:'@surisecuritysr',kkf:'48901-A',est:'2015'},
+    cap:[['Ministry licence','Ministry of Justice'],['Officers available','Up to 20 per call'],['Radio network','Full coverage Paramaribo'],['Vehicle support','2 vehicles'],['Response time','15 minutes'],['Weekend ops','Yes — 24 hr']],
+    fleet:[['Uniformed officers','20 trained'],['Vehicles','2 patrol vehicles'],['Radios','Full network'],['Body cams','Available'],['Crowd control','Trained and certified'],['Emergency response','FAPEM trained']],
+    certs:[{t:'MoJ Security Licence',bg:'#E6F1FB',fg:'#0C447C'},{t:'Crowd management certified',bg:'#EAF3DE',fg:'#27500A'},{t:'First Aid — all officers',bg:'#EAF3DE',fg:'#27500A'},{t:'Liability: USD 2M',bg:'#FAEEDA',fg:'#633806'}],
+    accessibility:'Security services adapted as needed for mobility-limited passenger areas.',
+    commercial:{currency:'USD / SRD',payment:'Invoice within 14 days',commission:'N/A',cancellation:'48-hr notice',priceRange:'Per officer per shift — on application',discounts:'Retainer rates for regular callers'},
+    refs:[
+      {name:'Stanley Mijnals',company:'Port Agency Suriname',contact:'cruise@portagysuriname.sr',rel:'Preferred security contractor for all Port Agency Suriname cruise calls since 2018.'},
+    ],
+    gallery:[{l:'Officers on pier',bg:'#EAF3DE',fg:'#27500A'},{l:'Patrol vehicle',bg:'#C0DD97',fg:'#27500A'},{l:'Crowd management',bg:'#EAF3DE',fg:'#3B6D11'},{l:'Radio comms',bg:'#C0DD97',fg:'#3B6D11'}],
+  },
+  {
+    id:28,cats:['LOG'],name:'SuriFreight Logistics',tagline:'Freight forwarding & bonded warehousing',
+    insured:true,accessible:false,verified:false,years:14,calls:'20+',maxPax:0,
+    langs:['English','Dutch'],
+    desc:'Freight forwarding, customs clearance and bonded warehousing. Specialised in ship stores logistics, spare parts delivery and time-critical freight for vessel operations. IATA licensed. 1,200 sqm bonded warehouse.',
+    usps:['1,200 sqm bonded warehouse — duty-free storage','Ship spares time-critical express delivery','Customs pre-clearance service — paperwork handled','IATA licensed for air and sea freight'],
+    contact:{mgr:'Hans Tjon-Liong',title:'Managing Director',phone:'+597 435 5500',emergency:'',whatsapp:'+597 435 5500',email:'ops@surifreight.sr',web:'www.surifreight.sr',address:'Industrieweg 22, Paramaribo',social:'@surifreightsr',kkf:'36701-A',est:'2010'},
+    cap:[['Warehouse','1,200 sqm bonded'],['Customs','Pre-clearance available'],['Ship spares','Express delivery coordinated'],['IATA','Licensed agent'],['Min. lead time','24 hours standard'],['Weekend ops','Emergency only']],
+    fleet:[['Bonded warehouse','1,200 sqm'],['Customs team','3 licensed agents'],['Vehicles','2 delivery vans'],['Forklift','On site'],['Cold storage','Available'],['24-hr','Emergency only — surcharge applies']],
+    certs:[{t:'IATA licensed',bg:'#E6F1FB',fg:'#0C447C'},{t:'Customs agent registered',bg:'#E6F1FB',fg:'#0C447C'},{t:'Bonded warehouse licence',bg:'#E6F1FB',fg:'#0C447C'},{t:'Liability: USD 2M',bg:'#FAEEDA',fg:'#633806'}],
+    accessibility:'Warehouse access for freight collection — industrial site, not passenger-facing.',
+    commercial:{currency:'USD / SRD',payment:'Invoice within 14 days',commission:'N/A',cancellation:'24-hr notice',priceRange:'On application per shipment',discounts:'Annual account rates for regular ship operators'},
+    refs:[
+      {name:'Guno Telgt',company:'Trans-Atlantic Ship Agents',contact:'cruise@transatlantic-sr.com',rel:'Primary freight and spares logistics partner for Trans-Atlantic Ship Agents since 2012.'},
+    ],
+    gallery:[{l:'Bonded warehouse',bg:'#F1EFE8',fg:'#444441'},{l:'Customs desk',bg:'#D3D1C7',fg:'#444441'},{l:'Freight handling',bg:'#F1EFE8',fg:'#5F5E5A'},{l:'Delivery fleet',bg:'#D3D1C7',fg:'#5F5E5A'}],
+  },
+  {
+    id:29,cats:['LOG','FNB'],name:'Stichting Waterkant Events',tagline:'Pier-side welcome receptions & event management',
+    insured:true,accessible:true,verified:false,years:5,calls:'25+',maxPax:400,
+    langs:['English','Dutch'],
+    desc:'Event management for pier-side welcome receptions and group cruise experiences. Staging, sound, catering coordination, local cultural entertainment and performances. Full turnkey service from concept to clean-up. Up to 400 pax.',
+    usps:['Turnkey pier-side reception from concept to clean-up','Local cultural entertainment and performers arranged','Catering coordination for up to 400 pax','All staging and sound equipment owned — no sub-hire delay'],
+    contact:{mgr:'Yvonne Karam',title:'Events Director',phone:'+597 436 2211',emergency:'',whatsapp:'+597 436 2211',email:'events@waterkantevents.sr',web:'www.waterkantevents.sr',address:'Waterkant 70, Paramaribo',social:'@waterkantevents',kkf:'72301-B',est:'2019'},
+    cap:[['Max event size','400 pax'],['Pier-side events','Yes — permitted'],['Entertainment','Yes — full coordination'],['Lead time','72 hours minimum'],['Catering','Coordinated with partner'],['Sound & staging','Owned equipment']],
+    fleet:[['Event team','8'],['PA system','Professional outdoor'],['Stage','Modular — 6m × 4m'],['Lighting','LED indoor/outdoor'],['Tents','3 (50 pax each)'],['Generator','2 × 20kVA']],
+    certs:[{t:'Event licence',bg:'#E6F1FB',fg:'#0C447C'},{t:'Pier permit holder',bg:'#E6F1FB',fg:'#0C447C'},{t:'Liability: USD 2M',bg:'#FAEEDA',fg:'#633806'}],
+    accessibility:'All pier-side events designed on flat, accessible surfaces. Accessible seating provided on request.',
+    commercial:{currency:'USD / SRD',payment:'50% deposit; balance 48 hrs before event',commission:'N/A — event management fee',cancellation:'72-hr notice — 50% refund',priceRange:'From USD 12/pax for welcome reception; full events on application',discounts:'Repeat caller rates available'},
+    refs:[
+      {name:'Stanley Mijnals',company:'Port Agency Suriname',contact:'cruise@portagysuriname.sr',rel:'Go-to event coordinator for VIP cruise arrivals and port authority receptions. Excellent execution.'},
+    ],
+    gallery:[{l:'Pier reception',bg:'#F1EFE8',fg:'#444441'},{l:'Cultural performance',bg:'#D3D1C7',fg:'#444441'},{l:'Staging & sound',bg:'#F1EFE8',fg:'#5F5E5A'},{l:'Welcome buffet',bg:'#FAEEDA',fg:'#633806'}],
+  },
+  {
+    id:30,cats:['LOG','RET'],name:'Paramaribo Communications',tagline:'SIM cards, data plans & crew communications',
+    insured:false,accessible:true,verified:false,years:4,calls:'30+',maxPax:0,
+    langs:['English','Dutch'],
+    desc:'Local SIM cards, data packages and communication equipment for visiting crews and passengers. Bulk SIM activation for entire cruise ship crew on arrival. Device rental available. Near-pier location, 5-minute walk.',
+    usps:['Bulk SIM activation for entire crew on day of arrival','30-day data plans from USD 8 per card — best value','5-minute walk from pier — no transfer needed','Device rental for crew members without unlocked phones'],
+    contact:{mgr:'Kevin Essed',title:'Store Manager',phone:'+597 437 4433',emergency:'',whatsapp:'+597 437 4433',email:'info@paramaribocomms.sr',web:'www.paramaribocomms.sr',address:'Waterkantpassage 2, Paramaribo',social:'@paramaribocomms',kkf:'75001-B',est:'2020'},
+    cap:[['SIM cards','Bulk supply — unlimited'],['Activation','Same day on arrival'],['Data plans','From USD 8 / 30 days'],['Pier distance','5-minute walk'],['Hours','07:00–20:00 daily'],['Weekend','Yes']],
+    fleet:[['Store size','120 sqm'],['Staff','3'],['SIM stock','All networks'],['Device rental','Available'],['Wi-Fi testing','In-store'],['Bulk orders','Pre-order via email']],
+    certs:[{t:'Telecom licensed',bg:'#E6F1FB',fg:'#0C447C'},{t:'All networks stocked',bg:'#EAF3DE',fg:'#27500A'}],
+    accessibility:'Fully step-free store. Wide aisles.',
+    commercial:{currency:'USD / SRD',payment:'Cash or card per purchase',commission:'N/A — direct retail',cancellation:'N/A',priceRange:'SIM from SRD 5; data plans from USD 8',discounts:'Bulk orders for 50+ SIMs — contact for pricing'},
+    refs:[
+      {name:'Guno Telgt',company:'Trans-Atlantic Ship Agents',contact:'cruise@transatlantic-sr.com',rel:'Recommended communications supplier for visiting crews since 2021. Reliable and efficient.'},
+    ],
+    gallery:[{l:'Store front',bg:'#F1EFE8',fg:'#444441'},{l:'SIM activation',bg:'#D3D1C7',fg:'#444441'},{l:'Data packages',bg:'#F1EFE8',fg:'#5F5E5A'},{l:'Device rental',bg:'#D3D1C7',fg:'#5F5E5A'}],
+  },
+];
+
+function inits(name){return name.split(' ').slice(0,2).map(w=>w[0]).join('')}
+let currentCat=null;
+
+function show(id){
+  ['view-home','view-list','view-detail'].forEach(v=>{
+    document.getElementById(v).classList.toggle('hidden',v!==id);
+  });
+  window.scrollTo(0,0);
+}
+
+function updateBC(catName,coName){
+  document.getElementById('bc-sep1').classList.toggle('hidden',!catName);
+  document.getElementById('bc-cat').classList.toggle('hidden',!catName);
+  document.getElementById('bc-sep2').classList.toggle('hidden',!coName);
+  document.getElementById('bc-co').classList.toggle('hidden',!coName);
+  if(catName){
+    document.getElementById('bc-cat').textContent=catName;
+    document.getElementById('bc-cat').style.cursor=coName?'pointer':'default';
+    document.getElementById('bc-cat').onclick=coName?()=>goList(currentCat.id):null;
+  }
+  if(coName) document.getElementById('bc-co').textContent=coName;
+}
+
+function goHome(){currentCat=null;updateBC(null,null);show('view-home')}
+
+function goList(catId){
+  currentCat=CATS.find(c=>c.id===catId);
+  const cos=DATA.filter(c=>c.cats.includes(catId));
+  updateBC(currentCat.name,null);
+  document.getElementById('list-icon').style.background=currentCat.color;
+  document.getElementById('list-icon').style.color=currentCat.fg;
+  document.getElementById('list-icon').innerHTML=ICONS[currentCat.icon];
+  document.getElementById('list-title').textContent=currentCat.name;
+  document.getElementById('list-sub').textContent=cos.length+' provider'+(cos.length!==1?'s':'')+' · '+currentCat.sub;
+  document.getElementById('co-cards').innerHTML=cos.map(co=>{
+    const tags=[
+      co.insured?'<span class="tag tag-g">Insured</span>':'',
+      co.accessible?'<span class="tag tag-b">Accessible</span>':'',
+      co.verified?'<span class="tag tag-v">Cruise-verified</span>':'',
+    ].filter(Boolean).join('');
+    return`<div class="co-card" onclick="goDetail(${co.id})">
+      <div class="co-av" style="background:${currentCat.color};color:${currentCat.fg}">${inits(co.name)}</div>
+      <div class="co-body"><div class="co-name">${co.name}</div><div class="co-tagline">${co.tagline}</div></div>
+      <div class="co-right"><div class="tag-row">${tags}</div></div>
+      <div class="co-arr-r">›</div>
+    </div>`;
+  }).join('');
+  show('view-list');
+}
+
+function goDetail(coId){
+  const co=DATA.find(c=>c.id===coId);
+  const cat=CATS.find(c=>c.id===co.cats[0]);
+  updateBC(cat.name,co.name);
+
+  const badges=co.cats.map(cid=>{const c=CATS.find(x=>x.id===cid);return`<span class="d-badge">${c.name}</span>`;}).join('');
+  const certs=co.certs.map(c=>`<span class="t-tag" style="background:${c.bg};color:${c.fg}">${c.t}</span>`).join('');
+  const langs=co.langs.map(l=>`<span class="t-tag" style="background:var(--sky);color:var(--ocean)">${l}</span>`).join('');
+  const usps=co.usps.map(u=>`<div class="usp-row"><div class="usp-diamond"></div><span>${u}</span></div>`).join('');
+  const capRows=co.cap.map(([k,v])=>`<div class="kv-row"><div class="kv-k">${k}</div><div class="kv-v">${v}</div></div>`).join('');
+  const fleetRows=co.fleet.map(([k,v])=>`<div class="kv-row"><div class="kv-k">${k}</div><div class="kv-v">${v}</div></div>`).join('');
+
+  const stats=co.maxPax>0
+    ?`<div class="stat-strip"><div class="stat-box"><div class="stat-num">${co.maxPax}</div><div class="stat-lbl">max pax per call</div></div><div class="stat-box"><div class="stat-num">${co.years}yr</div><div class="stat-lbl">in operation</div></div><div class="stat-box"><div class="stat-num">${co.calls}</div><div class="stat-lbl">ship calls served</div></div></div>`
+    :`<div class="stat-strip"><div class="stat-box"><div class="stat-num">${co.years}yr</div><div class="stat-lbl">in operation</div></div><div class="stat-box"><div class="stat-num">${co.calls}</div><div class="stat-lbl">ship calls served</div></div><div class="stat-box"><div class="stat-num">${co.weekends?'Yes':'No'}</div><div class="stat-lbl">weekend operations</div></div></div>`;
+
+  const tours=co.tours?`<div class="d-sec"><div class="d-lbl">Sample tours</div><div class="tour-strip">${co.tours.map(t=>`<div class="tour-box" style="background:${t.bg};color:${t.fg}"><div class="tour-title">${t.t}</div><div class="tour-detail">${t.d}</div><div class="tour-price">${t.p}</div></div>`).join('')}</div></div>`:'';
+
+  const gallery=co.gallery?`<div class="d-sec"><div class="d-lbl">Gallery</div><div class="photo-strip">${co.gallery.map(g=>`<div class="photo-box" style="background:${g.bg};color:${g.fg}">${g.l}</div>`).join('')}</div></div>`:'';
+
+  const emLine=co.contact.emergency?`<div class="c-row"><div class="c-dot" style="background:#c0392b"></div><span class="c-label">24hr</span><span class="c-val red">${co.contact.emergency}</span></div>`:'';
+  const waLine=co.contact.whatsapp?`<div class="c-row"><div class="c-dot" style="background:#25D366"></div><span class="c-label">WhatsApp</span><span class="c-val">${co.contact.whatsapp}</span></div>`:'';
+
+  const refs=co.refs&&co.refs.length?`<div class="d-sec"><div class="d-lbl">Client references</div><table class="ref-table"><thead><tr><th>Name & company</th><th>Contact</th><th>Relationship</th></tr></thead><tbody>${co.refs.map(r=>`<tr><td><div class="ref-name">${r.name}</div><div class="ref-co">${r.company}</div></td><td class="ref-contact">${r.contact}</td><td>${r.rel}</td></tr>`).join('')}</tbody></table></div>`:'';
+
+  document.getElementById('detail-inner').innerHTML=`
+    <div class="detail-card">
+      <div class="detail-head">
+        <div class="detail-logo">${inits(co.name)}</div>
+        <div class="detail-hed">
+          <div class="detail-name">${co.name}</div>
+          <div class="detail-tagline">"${co.tagline}"</div>
+          <div class="detail-badges">${badges}</div>
+        </div>
+      </div>
+      <div class="gold-rule-thin"></div>
+
+      <div class="detail-body">
+
+        <!-- PAGE 1 CONTENT -->
+        <div class="p1-grid">
+          <div>
+            <div class="d-sec">
+              <div class="d-lbl">Contact</div>
+              <div class="contact-list">
+                <div class="c-row"><div class="c-dot" style="background:var(--navy)"></div><span class="c-label">Manager</span><span class="c-val"><strong>${co.contact.mgr}</strong> — ${co.contact.title}</span></div>
+                <div class="c-row"><div class="c-dot" style="background:var(--ocean)"></div><span class="c-label">Phone</span><span class="c-val">${co.contact.phone}</span></div>
+                ${emLine}${waLine}
+                <div class="c-row"><div class="c-dot" style="background:var(--ocean)"></div><span class="c-label">Email</span><span class="c-val link">${co.contact.email}</span></div>
+                <div class="c-row"><div class="c-dot" style="background:var(--ocean)"></div><span class="c-label">Web</span><span class="c-val link">${co.contact.web}</span></div>
+                ${co.contact.social?`<div class="c-row"><div class="c-dot" style="background:#E4417A"></div><span class="c-label">Social</span><span class="c-val">${co.contact.social}</span></div>`:''}
+              </div>
+              <div class="c-divider"></div>
+              <div class="c-small">${co.contact.address}<br>KKF: ${co.contact.kkf} &nbsp;·&nbsp; Est. ${co.contact.est}</div>
+            </div>
+            <div class="d-sec">
+              <div class="d-lbl">Languages of service</div>
+              <div class="tag-cloud">${langs}</div>
+            </div>
+          </div>
+          <div>
+            <div class="d-sec">
+              <div class="d-lbl">About</div>
+              <div class="d-text">${co.desc}</div>
+            </div>
+            <div class="d-sec">
+              <div class="d-lbl">Key selling points</div>
+              <div class="usp-list">${usps}</div>
+            </div>
+          </div>
+        </div>
+
+        ${stats}
+        ${tours}
+        ${gallery}
+
+        <!-- PAGE 2 DIVIDER -->
+        <div class="p2-divider">
+          <div class="p2-divider-title">${co.name} — operational detail</div>
+          <div class="p2-divider-sub">Capacity · Fleet · Certifications · Commercial terms · References</div>
+        </div>
+
+        <!-- PAGE 2 CONTENT -->
+        <div class="p2-grid">
+          <div class="d-sec">
+            <div class="d-lbl">Capacity & operations</div>
+            <div class="kv-list">${capRows}</div>
+          </div>
+          <div class="d-sec">
+            <div class="d-lbl">Fleet & equipment</div>
+            <div class="kv-list">${fleetRows}</div>
+          </div>
+        </div>
+
+        <div class="p2-grid">
+          <div>
+            <div class="d-sec">
+              <div class="d-lbl">Licences, certifications & insurance</div>
+              <div class="tag-cloud">${certs}</div>
+            </div>
+            <div class="d-sec" style="margin-top:20px">
+              <div class="d-lbl">Accessibility</div>
+              <div class="access-box">${co.accessibility}</div>
+            </div>
+          </div>
+          <div class="d-sec">
+            <div class="d-lbl">Commercial terms</div>
+            <div class="comm-grid">
+              <div class="comm-item"><div class="comm-k">Currency</div><div class="comm-v">${co.commercial.currency}</div></div>
+              <div class="comm-item"><div class="comm-k">Payment terms</div><div class="comm-v">${co.commercial.payment}</div></div>
+              <div class="comm-item"><div class="comm-k">Commission</div><div class="comm-v">${co.commercial.commission}</div></div>
+              <div class="comm-item"><div class="comm-k">Cancellation</div><div class="comm-v">${co.commercial.cancellation}</div></div>
+              <div class="comm-item"><div class="comm-k">Price range</div><div class="comm-v">${co.commercial.priceRange}</div></div>
+              <div class="comm-item"><div class="comm-k">Group discounts</div><div class="comm-v">${co.commercial.discounts}</div></div>
+            </div>
+          </div>
+        </div>
+
+        ${refs}
+
+        <div class="detail-footer-bar">
+          <div class="btn-back" onclick="goList('${co.cats[0]}')">← Back to ${cat.name}</div>
+          <div class="footer-ref">REF ${co.cats[0]}-${String(co.id).padStart(3,'0')} · surinamecruiseservices.sr</div>
+        </div>
+
+      </div>
+    </div>`;
+  show('view-detail');
+}
+
+function buildHome(){
+  const grid=document.getElementById('cat-grid');
+  CATS.forEach(cat=>{
+    const count=DATA.filter(c=>c.cats.includes(cat.id)).length;
+    const tile=document.createElement('div');
+    tile.className='cat-tile';
+    tile.onclick=()=>goList(cat.id);
+    tile.innerHTML=`<div class="cat-icon-wrap" style="background:${cat.color};color:${cat.fg}">${ICONS[cat.icon]}</div><div class="cat-name">${cat.name}</div><div class="cat-meta"><span class="cat-count">${count} provider${count!==1?'s':''}</span><div class="cat-arrow">›</div></div>`;
+    grid.appendChild(tile);
+  });
+}
+buildHome();
+</script>
+</body>
+</html>
