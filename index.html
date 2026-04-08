@@ -326,8 +326,146 @@ const SVC_STYLE={
   LOG:{bg:'#F1EFE8',fg:'#444441'},
 };
 
-// ── Provider data (fields map directly to form sections) ──────────
-const DATA=[
+// ── CSV loader ────────────────────────────────────────────────────
+let DATA=[];
+
+function parseCSV(text){
+  const rows=[];let i=0;const n=text.length;
+  function field(){
+    if(i>=n) return '';
+    if(text[i]==='"'){
+      i++;let v='';
+      while(i<n){
+        if(text[i]==='"'){ i++; if(i<n&&text[i]==='"'){v+='"';i++;}else break; }
+        else v+=text[i++];
+      }
+      return v;
+    }
+    let v='';
+    while(i<n&&text[i]!==','&&text[i]!=='\n'&&text[i]!=='\r') v+=text[i++];
+    return v;
+  }
+  let headers=null;
+  while(i<n){
+    const row=[];
+    while(true){
+      row.push(field());
+      if(i>=n||text[i]==='\n'||text[i]==='\r'){
+        if(i<n&&text[i]==='\r')i++;
+        if(i<n&&text[i]==='\n')i++;
+        break;
+      }
+      if(text[i]===',')i++;
+    }
+    if(!headers){ headers=row; }
+    else if(row.length>1||row[0]!==''){
+      const obj={};headers.forEach((h,j)=>obj[h]=row[j]||'');rows.push(obj);
+    }
+  }
+  return rows;
+}
+
+function splitList(s){ return s?s.split(/;\s*/).map(x=>x.trim()).filter(Boolean):[]; }
+function parseUSPs(s){
+  if(!s)return[];
+  return s.split('\n').map(l=>l.replace(/^\d+[\.\)]\s*/,'').trim()).filter(Boolean);
+}
+function numStr(s){ if(!s)return''; const n=parseFloat(s); return isNaN(n)?s:String(Math.round(n)); }
+
+function mapRows(rows,logosMap,excludeList){
+  return rows.map((r,idx)=>{
+    const kkf=(r['Chamber of Commerce registration number']||'').trim();
+    if(excludeList&&excludeList.includes(kkf))return null;
+    const logo=logosMap[kkf]||(r['Logo URL']&&r['Logo URL'].startsWith('http')?r['Logo URL']:'');
+    const catCols=[
+      {id:'MAR',cols:['A 1. Marine & Port Services','A. 2  Marine & Port Services']},
+      {id:'EXC',cols:['B. 1 Passenger Shore Services — Excursions &amp; Tours','B. 2 Passenger Shore Services — Excursions & Tours']},
+      {id:'TRN',cols:['C.  Ground Transportation']},
+      {id:'HFB',cols:['D.  Hospitality & F&B']},
+      {id:'RET',cols:['E.  Retail, Shopping & Craft']},
+      {id:'HLT',cols:['F.  Health, Safety & Specialist Services']},
+      {id:'LOG',cols:['G.  Freight, Logistics & Business']},
+    ];
+    const cats=[],services={};
+    catCols.forEach(({id,cols})=>{
+      const svcs=cols.flatMap(c=>splitList(r[c]||'')).filter(Boolean);
+      if(svcs.length){cats.push(id);services[id]=svcs;}
+    });
+    if(!cats.length)return null;
+    return{
+      id:idx+1,cats,logo,
+      name:r['Company name']||'',kkf,
+      address:r['City']||'',
+      website:(r['Website URL']||'').replace(/^https?:\/\//,''),
+      social_fb:'',social_ig:'',social_ta:'',social_other:'',
+      contact_name:'',contact_title:'',contact_phone:'',contact_email:'',contact_wa:'',
+      services,
+      desc:r['Concise Description']||'',
+      usps:parseUSPs(r['Selling Points']||''),
+      max_pax:numStr(r['Max passengers served per ship call']),
+      max_group:numStr(r['Max group size per booking']),
+      min_notice:'',duration:'',
+      fuel_types:r['Fuel types supplied']||'',
+      max_fuel:r['Max fuel delivery per call (MT)']||'',
+      delivery:r['Delivery method']||'',
+      freshwater:r['Freshwater supply capacity (MT/day)']||'',
+      chandler_lead:r['Provisions / Ship-chandler lead time']||'',
+      waste_reception:r['Waste reception capability']||'',
+      hours:r['Normal operating hours']||'',
+      early_late:r['Available for early/late ship arrivals?']||'',
+      weekends:r['Available on weekends / public holidays?']||'',
+      advance_booking:r['Advance booking required?']||'',
+      multi_ship:r['Can you accommodate multiple ships simultaneously?']||'',
+      fleet_desc:r['Describe your fleet or key equipment']||'',
+      ada_vehicle:r['Does any vehicle/vessel meet ADA/accessibility standards?']||'',
+      fleet_year:r['Year of most recent fleet addition or major refit']||'',
+      langs:splitList(r['Tick all languages in which your company can deliver services fluently (not just basic phrases):']),
+      staff_total:numStr(r['Number of Employees']),
+      staff_seasonal:numStr(r['Total seasonal / on-call staff available during cruise season']),
+      guides:numStr(r['Qualified guides / tour leaders']),
+      first_aid_staff:r['Staff with first aid / CPR certification?']||'',
+      stcw:r['Staff with maritime / STCW certifications?']||'',
+      lic_tour:r['Licensed tour operator?']||'',lic_transport:'',lic_other:'',
+      cert_iso:r['ISO certification?']||'',cert_haccp:'',
+      cert_env:r['Environmental / Green certification?']||'',
+      cert_travelife:r['Travelife / Rainforest Alliance / other?']||'',
+      cert_other:r['Any other quality standards?']||'',
+      ins_liability:r['Public / General Liability Insurance?']||'',
+      ins_amount:numStr(r['Coverage amount (USD equivalent)']),
+      ins_marine:'',ins_indemnity:'',
+      ins_workers:r["Workers' Compensation / Employer's Liability?"]||'',
+      safety_policy:r['Does your company have a written safety policy?']||'',
+      safety_audit:r['Date of last safety audit / inspection']||'',
+      safety_emergency:r['Emergency action plan in place?']||'',
+      safety_kits:r['First aid kits carried on tours / vessels?']||'',
+      safety_aed:r['AED (defibrillator) on site or on vessels?']||'',
+      access_wheelchair:r['Wheelchair-accessible vehicles / facilities?']||'',
+      access_toilets:r['Accessible toilets at your premises / stops?']||'',
+      access_vis_hear:r['Can you accommodate visually or hearing-impaired guests?']||'',
+      access_limits:r['Any specific accessibility limitations to note']||'',
+      comm_currency:r['Currency used for invoicing']||'',
+      comm_method:r['Preferred payment method(s)']||'',
+      comm_terms:r['Payment terms']||'',
+      comm_discounts:r['Do you offer cruise line / group discounts?']||'',
+      comm_commission:'',
+      comm_price:r['Indicative price range per person (shore excursions)']||'',
+      comm_bunker:r['Indicative bunkering price basis (marine services)']||'',
+      comm_cancel:r['Cancellation / no-show policy']||'',
+      exp_prior:r['Have you previously served cruise ships or passengers?']||'',
+      exp_calls:r['If yes, approximate number of ship calls served']||'',
+      exp_lines:'',
+      exp_seasons:r['Seasons / years active in cruise tourism']||'',
+      exp_refs:[],
+      exp_case:r['relevant case studies, testimonials']||'',
+      media_photos:r['Photo link (Google Drive, Dropbox etc.)']||'',
+      media_video:r['Video / virtual tour link (optional)']||'',
+      media_notes:r['Any specific listing preferences or notes']||'',
+    };
+  }).filter(Boolean);
+}
+
+// ── Legacy static data (no longer used — kept as fallback reference) ──
+const _DATA_STATIC=[
   {
     id:1, cats:['HFB'],
     logo:'Visuals/jacana.jpg',
@@ -495,7 +633,13 @@ const DATA=[
   },
 ];
 
-// ── Helpers ──────────────────────────────────────────────────────────
+// ── Helpers ─────────────────────────────────────────────────────────
+// Extra filter words that indicate test/dummy records in HubSpot
+const _NOISE_NAMES=['papi','kripa'];
+function isTestRecord(r){
+  const n=(r['Company name']||'').toLowerCase();
+  return _NOISE_NAMES.some(w=>n===w||n.startsWith(w+'.'));
+}
 function val(v){ return v && v.toString().trim() && v.toLowerCase()!=='to be confirmed'; }
 function row(k,v){ return val(v)?`<div class="kv-row"><div class="kv-k">${k}</div><div class="kv-v">${v}</div></div>`:''; }
 function comm(k,v){ return val(v)?`<div class="comm-item"><div class="comm-k">${k}</div><div class="comm-v">${v}</div></div>`:''; }
@@ -798,7 +942,26 @@ function buildHome(){
   });
   document.getElementById('total-count').textContent=DATA.length;
 }
-buildHome();
+async function loadCatalogue(){
+  try{
+    const [csvResp,logoResp]=await Promise.all([
+      fetch('data/latest.csv'),
+      fetch('data/logos.json'),
+    ]);
+    if(!csvResp.ok) throw new Error('CSV '+csvResp.status);
+    const csvText=await csvResp.text();
+    const logoJson=logoResp.ok?await logoResp.json():{logos:{},exclude:[]};
+    const logosMap=logoJson.logos||{};
+    const excludeList=logoJson.exclude||[];
+    const rawRows=parseCSV(csvText).filter(r=>!isTestRecord(r));
+    DATA=mapRows(rawRows,logosMap,excludeList);
+  }catch(e){
+    console.warn('CSV load failed, using static data:',e);
+    DATA=_DATA_STATIC;
+  }
+  buildHome();
+}
+loadCatalogue();
 </script>
 </body>
 </html>
