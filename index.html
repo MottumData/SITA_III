@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Suriname Cruise Services — Provider Catalogue · SITA</title>
 <meta name="description" content="Official catalogue of cruise service providers for Paramaribo, Suriname. Published by SITA — Suriname Investment & Trade Agency.">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --navy:#1A3A5C;--ocean:#2E6DA4;--sky:#D6E8F5;
-  --gold:#E8A020;--gold-lt:#FDF0D5;
+  --navy:#303695;--ocean:#2E6DA4;--sky:#D6E8F5;
+  --gold:#FFD100;--gold-lt:#FFF8CC;
   --teal-lt:#E1F5EE;--teal:#085041;
   --coral-lt:#FAECE7;--coral:#712B13;
   --plum-lt:#EEEDFE;--plum:#3C3489;
@@ -20,20 +20,21 @@
   --ink:#1A1A1A;--muted:#6B6860;--border:#E8E4DA;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'DM Sans',sans-serif;background:var(--sand);color:var(--ink);min-height:100vh}
+body{font-family:'Roboto',sans-serif;background:var(--sand);color:var(--ink);min-height:100vh}
 
 /* ── masthead ── */
 .masthead{background:var(--navy);position:relative;overflow:hidden}
 .masthead-pattern{position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent,transparent 24px,rgba(255,255,255,.025) 24px,rgba(255,255,255,.025) 25px)}
 .masthead-inner{position:relative;max-width:1100px;margin:0 auto;padding:32px 32px 36px;display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap}
 .masthead-left{display:flex;flex-direction:column;gap:14px}
-.sita-logo{height:42px;width:auto;display:block}
-.masthead-title{font-family:'Playfair Display',serif;font-size:36px;font-weight:400;color:#fff;line-height:1.15}
+.sita-logo-wrap{display:inline-flex;align-items:center;background:var(--cream);border-radius:8px;padding:8px 14px;border:1px solid rgba(255,255,255,.12)}
+.sita-logo{height:38px;width:auto;display:block}
+.masthead-title{font-family:'Roboto',sans-serif;font-size:36px;font-weight:400;color:#fff;line-height:1.15}
 .masthead-title em{font-style:italic;color:#A8C8E8}
 .masthead-sub{font-size:13px;color:#8AACCA;font-weight:300;line-height:1.6;max-width:520px}
 .masthead-right{text-align:right;flex-shrink:0}
 .masthead-stat{color:rgba(255,255,255,.45);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:4px}
-.masthead-count{font-family:'Playfair Display',serif;font-size:48px;color:var(--gold);line-height:1;margin-bottom:2px}
+.masthead-count{font-family:'Roboto',sans-serif;font-size:48px;color:var(--gold);line-height:1;margin-bottom:2px}
 .masthead-count-label{font-size:12px;color:#8AACCA}
 
 /* ── SITA contact bar ── */
@@ -56,7 +57,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--sand);color:var(--ink);mi
 #view-home{padding-top:32px}
 .home-intro{font-size:14px;color:var(--muted);margin-bottom:24px;padding-bottom:20px;border-bottom:1px solid var(--border);line-height:1.7}
 .home-intro a{color:var(--ocean)}
-.notice-bar{background:var(--gold-lt);border:1px solid #f0c875;border-radius:8px;padding:11px 16px;font-size:12px;color:#5a3e05;margin-bottom:24px;display:flex;align-items:center;gap:10px;line-height:1.5}
+.notice-bar{background:var(--gold-lt);border:1px solid #FFD100;border-radius:8px;padding:11px 16px;font-size:12px;color:#2a2900;margin-bottom:24px;display:flex;align-items:center;gap:10px;line-height:1.5}
 .notice-bar a{color:var(--ocean)}
 .cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
 @media(max-width:900px){.cat-grid{grid-template-columns:repeat(3,1fr)}}
@@ -68,7 +69,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--sand);color:var(--ink);mi
 .cat-icon-wrap{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center}
 .cat-icon-wrap svg{width:20px;height:20px}
 .cat-label{font-size:10px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
-.cat-name{font-family:'Playfair Display',serif;font-size:15px;font-weight:400;color:var(--navy);line-height:1.3}
+.cat-name{font-family:'Roboto',sans-serif;font-size:15px;font-weight:400;color:var(--navy);line-height:1.3}
 .cat-meta{display:flex;align-items:center;justify-content:space-between;margin-top:auto}
 .cat-count{font-size:12px;color:var(--muted)}
 .cat-arrow{width:20px;height:20px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--muted);transition:background .12s,border-color .12s}
@@ -79,14 +80,15 @@ body{font-family:'DM Sans',sans-serif;background:var(--sand);color:var(--ink);mi
 .list-header{display:flex;align-items:center;gap:16px;padding-bottom:22px;border-bottom:1px solid var(--border);margin-bottom:22px}
 .list-icon{width:50px;height:50px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .list-icon svg{width:22px;height:22px}
-.list-title{font-family:'Playfair Display',serif;font-size:24px;font-weight:400;color:var(--navy)}
+.list-title{font-family:'Roboto',sans-serif;font-size:24px;font-weight:400;color:var(--navy)}
 .list-sub{font-size:13px;color:var(--muted);margin-top:3px}
 .co-cards{display:flex;flex-direction:column;gap:10px}
 .co-card{background:var(--cream);border:1px solid var(--border);border-radius:12px;padding:18px 22px;cursor:pointer;display:flex;align-items:center;gap:18px;transition:border-color .12s,transform .12s}
 .co-card:hover{border-color:var(--ocean);transform:translateX(3px)}
-.co-av{width:46px;height:46px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;font-family:'Playfair Display',serif}
+.co-av{width:46px;height:46px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;font-family:'Roboto',sans-serif;overflow:hidden}
+.co-av img{width:100%;height:100%;object-fit:contain;padding:4px}
 .co-body{flex:1;min-width:0}
-.co-name{font-family:'Playfair Display',serif;font-size:16px;font-weight:400;color:var(--navy);margin-bottom:3px}
+.co-name{font-family:'Roboto',sans-serif;font-size:16px;font-weight:400;color:var(--navy);margin-bottom:3px}
 .co-sub{font-size:12px;color:var(--muted);line-height:1.5}
 .co-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0}
 .tag-row{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}
@@ -98,38 +100,43 @@ body{font-family:'DM Sans',sans-serif;background:var(--sand);color:var(--ink);mi
 
 /* ── empty state ── */
 .empty-state{text-align:center;padding:56px 32px;background:var(--cream);border:1px solid var(--border);border-radius:12px}
-.empty-title{font-family:'Playfair Display',serif;font-size:18px;color:var(--navy);margin-bottom:8px}
+.empty-title{font-family:'Roboto',sans-serif;font-size:18px;color:var(--navy);margin-bottom:8px}
 .empty-sub{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:18px}
 .btn-reg{display:inline-block;padding:9px 20px;background:var(--navy);color:#fff;border-radius:7px;font-size:13px;font-weight:500;text-decoration:none;transition:opacity .15s}
 .btn-reg:hover{opacity:.85}
 
 /* ── detail ── */
 #view-detail{padding-top:8px}
-.d-card{background:var(--cream);border:1px solid var(--border);border-radius:16px;overflow:hidden}
-.d-head{background:var(--navy);padding:28px 32px 24px;display:flex;gap:18px;align-items:flex-start;position:relative;overflow:hidden}
-.d-head::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent,transparent 24px,rgba(255,255,255,.02) 24px,rgba(255,255,255,.02) 25px)}
-.d-av{width:60px;height:60px;border-radius:12px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:18px;color:#fff;flex-shrink:0;position:relative;z-index:1}
-.d-hd{flex:1;position:relative;z-index:1}
-.d-name{font-family:'Playfair Display',serif;font-size:26px;font-weight:400;color:#fff;margin-bottom:5px;line-height:1.2}
-.d-badges{display:flex;gap:5px;flex-wrap:wrap}
-.d-badge{background:rgba(232,160,32,.2);color:var(--gold);font-size:10px;font-weight:500;padding:2px 9px;border-radius:4px;letter-spacing:.3px}
-.gold-rule-thin{height:2px;background:var(--gold)}
-.d-body{padding:24px 32px 0}
 
-/* section block */
-.d-section{margin-bottom:28px}
-.d-sec-title{font-size:10px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--ocean);margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--sky)}
-.d-grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-@media(max-width:680px){.d-grid2{grid-template-columns:1fr}}
-.d-grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:8px}
-@media(max-width:680px){.d-grid3{grid-template-columns:1fr 1fr}}
+/* hero */
+.d-hero{background:var(--sand);border-bottom:1px solid var(--border);padding:28px 0 24px;margin:0 -32px 0;padding-left:32px;padding-right:32px}
+.d-hero-eyebrow{font-size:10px;font-weight:500;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.d-name{font-family:'Roboto',sans-serif;font-style:italic;font-size:36px;font-weight:400;color:var(--navy);line-height:1.15;margin-bottom:8px}
+.d-badges{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.d-badge{font-size:10px;font-weight:500;padding:3px 10px;border-radius:4px;letter-spacing:.3px}
+.d-gold-rule{height:3px;width:52px;background:var(--gold);margin:10px 0 18px}
+.d-stat-row{display:flex;gap:12px;flex-wrap:wrap}
+.d-stat-card{background:var(--cream);border:1px solid var(--border);border-radius:10px;padding:11px 16px;min-width:120px}
+.d-stat-card .sk{font-size:10px;color:var(--muted);font-weight:500;letter-spacing:.08em;text-transform:uppercase;margin-bottom:3px}
+.d-stat-card .sv{font-size:13px;font-weight:500;color:var(--navy);line-height:1.4;word-break:break-word}
+
+/* two-column detail layout */
+.d-layout{display:grid;grid-template-columns:1fr 288px;gap:20px;align-items:start;padding-top:20px}
+@media(max-width:800px){.d-layout{grid-template-columns:1fr}}
+
+/* card stack (left) */
+.d-card-stack{display:flex;flex-direction:column;gap:10px}
+.d-info-card{background:var(--cream);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.d-info-card-header{padding:13px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.d-info-card-header h3{font-size:11px;font-weight:500;letter-spacing:1.2px;text-transform:uppercase;color:var(--navy)}
+.d-info-card-body{padding:18px 20px}
 
 /* kv list */
 .kv{display:flex;flex-direction:column}
-.kv-row{display:flex;padding:7px 0;border-bottom:1px solid var(--border);font-size:13px;gap:12px}
-.kv-row:last-child{border-bottom:none}
-.kv-k{color:var(--muted);flex:0 0 48%;font-size:12px}
-.kv-v{font-weight:500;color:var(--navy)}
+.kv-row{display:flex;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px;gap:12px}
+.kv-row:last-child{border-bottom:none;padding-bottom:0}
+.kv-k{color:var(--muted);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.06em;padding-top:1px;flex:0 0 44%;max-width:44%}
+.kv-v{color:var(--ink);flex:1;word-break:break-word;line-height:1.5}
 
 /* description */
 .d-text{font-size:14px;line-height:1.75;color:var(--ink)}
@@ -143,21 +150,15 @@ body{font-family:'DM Sans',sans-serif;background:var(--sand);color:var(--ink);mi
 .tag-cloud{display:flex;flex-wrap:wrap;gap:5px}
 .t-tag{padding:4px 9px;border-radius:4px;font-size:12px;font-weight:500;line-height:1.3}
 
-/* stat strip */
-.stat-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;border-radius:10px;overflow:hidden;border:1px solid var(--border);margin-bottom:22px}
-.stat-box{background:var(--sand);padding:16px 12px;text-align:center}
-.stat-num{font-family:'Playfair Display',serif;font-size:26px;color:var(--navy);line-height:1;margin-bottom:3px}
-.stat-lbl{font-size:11px;color:var(--muted)}
+/* cert rows */
+.cert-rows{display:flex;flex-direction:column;gap:8px}
+.cert-item{display:flex;align-items:center;gap:10px;font-size:13px}
+.cert-ico{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0}
+.cert-ico-yes{background:#1D9E7520;color:#1D9E75}
+.cert-ico-no{background:#D85A3020;color:#D85A30}
 
-/* commercial grid */
-.comm-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-@media(max-width:500px){.comm-grid{grid-template-columns:1fr}}
-.comm-item{background:var(--sand);border-radius:8px;padding:10px 12px}
-.comm-k{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px}
-.comm-v{font-size:13px;font-weight:500;color:var(--navy)}
-
-/* access box */
-.access-box{background:var(--sky);border-radius:8px;padding:12px 16px;font-size:13px;line-height:1.6;color:var(--navy)}
+/* access note */
+.access-box{background:var(--sky);border-radius:8px;padding:10px 14px;font-size:13px;line-height:1.6;color:var(--navy);margin-top:10px}
 
 /* refs table */
 .ref-table{width:100%;border-collapse:collapse;font-size:13px}
@@ -168,8 +169,25 @@ body{font-family:'DM Sans',sans-serif;background:var(--sand);color:var(--ink);mi
 .ref-name{font-weight:500;color:var(--navy);margin-bottom:1px}
 .ref-co{font-size:11px;color:var(--muted)}
 
+/* sidebar contact card */
+.d-contact-sidebar{position:sticky;top:20px}
+.d-contact-card{background:var(--navy);border-radius:12px;overflow:hidden}
+.d-contact-top{height:5px;background:var(--gold)}
+.d-contact-body{padding:22px}
+.d-contact-card h3{font-family:'Roboto',sans-serif;color:var(--cream);font-size:18px;margin-bottom:3px;line-height:1.3}
+.d-sita-badge{display:inline-flex;align-items:center;gap:4px;font-size:10px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px}
+.d-sita-badge::before{content:'✓';font-size:12px}
+.dc-divider{height:1px;background:var(--gold);opacity:.2;margin:14px 0}
+.dc-row{margin-bottom:10px}
+.dc-k{font-size:10px;color:#D6E8F5;opacity:.6;letter-spacing:.08em;text-transform:uppercase;margin-bottom:2px}
+.dc-v{font-size:13px;color:var(--cream)}
+.dc-v a{color:var(--gold);text-decoration:none}
+.dc-v a:hover{text-decoration:underline}
+.dc-media-btn{margin-top:16px;background:var(--gold);color:var(--navy);font-size:12px;font-weight:500;padding:9px 14px;border-radius:6px;display:flex;align-items:center;justify-content:center;gap:6px;text-decoration:none;cursor:pointer}
+.dc-media-btn:hover{opacity:.88}
+
 /* footer bar */
-.d-footer{margin:0 -32px;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;background:var(--sand);border-top:1px solid var(--border);margin-top:24px}
+.d-footer{padding:14px 0;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);margin-top:24px}
 .btn-back{font-size:12px;font-weight:500;color:var(--ocean);cursor:pointer;display:flex;align-items:center;gap:6px;padding:5px 12px;border:1px solid var(--sky);border-radius:6px;background:#fff;transition:background .1s}
 .btn-back:hover{background:var(--sky)}
 .footer-ref{font-size:11px;color:var(--muted)}
@@ -186,9 +204,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--sand);color:var(--ink);mi
   .masthead-title{font-size:26px}
   .masthead-count{font-size:36px}
   .shell{padding:0 16px 40px}
-  .d-body{padding:20px 16px 0}
-  .d-head{padding:20px 16px 18px}
-  .d-footer{margin:0 -16px;padding:14px 16px}
+  .d-hero{padding-left:16px;padding-right:16px}
+  .d-name{font-size:26px}
   .sita-bar-inner{padding:8px 16px;flex-wrap:wrap;gap:12px}
 }
 </style>
@@ -199,7 +216,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--sand);color:var(--ink);mi
   <div class="masthead-pattern"></div>
   <div class="masthead-inner">
     <div class="masthead-left">
-      <img src="Visuals/sita-logo.png" alt="SITA — Suriname Investment &amp; Trade Agency" class="sita-logo">
+      <div class="sita-logo-wrap"><img src="Visuals/sita-logo.png" alt="SITA — Suriname Investment &amp; Trade Agency" class="sita-logo"></div>
       <div class="masthead-title">Cruise Services<br><em>Provider Catalogue</em></div>
       <div class="masthead-sub">Official directory of service providers for cruise ships and passengers visiting Paramaribo, Suriname.</div>
     </div>
@@ -313,6 +330,7 @@ const SVC_STYLE={
 const DATA=[
   {
     id:1, cats:['HFB'],
+    logo:'Visuals/jacana.jpg',
     // Section 1
     name:'Jacana Amazon Wellness Resort',
     kkf:'46715', address:'', website:'www.jacanaresort.com',
@@ -354,6 +372,7 @@ const DATA=[
   },
   {
     id:2, cats:['HFB'],
+    logo:'Visuals/amatopo.png',
     name:'Amatopo', kkf:'78667', address:'Sipaliwini District (accessible by charter aircraft)',
     website:'www.amatopo.com',
     social_fb:'', social_ig:'', social_ta:'', social_other:'',
@@ -384,6 +403,7 @@ const DATA=[
   },
   {
     id:3, cats:['HFB','HLT'],
+    logo:'Visuals/torarica.png',
     name:'Torarica Group', kkf:'66260', address:'Kleine Waterstraat 1, Paramaribo (5 min from cruise port)',
     website:'www.torarica.com',
     social_fb:'', social_ig:'', social_ta:'', social_other:'',
@@ -526,7 +546,7 @@ function goList(catId){
         (co.access_wheelchair&&co.access_wheelchair.toLowerCase()!=='no'&&co.access_wheelchair!=='')?'<span class="badge badge-b">Accessible</span>':'',
       ].filter(Boolean).join('');
       return`<div class="co-card" onclick="goDetail(${co.id})">
-        <div class="co-av" style="background:${currentCat.color};color:${currentCat.fg}">${inits(co.name)}</div>
+        <div class="co-av" style="background:${currentCat.color};color:${currentCat.fg}">${co.logo?`<img src="${co.logo}" alt="${co.name}">`:inits(co.name)}</div>
         <div class="co-body">
           <div class="co-name">${co.name}</div>
           ${svcList?`<div class="co-sub">${svcList}</div>`:''}
@@ -544,13 +564,25 @@ function goDetail(coId){
   const cat=CATS.find(c=>c.id===co.cats[0]);
   updateBC(cat.name,co.name);
 
-  // Cat badges
+  // Category badges
   const catBadges=co.cats.map(id=>{
     const c=CATS.find(x=>x.id===id);
-    return`<span class="d-badge">${c.label}. ${c.name}</span>`;
+    return`<span class="d-badge" style="background:${c.color};color:${c.fg}">${c.label} &mdash; ${c.name}</span>`;
   }).join('');
 
-  // Services section
+  // Hero stat cards — only render cards with data
+  const heroStats=[
+    co.max_pax?{k:'Max pax',v:co.max_pax}:null,
+    co.max_group&&!co.max_pax?{k:'Max group',v:co.max_group}:null,
+    co.staff_total?{k:'Staff',v:co.staff_total}:null,
+    co.langs.length?{k:'Languages',v:co.langs.join(' · ')}:null,
+    co.comm_currency?{k:'Currencies',v:co.comm_currency}:null,
+    val(co.multi_ship)?{k:'Multi-ship',v:co.multi_ship}:null,
+  ].filter(Boolean).slice(0,5);
+  const statCardsHtml=heroStats.length
+    ?`<div class="d-stat-row">${heroStats.map(s=>`<div class="d-stat-card"><div class="sk">${s.k}</div><div class="sv">${s.v}</div></div>`).join('')}</div>`:'';
+
+  // Services
   const svcHtml=Object.entries(co.services).map(([catId,items])=>{
     if(!items||!items.length) return '';
     const c=CATS.find(x=>x.id===catId);
@@ -560,48 +592,22 @@ function goDetail(coId){
   }).join('');
 
   // USPs
-  const uspsHtml=co.usps.length
+  const uspsHtml=co.usps&&co.usps.length
     ?`<div class="usp-list">${co.usps.map(u=>`<div class="usp-row"><div class="usp-diamond"></div><span>${u}</span></div>`).join('')}</div>`:'';
 
-  // Languages
-  const langsHtml=co.langs.map(l=>`<span class="t-tag" style="background:var(--sky);color:var(--ocean)">${l}</span>`).join('');
-
-  // Stat strip (only if we have numbers)
-  const hasStat=co.max_pax||co.staff_total||co.langs.length;
-  const statsHtml=hasStat?`<div class="stat-strip">
-    ${co.max_pax?`<div class="stat-box"><div class="stat-num">${co.max_pax}</div><div class="stat-lbl">max pax / booking</div></div>`:''}
-    ${co.staff_total?`<div class="stat-box"><div class="stat-num">${co.staff_total}</div><div class="stat-lbl">staff</div></div>`:''}
-    ${co.langs.length?`<div class="stat-box"><div class="stat-num">${co.langs.length}</div><div class="stat-lbl">service languages</div></div>`:''}
-  </div>`:'';
-
-  // Section 1 — Contact
-  const webLine=co.website?`<div class="kv-row"><div class="kv-k">Website</div><div class="kv-v"><a href="https://${co.website}" target="_blank" style="color:var(--ocean)">${co.website}</a></div></div>`:'';
-  const contactBlock=[
-    row('KKF / Chamber of Commerce',co.kkf),
-    row('Address',co.address),
-    webLine,
-    row('Contact person',co.contact_name&&co.contact_name.trim()?co.contact_name+(co.contact_title?', '+co.contact_title:''):''),
-    row('Phone',co.contact_phone),
-    row('Email',co.contact_email),
-    row('WhatsApp',co.contact_wa),
-    row('Facebook',co.social_fb),
-    row('Instagram',co.social_ig),
-    row('TripAdvisor / Google',co.social_ta),
-    row('Other social',co.social_other),
-  ].join('');
-
-  // Section 4 — Capacity
+  // Capacity block
   const capBlock=[
+    row('Operating hours',co.hours),
     row('Max pax per ship call',co.max_pax),
     row('Max group size per booking',co.max_group),
     row('Minimum notice required',co.min_notice),
     row('Service / tour duration',co.duration),
-    row('Operating hours',co.hours),
     row('Early / late arrivals',co.early_late),
     row('Weekends & public holidays',co.weekends),
     row('Advance booking',co.advance_booking),
     row('Multiple ships simultaneously',co.multi_ship),
   ].join('');
+
   const marineBlock=[
     row('Fuel types supplied',co.fuel_types),
     row('Max fuel delivery per call',co.max_fuel),
@@ -610,14 +616,16 @@ function goDetail(coId){
     row('Chandler lead time',co.chandler_lead),
     row('Waste reception (MARPOL)',co.waste_reception),
   ].join('');
+
   const fleetBlock=[
     row('Fleet / key equipment',co.fleet_desc),
     row('ADA / accessible vehicles',co.ada_vehicle),
     row('Most recent fleet addition',co.fleet_year),
   ].join('');
 
-  // Section 5 — Staff
+  // Staff block
   const staffBlock=[
+    row('Languages of service',co.langs.join(', ')),
     row('Total full-time staff',co.staff_total),
     row('Seasonal / on-call (cruise season)',co.staff_seasonal),
     row('Qualified guides / tour leaders',co.guides),
@@ -625,52 +633,61 @@ function goDetail(coId){
     row('STCW certified staff',co.stcw),
   ].join('');
 
-  // Section 6 — Licences
+  // Cert rows helper — yes/no display with circle icon
+  function certRow(label,v){
+    if(!val(v)) return '';
+    const isYes=v.toLowerCase()==='yes';
+    const isNo=v.toLowerCase()==='no';
+    if(!isYes&&!isNo) return`<div class="cert-item"><span class="cert-ico" style="background:#E8E4DA;color:#6B6860;font-size:9px">–</span>${label}: ${v}</div>`;
+    const cls=isYes?'cert-ico-yes':'cert-ico-no';
+    const sym=isYes?'✓':'✗';
+    return`<div class="cert-item"><span class="cert-ico ${cls}">${sym}</span>${label}</div>`;
+  }
+
+  // Safety + certs
+  const safetyHtml=[
+    certRow('Liability insurance',co.ins_liability),
+    certRow('Written safety policy',co.safety_policy),
+    certRow('Emergency action plan',co.safety_emergency),
+    certRow('First aid kits on site',co.safety_kits),
+    certRow('AED (defibrillator)',co.safety_aed),
+    certRow('ISO certification',co.cert_iso),
+    certRow('HACCP (food safety)',co.cert_haccp),
+    certRow('Environmental / green certification',co.cert_env?co.cert_env:''),
+    certRow('Travelife / Rainforest Alliance',co.cert_travelife),
+    certRow('Wheelchair accessible',co.access_wheelchair),
+    certRow('Accessible toilets',co.access_toilets),
+    certRow('Visually / hearing-impaired guests',co.access_vis_hear),
+  ].join('');
+  const safetyExtra=[
+    val(co.safety_audit)?`<div style="margin-top:10px;font-size:12px;color:var(--muted);padding-top:10px;border-top:1px solid var(--border)">Last safety audit: ${co.safety_audit}</div>`:'',
+    val(co.access_limits)?`<div class="access-box">${co.access_limits}</div>`:'',
+    val(co.ins_amount)?`<div style="margin-top:8px;font-size:12px;color:var(--muted)">Liability coverage: ${co.ins_amount}</div>`:'',
+  ].join('');
+
+  // Licences block (show only if has data)
   const licBlock=[
     row('Licensed tour operator',co.lic_tour),
     row('Licensed transport operator',co.lic_transport),
     row('Other operating licences',co.lic_other),
-    row('ISO certification',co.cert_iso),
-    row('HACCP (food safety)',co.cert_haccp),
-    row('Environmental / green certification',co.cert_env),
-    row('Travelife / Rainforest Alliance',co.cert_travelife),
     row('Other quality standards',co.cert_other),
-    row('Public / general liability',co.ins_liability),
-    row('Liability coverage (USD)',co.ins_amount),
     row('Marine / vessel insurance',co.ins_marine),
     row('Professional indemnity',co.ins_indemnity),
     row('Workers\' compensation',co.ins_workers),
   ].join('');
 
-  // Section 7 — Safety
-  const safetyBlock=[
-    row('Written safety policy',co.safety_policy),
-    row('Last safety audit',co.safety_audit),
-    row('Emergency action plan',co.safety_emergency),
-    row('First aid kits on tours / vessels',co.safety_kits),
-    row('AED (defibrillator)',co.safety_aed),
-  ].join('');
-  // Accessibility
-  const a11yRows=[
-    row('Wheelchair-accessible vehicles / facilities',co.access_wheelchair),
-    row('Accessible toilets',co.access_toilets),
-    row('Visually / hearing-impaired guests',co.access_vis_hear),
-  ].join('');
-  const a11yBox=val(co.access_limits)
-    ?`<div class="access-box" style="margin-top:10px">${co.access_limits}</div>`:'';
-
-  // Section 8 — Commercial
+  // Commercial
   const commBlock=[
-    comm('Currency',co.comm_currency),
-    comm('Payment method',co.comm_method),
-    comm('Payment terms',co.comm_terms),
-    comm('Group discounts',co.comm_discounts),
-    comm('Commission to cruise line',co.comm_commission),
-    comm('Indicative price per person',co.comm_price),
-    comm('Cancellation policy',co.comm_cancel),
+    row('Accepted currencies',co.comm_currency),
+    row('Payment methods',co.comm_method),
+    row('Payment terms',co.comm_terms),
+    row('Group discounts',co.comm_discounts),
+    row('Commission to cruise line',co.comm_commission),
+    row('Indicative price per person',co.comm_price),
+    row('Cancellation policy',co.comm_cancel),
   ].join('');
 
-  // Section 9 — Experience
+  // Experience
   const expBlock=[
     row('Prior cruise experience',co.exp_prior),
     row('Approximate ship calls served',co.exp_calls),
@@ -678,82 +695,84 @@ function goDetail(coId){
     row('Seasons / years active',co.exp_seasons),
   ].join('');
   const refsHtml=co.exp_refs&&co.exp_refs.length
-    ?`<table class="ref-table"><thead><tr><th>Name & Company</th><th>Contact</th><th>Relationship</th></tr></thead><tbody>
+    ?`<table class="ref-table" style="margin-top:12px"><thead><tr><th>Name & Company</th><th>Contact</th><th>Relationship</th></tr></thead><tbody>
       ${co.exp_refs.map(r=>`<tr><td><div class="ref-name">${r.name}</div><div class="ref-co">${r.company}</div></td><td>${r.contact}</td><td>${r.rel}</td></tr>`).join('')}
       </tbody></table>`:'';
   const caseHtml=val(co.exp_case)?`<div style="font-size:13px;line-height:1.6;color:var(--ink);margin-top:10px">${co.exp_case}</div>`:'';
 
-  // Section 10 — Media
-  const mediaBlock=[
-    co.media_photos?`<div class="kv-row"><div class="kv-k">Photo gallery</div><div class="kv-v"><a href="${co.media_photos}" target="_blank" style="color:var(--ocean)">View photos →</a></div></div>`:'',
-    co.media_video?`<div class="kv-row"><div class="kv-k">Video / virtual tour</div><div class="kv-v"><a href="${co.media_video}" target="_blank" style="color:var(--ocean)">Watch →</a></div></div>`:'',
-    row('Listing notes',co.media_notes),
-  ].join('');
+  // Card builder helper
+  function infoCard(title, bodyHtml){
+    if(!bodyHtml.trim()) return '';
+    return`<div class="d-info-card">
+      <div class="d-info-card-header"><h3>${title}</h3></div>
+      <div class="d-info-card-body">${bodyHtml}</div>
+    </div>`;
+  }
+  function kvCard(title, content){
+    return infoCard(title, content.trim()?`<div class="kv">${content}</div>`:'');
+  }
 
-  // Build page — only render sections that have content
-  function section(title, content){
-    return content.trim()?`<div class="d-section"><div class="d-sec-title">${title}</div>${content}</div>`:'';
-  }
-  function kvSection(title, content){
-    return content.trim()?`<div class="d-section"><div class="d-sec-title">${title}</div><div class="kv">${content}</div></div>`:'';
-  }
+  // Sidebar contact data
+  const sidWebsite=co.website?`<div class="dc-row"><div class="dc-k">Website</div><div class="dc-v"><a href="https://${co.website}" target="_blank">${co.website}</a></div></div>`:'';
+  const sidAddress=val(co.address)?`<div class="dc-row"><div class="dc-k">Address</div><div class="dc-v">${co.address}</div></div>`:'';
+  const sidKkf=val(co.kkf)?`<div class="dc-row"><div class="dc-k">KKF</div><div class="dc-v">${co.kkf}</div></div>`:'';
+  const sidContact=[
+    val(co.contact_name)?`<div class="dc-row"><div class="dc-k">Contact</div><div class="dc-v">${co.contact_name}${co.contact_title?', '+co.contact_title:''}</div></div>`:'',
+    val(co.contact_phone)?`<div class="dc-row"><div class="dc-k">Phone</div><div class="dc-v">${co.contact_phone}</div></div>`:'',
+    val(co.contact_email)?`<div class="dc-row"><div class="dc-k">Email</div><div class="dc-v"><a href="mailto:${co.contact_email}">${co.contact_email}</a></div></div>`:'',
+    val(co.contact_wa)?`<div class="dc-row"><div class="dc-k">WhatsApp</div><div class="dc-v">${co.contact_wa}</div></div>`:'',
+  ].join('');
+  const sidHours=val(co.hours)?`<div class="dc-row"><div class="dc-k">Hours</div><div class="dc-v">${co.hours}</div></div>`:'';
+  const sidBooking=val(co.advance_booking)?`<div class="dc-row"><div class="dc-k">Advance booking</div><div class="dc-v">${co.advance_booking}</div></div>`:'';
+  const sidCurrency=val(co.comm_currency)?`<div class="dc-row"><div class="dc-k">Currencies</div><div class="dc-v">${co.comm_currency}</div></div>`:'';
+  const sidMedia=co.media_photos
+    ?`<a class="dc-media-btn" href="${co.media_photos}" target="_blank">↗ View Photo Gallery</a>`:'';
 
   document.getElementById('detail-inner').innerHTML=`
-  <div class="d-card">
-    <div class="d-head">
-      <div class="d-av">${inits(co.name)}</div>
-      <div class="d-hd">
-        <div class="d-name">${co.name}</div>
-        <div class="d-badges" style="margin-top:8px">${catBadges}</div>
-      </div>
-    </div>
-    <div class="gold-rule-thin"></div>
-    <div class="d-body">
+  <div class="d-hero">
+    <div class="d-hero-eyebrow">Provider Profile</div>
+    <div class="d-name">${co.name}</div>
+    <div class="d-badges">${catBadges}</div>
+    <div class="d-gold-rule"></div>
+    ${statCardsHtml}
+  </div>
 
-      <div class="d-grid2">
-        <div>
-          ${kvSection('Contact Details', contactBlock)}
-          ${co.langs.length?`<div class="d-section"><div class="d-sec-title">Languages of Service</div><div class="tag-cloud">${langsHtml}</div></div>`:''}
-        </div>
-        <div>
-          ${co.desc?`<div class="d-section"><div class="d-sec-title">About</div><div class="d-text">${co.desc}</div>${uspsHtml}</div>`:''}
-        </div>
-      </div>
-
-      ${svcHtml?`<div class="d-section"><div class="d-sec-title">Services Offered</div>${svcHtml}</div>`:''}
-
-      ${statsHtml}
-
-      <div class="d-grid2">
-        ${kvSection('Operational Capacity & Availability', capBlock)}
-        ${marineBlock.trim()||fleetBlock.trim()
-          ?`<div>${kvSection('Marine & Technical Capacity', marineBlock)}${kvSection('Fleet & Equipment', fleetBlock)}</div>`:''}
-      </div>
-
-      <div class="d-grid2">
-        ${kvSection('Staff & Languages', staffBlock)}
-        ${kvSection('Licences, Certifications & Insurance', licBlock)}
-      </div>
-
-      <div class="d-grid2">
-        <div>
-          ${kvSection('Safety', safetyBlock)}
-          ${a11yRows||a11yBox?`<div class="d-section"><div class="d-sec-title">Passenger Accessibility</div><div class="kv">${a11yRows}</div>${a11yBox}</div>`:''}
-        </div>
-        ${commBlock.trim()?`<div class="d-section"><div class="d-sec-title">Commercial Terms</div><div class="comm-grid">${commBlock}</div></div>`:''}
-      </div>
-
-      ${expBlock||refsHtml||caseHtml
-        ?`<div class="d-section"><div class="d-sec-title">Cruise Experience & References</div>
-            <div class="kv">${expBlock}</div>
-            ${refsHtml}${caseHtml}
-          </div>`:''}
-
-      ${mediaBlock.trim()?`<div class="d-section"><div class="d-sec-title">Media & Catalogue Listing</div><div class="kv">${mediaBlock}</div></div>`:''}
+  <div class="d-layout">
+    <div class="d-card-stack">
+      ${infoCard('Services Offered', svcHtml)}
+      ${co.desc?infoCard('Description &amp; Key Strengths',
+        `<div class="d-text">${co.desc}</div>${uspsHtml}`):''}
+      ${kvCard('Capacity &amp; Availability', capBlock)}
+      ${marineBlock.trim()||fleetBlock.trim()
+        ?infoCard('Marine &amp; Fleet',
+          `${marineBlock.trim()?`<div class="kv">${marineBlock}</div>`:''}
+           ${fleetBlock.trim()?`<div class="kv" style="margin-top:12px">${fleetBlock}</div>`:''}`):''}
+      ${kvCard('Languages &amp; Staff', staffBlock)}
+      ${safetyHtml.trim()?infoCard('Safety &amp; Certifications',
+        `<div class="cert-rows">${safetyHtml}</div>${safetyExtra}`):''}
+      ${licBlock.trim()?kvCard('Licences &amp; Insurance', licBlock):''}
+      ${commBlock.trim()?kvCard('Commercial Terms', commBlock):''}
+      ${expBlock.trim()||refsHtml||caseHtml
+        ?infoCard('Cruise Experience &amp; References',
+          `${expBlock.trim()?`<div class="kv">${expBlock}</div>`:''}${refsHtml}${caseHtml}`):''}
 
       <div class="d-footer">
         <div class="btn-back" onclick="goList('${co.cats[0]}')">← Back to ${cat.name}</div>
-        <div class="footer-ref">KKF ${co.kkf||'—'} · SITA Cruise Services Catalogue</div>
+        <div class="footer-ref">KKF ${co.kkf||'—'} &middot; SITA Cruise Services Catalogue</div>
+      </div>
+    </div>
+
+    <div class="d-contact-sidebar">
+      <div class="d-contact-card">
+        <div class="d-contact-top"></div>
+        <div class="d-contact-body">
+          <h3>${co.name}</h3>
+          <div class="d-sita-badge">SITA Verified</div>
+          ${sidKkf}${sidWebsite}${sidAddress}
+          ${sidContact}
+          ${(sidHours||sidBooking||sidCurrency)?`<div class="dc-divider"></div>${sidHours}${sidBooking}${sidCurrency}`:''}
+          ${sidMedia}
+        </div>
       </div>
     </div>
   </div>`;
