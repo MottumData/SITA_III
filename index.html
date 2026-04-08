@@ -376,7 +376,7 @@ function mapRows(rows,logosMap,excludeList){
   return rows.map((r,idx)=>{
     const kkf=(r['Chamber of Commerce registration number']||'').trim();
     if(excludeList&&excludeList.includes(kkf))return null;
-    const logo=logosMap[kkf]||(r['Logo URL']&&r['Logo URL'].startsWith('http')?r['Logo URL']:'');
+    const logo='';
     const catCols=[
       {id:'MAR',cols:['A 1. Marine & Port Services','A. 2  Marine & Port Services']},
       {id:'EXC',cols:['B. 1 Passenger Shore Services — Excursions &amp; Tours','B. 2 Passenger Shore Services — Excursions & Tours']},
@@ -468,7 +468,7 @@ function mapRows(rows,logosMap,excludeList){
 const _DATA_STATIC=[
   {
     id:1, cats:['HFB'],
-    logo:'Visuals/jacana.jpg',
+    logo:'',
     // Section 1
     name:'Jacana Amazon Wellness Resort',
     kkf:'46715', address:'', website:'www.jacanaresort.com',
@@ -510,7 +510,7 @@ const _DATA_STATIC=[
   },
   {
     id:2, cats:['HFB'],
-    logo:'Visuals/amatopo.png',
+    logo:'',
     name:'Amatopo', kkf:'78667', address:'Sipaliwini District (accessible by charter aircraft)',
     website:'www.amatopo.com',
     social_fb:'', social_ig:'', social_ta:'', social_other:'',
@@ -541,7 +541,7 @@ const _DATA_STATIC=[
   },
   {
     id:3, cats:['HFB','HLT'],
-    logo:'Visuals/torarica.png',
+    logo:'',
     name:'Torarica Group', kkf:'66260', address:'Kleine Waterstraat 1, Paramaribo (5 min from cruise port)',
     website:'www.torarica.com',
     social_fb:'', social_ig:'', social_ta:'', social_other:'',
@@ -690,7 +690,7 @@ function goList(catId){
         (co.access_wheelchair&&co.access_wheelchair.toLowerCase()!=='no'&&co.access_wheelchair!=='')?'<span class="badge badge-b">Accessible</span>':'',
       ].filter(Boolean).join('');
       return`<div class="co-card" onclick="goDetail(${co.id})">
-        <div class="co-av" style="background:${currentCat.color};color:${currentCat.fg}">${co.logo?`<img src="${co.logo}" alt="${co.name}">`:inits(co.name)}</div>
+        <div class="co-av" style="background:${currentCat.color};color:${currentCat.fg}">${inits(co.name)}</div>
         <div class="co-body">
           <div class="co-name">${co.name}</div>
           ${svcList?`<div class="co-sub">${svcList}</div>`:''}
