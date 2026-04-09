@@ -25,11 +25,7 @@ Place the new file in `data/`. Keep the old files — the workflow always picks 
 
 ### 3. Push to GitHub
 
-```bash
-git add data/<your-new-file>.csv
-git commit -m "data: add CRM export YYYY-MM-DD"
-git push
-```
+commit the file added
 
 ### 4. What happens automatically
 
