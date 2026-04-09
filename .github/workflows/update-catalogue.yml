@@ -16,7 +16,7 @@ jobs:
 
       - name: Copy newest CSV to data/latest.csv
         run: |
-          NEWEST=$(ls -t data/*.csv | grep -v 'data/latest\.csv' | head -1)
+          NEWEST=$(ls data/*.csv | grep -v 'data/latest\.csv' | sort | tail -1)
           echo "Latest CSV: $NEWEST"
           cp "$NEWEST" data/latest.csv
 
